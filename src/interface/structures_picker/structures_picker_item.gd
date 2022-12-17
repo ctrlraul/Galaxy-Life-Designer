@@ -24,8 +24,4 @@ func set_count(value: int) -> void:
 		animation_player.play("show" if value > 0 else "hide")
 	
 	count = value
-	
-	if count == 0:
-		count_label.text = structure.display_name
-	else:
-		count_label.text = "%sx" % count
+	count_label.text = "%sx" % count

@@ -8,7 +8,7 @@ signal loadout_changed()
 
 @export var StructuresListItemScene: PackedScene
 
-@onready var items: VBoxContainer = $Panel/ScrollContainer/Items
+@onready var items: GridContainer = $Panel/ScrollContainer/Items
 @onready var cover: Control = $Panel/Cover
 @onready var loadouts: OptionButton = %Loadouts
 
