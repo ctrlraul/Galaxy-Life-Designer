@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/silo_1.webp",
+	"sprite_offset": -18,
+	"display_name": "Silo",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

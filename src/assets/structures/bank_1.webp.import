@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gti4cv76viiu"
-path="res://.godot/imported/Star Base 0.webp-4d84fef391272f528ec8b5474f6ea3be.ctex"
+uid="uid://bumtvw2fsgkxt"
+path="res://.godot/imported/bank_1.webp-a258f4d7b0157b0127184b5e0d4fef34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/Star Base 0.webp"
-dest_files=["res://.godot/imported/Star Base 0.webp-4d84fef391272f528ec8b5474f6ea3be.ctex"]
+source_file="res://src/assets/structures/bank_1.webp"
+dest_files=["res://.godot/imported/bank_1.webp-a258f4d7b0157b0127184b5e0d4fef34.ctex"]
 
 [params]
 

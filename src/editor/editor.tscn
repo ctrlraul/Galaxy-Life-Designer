@@ -8,14 +8,35 @@
 script = ExtResource("1_r01ma")
 StructureScene = ExtResource("2_0l0wi")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2(0.8, 0.8)
-
-[node name="Structures" type="Node2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, -200)
-
 [node name="Interface" type="CanvasLayer" parent="."]
 
 [node name="StructuresPicker" parent="Interface" instance=ExtResource("3_w05ga")]
+
+[node name="FootprintGraphic" type="Polygon2D" parent="Interface"]
+position = Vector2(0, 7)
+scale = Vector2(6.9, 6.9)
+color = Color(0, 0, 0, 0.392157)
+polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 300)
+current = true
+zoom = Vector2(0.7, 0.7)
+
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="GridGraphicScaler" type="Node2D" parent="Grid"]
+scale = Vector2(52, 52)
+
+[node name="FootprintGraphic" type="Polygon2D" parent="Grid/GridGraphicScaler"]
+position = Vector2(0, 7)
+scale = Vector2(7, 7)
+color = Color(1, 1, 1, 0.392157)
+polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
+
+[node name="Structures" type="Node2D" parent="Grid"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[connection signal="cover_clicked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
+[connection signal="item_picked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_item_picked"]

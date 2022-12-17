@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/training_camp_1.webp",
+	"sprite_offset": -55,
+	"display_name": "Training Camp",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

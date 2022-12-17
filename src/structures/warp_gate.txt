@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/warp_gate_1.webp",
+	"sprite_offset": -40,
+	"display_name": "Warp Gate",
+	"size": {
+		"x": 12,
+		"y": 12
+	}
+}

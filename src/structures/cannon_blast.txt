@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/cannon_blast_1.webp",
+	"sprite_offset": 0,
+	"display_name": "Cannon Blast",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/bank_1.webp",
+	"sprite_offset": -25,
+	"display_name": "Bank",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

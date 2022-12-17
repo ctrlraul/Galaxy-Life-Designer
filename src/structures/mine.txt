@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/mine_1.webp",
+	"sprite_offset": -40,
+	"display_name": "Mine",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/compact_house_1.webp",
+	"sprite_offset": -40,
+	"display_name": "Compact House",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

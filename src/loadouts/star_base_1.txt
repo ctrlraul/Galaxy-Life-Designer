@@ -2,6 +2,14 @@
 	"display_name": "Star Base level 1",
 	"structures": {
 		"star_base": 1,
-		"observatory": 2
+		"compact_house": 4,
+		"mine": 4,
+		"bank": 1,
+		"silo": 1,
+		"training_camp": 1,
+		"warp_gate": 1,
+		"sniper_tower": 2,
+		"cannon_blast": 2,
+		"friends_bunker": 1
 	}
 }
