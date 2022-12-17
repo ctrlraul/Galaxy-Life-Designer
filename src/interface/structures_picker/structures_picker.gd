@@ -3,12 +3,14 @@ class_name StructuresPicker
 
 signal item_picked(structure_id)
 signal cover_clicked()
+signal loadout_changed()
 
 
 @export var StructuresListItemScene: PackedScene
 
 @onready var items: VBoxContainer = $Panel/ScrollContainer/Items
 @onready var cover: Control = $Panel/Cover
+@onready var loadouts: OptionButton = %Loadouts
 
 
 var block_picking: bool : set = set_block_picking
@@ -17,6 +19,8 @@ var items_map: Dictionary
 
 func _ready() -> void:
 	cover.visible = false
+	for loadout in Assets.loadouts.values():
+		loadouts.add_item(loadout.display_name)
 
 
 func set_loadout(loadout: LoadoutDTO) -> void:
@@ -37,11 +41,12 @@ func set_block_picking(value: bool) -> void:
 		return
 	
 	block_picking = value
-	cover.visible = value
+	cover.visible = block_picking
+	items.modulate.a = 0.5 if block_picking else 1.0
 
 func on_pick(structure_id: String) -> void:
 	
-	if block_picking:
+	if block_picking || items_map[structure_id].count == 0:
 		return
 	
 	item_picked.emit(structure_id)
@@ -53,3 +58,7 @@ func put(structure_id: String) -> void:
 
 func _on_cover_hitbox_pressed() -> void:
 	cover_clicked.emit()
+
+func _on_loadouts_item_selected(index: int) -> void:
+	set_loadout(Assets.loadouts.values()[index])
+	loadout_changed.emit()

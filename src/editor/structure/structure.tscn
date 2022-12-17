@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbku0nieuyybi"]
+[gd_scene load_steps=10 format=3 uid="uid://bbku0nieuyybi"]
 
 [ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
+[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="2_femp1"]
 [ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0lw7t"]
@@ -36,7 +37,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -48,7 +49,19 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_firsr"]
@@ -91,33 +104,82 @@ tracks/2/keys = {
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_uglfm"]
+resource_name = "hover_off"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ym5pj"]
+resource_name = "overlap_bump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.3, 0.3, 0.3),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.3, 0.3, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j1s71"]
 _data = {
 "RESET": SubResource("Animation_8gy7q"),
-"hover_on": SubResource("Animation_firsr")
+"hover_off": SubResource("Animation_uglfm"),
+"hover_on": SubResource("Animation_firsr"),
+"overlap_bump": SubResource("Animation_ym5pj")
 }
 
 [node name="Structure" type="Node2D"]
 script = ExtResource("1_7dcdv")
 
-[node name="Footprint" type="Node2D" parent="."]
-scale = Vector2(6, 6)
-
-[node name="FootprintGraphic" type="Polygon2D" parent="Footprint"]
-position = Vector2(0, 7)
-scale = Vector2(6.9, 6.9)
-color = Color(0, 0, 0, 0.392157)
-polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
+[node name="StructureFootprint" parent="." instance=ExtResource("2_femp1")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 35)
 texture = ExtResource("2_pmr7y")
 
 [node name="LabelContainer" type="Node2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(0, 80)
-scale = Vector2(1e-05, 1e-05)
 
 [node name="Label" type="Label" parent="LabelContainer"]
 offset_left = -128.0

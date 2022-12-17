@@ -7,7 +7,7 @@ var loadouts: Dictionary
 var structures: Dictionary
 
 
-func initialize() -> void:
+func _ready() -> void:
 	__load_loadouts("res://src/loadouts/")
 	__load_structures("res://src/structures/")
 	layouts.append(load_layout("res://src/default_layout.txt"))

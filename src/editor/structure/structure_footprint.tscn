@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4ir15dbypvx0"]
+
+[ext_resource type="Script" path="res://src/editor/structure/structure_footprint.gd" id="1_aw8se"]
+
+[node name="StructureFootprint" type="Node2D"]
+script = ExtResource("1_aw8se")
+
+[node name="Transform" type="Node2D" parent="."]
+scale = Vector2(1, 0.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="Transform"]
+rotation = 0.785398
+scale = Vector2(8, 8)
+color = Color(1, 1, 1, 0.341176)
+polygon = PackedVector2Array(14, 0, 14, 14, 0, 14, 0, 0)

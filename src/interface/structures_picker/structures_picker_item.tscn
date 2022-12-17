@@ -1,7 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://3e0irntcxqhr"]
+[gd_scene load_steps=8 format=3 uid="uid://3e0irntcxqhr"]
 
 [ext_resource type="Script" path="res://src/interface/structures_picker/structures_picker_item.gd" id="1_lkds3"]
 [ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_2mnmr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_by1nm"]
+line_spacing = 0.0
+font_size = 12
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.67451)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.360784)
+shadow_offset = Vector2(1, 4)
 
 [sub_resource type="Animation" id="Animation_5wddy"]
 resource_name = "hide"
@@ -15,19 +24,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.3, 1),
 "update": 0,
-"values": [Vector2(100, 100), Vector2(100, 0)]
+"values": [Vector2(80, 80), Vector2(80, 26)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, true]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_wwafv"]
@@ -42,19 +63,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(100, 100)]
+"values": [Vector2(80, 80)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_jngnc"]
@@ -69,19 +102,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.3, 1),
 "update": 0,
-"values": [Vector2(100, 0), Vector2(100, 100)]
+"values": [Vector2(80, 26), Vector2(80, 80)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yppp5"]
@@ -92,9 +137,9 @@ _data = {
 }
 
 [node name="StructuresListItem" type="Button"]
-custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 92.0
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
 script = ExtResource("1_lkds3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -102,6 +147,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_2mnmr")
@@ -109,11 +155,20 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Count" type="Label" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_right = 33.0
-offset_bottom = 26.0
-text = "999"
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "999x"
+label_settings = SubResource("LabelSettings_by1nm")
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

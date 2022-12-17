@@ -7,24 +7,37 @@
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 140.0
+offset_right = 200.0
 grow_vertical = 2
 script = ExtResource("1_tselq")
 StructuresListItemScene = ExtResource("2_3vkor")
 
+[node name="Loadouts" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
 [node name="Panel" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 10.0
+offset_top = 50.0
 offset_right = -10.0
-offset_bottom = -10.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,10 +48,13 @@ offset_right = -2.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="Items" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="Items" type="GridContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+columns = 2
 
 [node name="Cover" type="Control" parent="Panel"]
 layout_mode = 1
@@ -47,15 +63,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Panel/Cover"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.498039)
 
 [node name="Icon" type="Control" parent="Panel/Cover"]
 layout_mode = 1
@@ -85,4 +92,5 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
+[connection signal="item_selected" from="Loadouts" to="." method="_on_loadouts_item_selected"]
 [connection signal="pressed" from="Panel/Cover/CoverHitbox" to="." method="_on_cover_hitbox_pressed"]

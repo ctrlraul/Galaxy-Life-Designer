@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjrkv1eicxdu6"]
+[gd_scene load_steps=5 format=3 uid="uid://bjrkv1eicxdu6"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
 [ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_0l0wi"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
+[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_7u36x"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_r01ma")
@@ -10,33 +11,40 @@ StructureScene = ExtResource("2_0l0wi")
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
+[node name="Center" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DragControl" type="Button" parent="Interface"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="StructuresPicker" parent="Interface" instance=ExtResource("3_w05ga")]
 
-[node name="FootprintGraphic" type="Polygon2D" parent="Interface"]
-position = Vector2(0, 7)
-scale = Vector2(6.9, 6.9)
-color = Color(0, 0, 0, 0.392157)
-polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, 300)
 current = true
-zoom = Vector2(0.7, 0.7)
 
 [node name="Grid" type="Node2D" parent="."]
 
-[node name="GridGraphicScaler" type="Node2D" parent="Grid"]
-scale = Vector2(52, 52)
-
-[node name="FootprintGraphic" type="Polygon2D" parent="Grid/GridGraphicScaler"]
-position = Vector2(0, 7)
-scale = Vector2(7, 7)
-color = Color(1, 1, 1, 0.392157)
-polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
+[node name="StructureFootprint" parent="Grid" instance=ExtResource("4_7u36x")]
+size = Vector2(72, 78)
 
 [node name="Structures" type="Node2D" parent="Grid"]
 unique_name_in_owner = true
 y_sort_enabled = true
 
+[connection signal="button_down" from="Interface/DragControl" to="." method="_on_drag_control_button_down"]
+[connection signal="button_up" from="Interface/DragControl" to="." method="_on_drag_control_button_up"]
 [connection signal="cover_clicked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
 [connection signal="item_picked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
