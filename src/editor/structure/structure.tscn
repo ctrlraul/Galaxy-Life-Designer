@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbku0nieuyybi"]
+
+[ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
+[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lw7t"]
+line_spacing = 0.0
+font_size = 24
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.67451)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.360784)
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="Animation" id="Animation_8gy7q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LabelContainer:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_firsr"]
+resource_name = "hover_on"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LabelContainer:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1s71"]
+_data = {
+"RESET": SubResource("Animation_8gy7q"),
+"hover_on": SubResource("Animation_firsr")
+}
+
+[node name="Structure" type="Node2D"]
+script = ExtResource("1_7dcdv")
+
+[node name="Footprint" type="Node2D" parent="."]
+scale = Vector2(6, 6)
+
+[node name="FootprintGraphic" type="Polygon2D" parent="Footprint"]
+position = Vector2(0, 7)
+scale = Vector2(6.9, 6.9)
+color = Color(0, 0, 0, 0.392157)
+polygon = PackedVector2Array(0, 1, 2, 0, 0, -1, -2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 35)
+texture = ExtResource("2_pmr7y")
+
+[node name="LabelContainer" type="Node2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, 80)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Label" type="Label" parent="LabelContainer"]
+offset_left = -128.0
+offset_top = 2.0
+offset_right = 128.0
+offset_bottom = 34.0
+text = "Observatory"
+label_settings = SubResource("LabelSettings_0lw7t")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j1s71")
+}

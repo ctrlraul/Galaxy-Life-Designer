@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/star_base_1.webp",
+	"sprite_offset": -40,
+	"display_name": "Star Base",
+	"size": {
+		"x": 10,
+		"y": 10
+	}
+}

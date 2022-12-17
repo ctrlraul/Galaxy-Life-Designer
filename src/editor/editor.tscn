@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjrkv1eicxdu6"]
+
+[ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
+[ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_0l0wi"]
+[ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
+
+[node name="Editor" type="Node2D"]
+script = ExtResource("1_r01ma")
+StructureScene = ExtResource("2_0l0wi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(0.8, 0.8)
+
+[node name="Structures" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -200)
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="StructuresPicker" parent="Interface" instance=ExtResource("3_w05ga")]

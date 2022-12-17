@@ -1,0 +1,7 @@
+{
+	"display_name": "Star Base level 1",
+	"structures": {
+		"star_base": 1,
+		"observatory": 2
+	}
+}

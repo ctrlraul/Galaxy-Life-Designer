@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykldjtame0cu"]
+
+[ext_resource type="Script" path="res://src/interface/structures_picker/structures_picker.gd" id="1_tselq"]
+[ext_resource type="PackedScene" uid="uid://3e0irntcxqhr" path="res://src/interface/structures_picker/structures_picker_item.tscn" id="2_3vkor"]
+
+[node name="StructuresPicker" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 140.0
+grow_vertical = 2
+script = ExtResource("1_tselq")
+StructuresListItemScene = ExtResource("2_3vkor")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -2.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Items" type="VBoxContainer" parent="Panel/ScrollContainer"]
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "RefCounted",
+"class": &"LayoutDTO",
+"language": &"GDScript",
+"path": "res://src/data_transfer_objects/layout_dto.gd"
+}, {
+"base": "RefCounted",
+"class": &"LoadoutDTO",
+"language": &"GDScript",
+"path": "res://src/data_transfer_objects/loadout_dto.gd"
+}, {
+"base": "Node2D",
+"class": &"Structure",
+"language": &"GDScript",
+"path": "res://src/editor/structure/structure.gd"
+}, {
+"base": "RefCounted",
+"class": &"StructureConfigDTO",
+"language": &"GDScript",
+"path": "res://src/data_transfer_objects/structure_config_dto.gd"
+}, {
+"base": "RefCounted",
+"class": &"StructureDTO",
+"language": &"GDScript",
+"path": "res://src/data_transfer_objects/structure_dto.gd"
+}, {
+"base": "Button",
+"class": &"StructuresListItem",
+"language": &"GDScript",
+"path": "res://src/interface/structures_picker/structures_picker_item.gd"
+}, {
+"base": "Control",
+"class": &"StructuresPicker",
+"language": &"GDScript",
+"path": "res://src/interface/structures_picker/structures_picker.gd"
+}]
+_global_script_class_icons={
+"LayoutDTO": "",
+"LoadoutDTO": "",
+"Structure": "",
+"StructureConfigDTO": "",
+"StructureDTO": "",
+"StructuresListItem": "",
+"StructuresPicker": ""
+}
+
+[application]
+
+config/name="Galaxy Life Designer"
+run/main_scene="res://src/editor/editor.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://src/icon.svg"
+
+[autoload]
+
+NodeUtils="*res://src/lib/node_utils.gd"
+Isometry="*res://src/lib/isometry.gd"
+Assets="*res://src/managers/assets.gd"
+
+[rendering]
+
+renderer/rendering_method="mobile"
