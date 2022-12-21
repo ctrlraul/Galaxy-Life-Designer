@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/mortar_1.webp",
+	"sprite_offset": -5,
+	"display_name": "Mortar",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

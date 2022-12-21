@@ -1,27 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjrkv1eicxdu6"]
+[gd_scene load_steps=8 format=3 uid="uid://diajnn0kiabuj"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
-[ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_0l0wi"]
+[ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
-[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_7u36x"]
+[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_r8vcc"]
+[ext_resource type="PackedScene" uid="uid://j66jhqrebhkl" path="res://src/editor/panning_module/panning_module.tscn" id="4_x63b4"]
+[ext_resource type="PackedScene" uid="uid://dbd0uqk0wtqx8" path="res://src/editor/zooming_module/zooming_module.tscn" id="6_cipsx"]
+[ext_resource type="PackedScene" uid="uid://i04fjsk07nqw" path="res://src/interface/yes_no_popup/yes_no_popup.tscn" id="7_iktoe"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_r01ma")
-StructureScene = ExtResource("2_0l0wi")
+StructureScene = ExtResource("2_2ablk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ZoomingModule" parent="." instance=ExtResource("6_cipsx")]
+camera_path = NodePath("../Camera2D")
+interaction_hitbox_path = NodePath("../Interface/InteractionHitbox")
+
+[node name="PanningModule" parent="." instance=ExtResource("4_x63b4")]
+camera_path = NodePath("../Camera2D")
+interaction_hitbox_path = NodePath("../Interface/InteractionHitbox")
+
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="GridArea" parent="Grid" instance=ExtResource("4_r8vcc")]
+unique_name_in_owner = true
+
+[node name="Structures" type="Node2D" parent="Grid"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="MultiSelectionRectangle" parent="Grid" instance=ExtResource("4_r8vcc")]
+unique_name_in_owner = true
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="Center" type="Control" parent="Interface"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DragControl" type="Button" parent="Interface"]
+[node name="InteractionHitbox" type="Button" parent="Interface"]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,19 +48,10 @@ flat = true
 
 [node name="StructuresPicker" parent="Interface" instance=ExtResource("3_w05ga")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
-[node name="Grid" type="Node2D" parent="."]
-
-[node name="StructureFootprint" parent="Grid" instance=ExtResource("4_7u36x")]
-size = Vector2(72, 78)
-
-[node name="Structures" type="Node2D" parent="Grid"]
+[node name="YesNoPopup" parent="Interface" instance=ExtResource("7_iktoe")]
 unique_name_in_owner = true
-y_sort_enabled = true
 
-[connection signal="button_down" from="Interface/DragControl" to="." method="_on_drag_control_button_down"]
-[connection signal="button_up" from="Interface/DragControl" to="." method="_on_drag_control_button_up"]
+[connection signal="pressed" from="Interface/InteractionHitbox" to="." method="_on_interaction_hitbox_pressed"]
+[connection signal="before_loadout_change" from="Interface/StructuresPicker" to="." method="_on_structures_picker_before_loadout_change"]
 [connection signal="cover_clicked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
 [connection signal="item_picked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_item_picked"]

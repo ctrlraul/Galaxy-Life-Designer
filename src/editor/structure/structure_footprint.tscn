@@ -1,15 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4ir15dbypvx0"]
+[gd_scene load_steps=5 format=3 uid="uid://d4ir15dbypvx0"]
 
 [ext_resource type="Script" path="res://src/editor/structure/structure_footprint.gd" id="1_aw8se"]
+[ext_resource type="Texture2D" uid="uid://dtiv81ct8e1oe" path="res://src/assets/checkerboard.png" id="2_5tey2"]
+[ext_resource type="Shader" path="res://src/editor/structure/structure_footprint.gdshader" id="2_p37pw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ryw5"]
+resource_local_to_scene = true
+shader = ExtResource("2_p37pw")
+shader_parameter/scale = null
 
 [node name="StructureFootprint" type="Node2D"]
 script = ExtResource("1_aw8se")
 
-[node name="Transform" type="Node2D" parent="."]
+[node name="Squisher" type="Node2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(1, 0.5)
 
-[node name="Polygon2D" type="Polygon2D" parent="Transform"]
+[node name="Polygon2D" type="Polygon2D" parent="Squisher"]
+unique_name_in_owner = true
 rotation = 0.785398
-scale = Vector2(8, 8)
-color = Color(1, 1, 1, 0.341176)
-polygon = PackedVector2Array(14, 0, 14, 14, 0, 14, 0, 0)
+color = Color(0.521569, 0.521569, 0.521569, 1)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[node name="Checkerboard" type="Sprite2D" parent="Squisher"]
+unique_name_in_owner = true
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1ryw5")
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5tey2")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2, 2)
+
+[node name="Line2D" type="Line2D" parent="Squisher"]
+unique_name_in_owner = true
+rotation = 0.785398
+scale = Vector2(1, 1)
+points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1, 0, 0)
+width = 0.05
+default_color = Color(0.67451, 1, 0.647059, 0.396078)
+end_cap_mode = 1

@@ -14,7 +14,6 @@ StructuresListItemScene = ExtResource("2_3vkor")
 
 [node name="Loadouts" type="OptionButton" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 10.0
@@ -25,7 +24,6 @@ grow_horizontal = 2
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,7 +36,6 @@ grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 clip_contents = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,22 +50,24 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="Items" type="GridContainer" parent="Panel/ScrollContainer"]
-layout_mode = 2
+offset_right = 170.0
+offset_bottom = 170.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
 [node name="StructuresListItem" parent="Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
-layout_mode = 2
 
 [node name="StructuresListItem2" parent="Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
-layout_mode = 2
+offset_left = 90.0
+offset_right = 170.0
 
 [node name="StructuresListItem3" parent="Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
-layout_mode = 2
+offset_top = 90.0
+offset_bottom = 170.0
 
 [node name="Cover" type="Control" parent="Panel"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -76,7 +75,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Panel/Cover"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,7 +83,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.447059)
 
 [node name="Icon" type="Control" parent="Panel/Cover"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,7 +102,6 @@ position = Vector2(0, -4)
 polygon = PackedVector2Array(8, 7, 11, 7, 11, 15, 0, 15, -11, 15, -11, 7, -8, 7, -8, 12, 8, 12)
 
 [node name="CoverHitbox" type="Button" parent="Panel/Cover"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

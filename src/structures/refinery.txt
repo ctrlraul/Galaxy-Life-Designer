@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/refinery_1.webp",
+	"sprite_offset": -30,
+	"display_name": "Refinery",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

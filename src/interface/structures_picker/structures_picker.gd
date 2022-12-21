@@ -3,7 +3,7 @@ class_name StructuresPicker
 
 signal item_picked(structure_id)
 signal cover_clicked()
-signal loadout_changed()
+signal before_loadout_change()
 
 
 @export var StructuresListItemScene: PackedScene
@@ -15,6 +15,7 @@ signal loadout_changed()
 
 var block_picking: bool : set = set_block_picking
 var items_map: Dictionary
+var loadout_id: String
 
 
 func _ready() -> void:
@@ -32,8 +33,10 @@ func set_loadout(loadout: LoadoutDTO) -> void:
 		var count: int = loadout.structures[structure_id]
 		items.add_child(item)
 		item.set_structure(structure_id, count)
-		item.pressed.connect(func(): on_pick(structure_id))
+		item.pressed.connect(func(): pick(structure_id))
 		items_map[structure_id] = item
+	
+	loadout_id = loadout.id
 
 func set_block_picking(value: bool) -> void:
 	
@@ -44,7 +47,7 @@ func set_block_picking(value: bool) -> void:
 	cover.visible = block_picking
 	items.modulate.a = 0.5 if block_picking else 1.0
 
-func on_pick(structure_id: String) -> void:
+func pick(structure_id: String) -> void:
 	
 	if block_picking || items_map[structure_id].count == 0:
 		return
@@ -60,5 +63,9 @@ func _on_cover_hitbox_pressed() -> void:
 	cover_clicked.emit()
 
 func _on_loadouts_item_selected(index: int) -> void:
-	set_loadout(Assets.loadouts.values()[index])
-	loadout_changed.emit()
+	before_loadout_change.emit()
+	var loadout: LoadoutDTO = Assets.loadouts.values()[index]
+	set_loadout(loadout)
+
+func _on_scroll_container_scroll_started() -> void:
+	get_viewport().set_input_as_handled()

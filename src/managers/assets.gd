@@ -16,7 +16,7 @@ func _ready() -> void:
 func __load_loadouts(path: String) -> void:
 	for file_name in get_files_in_dir(path):
 		var id: String = file_name.get_file().split(".")[0]
-		loadouts[id] = LoadoutDTO.from(__load_json(file_name))
+		loadouts[id] = LoadoutDTO.from(__load_json(file_name), id)
 
 func __load_structures(path: String) -> void:
 	for file_name in get_files_in_dir(path):

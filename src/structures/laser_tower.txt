@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/laser_tower_1.webp",
+	"sprite_offset": -5,
+	"display_name": "Laser Tower",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

@@ -1,24 +1,35 @@
 extends Node2D
+class_name StructureFootprint
 
 
-@onready var polygon_2d: Polygon2D = $Transform/Polygon2D
+@onready var squisher: Node2D = %Squisher
+@onready var polygon: Polygon2D = %Polygon2D
+@onready var checkerboard: Sprite2D = %Checkerboard
+@onready var line: Line2D = %Line2D
 
-@export var size: Vector2 : set = set_size
+const SCALE: float = Isometry.GRID_TO_WORLD_SCALE * sqrt(2)
+const SQUISH: Vector2 = Vector2(1, 0.5)
+
+var size: Vector2 = Vector2.ZERO : set = set_size
 
 
 func _ready() -> void:
-	
-	set_size(size)
-	
-	var x = Isometry.GRID_TO_WORLD_SCALE
-	polygon_2d.polygon = [
-		Vector2(x, 0),
-		Vector2(x, x),
-		Vector2(0, x),
-		Vector2(0, 0),
-	]
+	polygon.visible = false
+	checkerboard.visible = true
+	squisher.scale = SQUISH * SCALE
+
 
 func set_size(value: Vector2) -> void:
+	
 	size = value
-	if is_inside_tree():
-		polygon_2d.scale = value * sqrt(2)
+	
+	polygon.scale = size
+	checkerboard.scale = size / 2
+	line.scale = size
+	line.width = 0.2 / size.length() 
+	
+	checkerboard.material.set_shader_parameter("scale", size / 2)
+
+func hide_checkerboard() -> void:
+	polygon.visible = true
+	checkerboard.visible = false

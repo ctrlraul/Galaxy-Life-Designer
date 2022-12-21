@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/alliance_building_1.webp",
+	"sprite_offset": -15,
+	"display_name": "Alliance Building",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

@@ -16,3 +16,14 @@ static func from(object) -> StructureConfigDTO:
 	to.flipped = Assets.get_or_default(object, "flipped", false)
 	
 	return to
+
+
+func to_dictionary() -> Dictionary:
+	return {
+		"id": id,
+		"position": {
+			"x": position.x,
+			"y": position.y,
+		},
+		"flipped": flipped
+	}

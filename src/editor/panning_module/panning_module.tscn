@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://j66jhqrebhkl"]
+
+[ext_resource type="Script" path="res://src/editor/panning_module/panning_module.gd" id="1_e7top"]
+
+[node name="PanningModule" type="Node2D"]
+script = ExtResource("1_e7top")

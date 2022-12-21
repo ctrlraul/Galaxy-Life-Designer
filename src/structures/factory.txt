@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/factory_1.webp",
+	"sprite_offset": -32,
+	"display_name": "Factory",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

@@ -17,3 +17,11 @@ static func from(object) -> LayoutDTO:
 		to.structure_configs.append(StructureConfigDTO.from(config))
 	
 	return to
+
+
+func to_dictionary() -> Dictionary:
+	return {
+		"display_name": display_name,
+		"loadout": loadout,
+		"structure_configs": structure_configs.map(func(config): return config.to_dictionary())
+	}

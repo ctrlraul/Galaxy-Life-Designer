@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://i04fjsk07nqw"]
+
+[ext_resource type="PackedScene" uid="uid://yq6kkbu37iky" path="res://src/interface/ok_popup/ok_popup.tscn" id="1_x4k5e"]
+[ext_resource type="Script" path="res://src/interface/yes_no_popup/yes_no_popup.gd" id="2_kcsry"]
+
+[node name="YesNoPopup" instance=ExtResource("1_x4k5e")]
+script = ExtResource("2_kcsry")
+
+[node name="Title" parent="CenterContainer/PanelContainer/VBoxContainer/Header" index="0"]
+text = "Yes No Popup"
+
+[node name="Ok" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="0"]
+text = "Yes"
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="No" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "No
+"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons/No" to="." method="_on_no_pressed"]

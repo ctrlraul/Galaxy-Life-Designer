@@ -1,0 +1,9 @@
+{
+	"texture": "res://src/assets/structures/defense_bunker_1.webp",
+	"sprite_offset": 0,
+	"display_name": "Defense Bunker",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}
