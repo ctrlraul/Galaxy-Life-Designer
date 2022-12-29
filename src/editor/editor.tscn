@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://diajnn0kiabuj"]
+[gd_scene load_steps=11 format=3 uid="uid://diajnn0kiabuj"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
 [ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
 [ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_r8vcc"]
 [ext_resource type="PackedScene" uid="uid://j66jhqrebhkl" path="res://src/editor/panning_module/panning_module.tscn" id="4_x63b4"]
+[ext_resource type="PackedScene" uid="uid://b3juiyaneddml" path="res://src/editor/dragging_module/dragging_module.tscn" id="5_8f1qt"]
+[ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://src/theme.tres" id="6_ayf0x"]
 [ext_resource type="PackedScene" uid="uid://dbd0uqk0wtqx8" path="res://src/editor/zooming_module/zooming_module.tscn" id="6_cipsx"]
-[ext_resource type="PackedScene" uid="uid://i04fjsk07nqw" path="res://src/interface/yes_no_popup/yes_no_popup.tscn" id="7_iktoe"]
+[ext_resource type="PackedScene" uid="uid://uqlgd0c0deer" path="res://src/editor/multi_selection_module/multi_selection_module.tscn" id="10_hgcxo"]
+[ext_resource type="PackedScene" uid="uid://bl5drg7bdf7e5" path="res://src/editor/hover_module/hover_module.tscn" id="10_rrxil"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_r01ma")
@@ -14,14 +17,6 @@ StructureScene = ExtResource("2_2ablk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-
-[node name="ZoomingModule" parent="." instance=ExtResource("6_cipsx")]
-camera_path = NodePath("../Camera2D")
-interaction_hitbox_path = NodePath("../Interface/InteractionHitbox")
-
-[node name="PanningModule" parent="." instance=ExtResource("4_x63b4")]
-camera_path = NodePath("../Camera2D")
-interaction_hitbox_path = NodePath("../Interface/InteractionHitbox")
 
 [node name="Grid" type="Node2D" parent="."]
 
@@ -32,13 +27,21 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="MultiSelectionRectangle" parent="Grid" instance=ExtResource("4_r8vcc")]
-unique_name_in_owner = true
-
 [node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="InteractionHitbox" type="Button" parent="Interface"]
+[node name="Theme" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_ayf0x")
+
+[node name="InteractionHitbox" type="Button" parent="Interface/Theme"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,12 +49,70 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="StructuresPicker" parent="Interface" instance=ExtResource("3_w05ga")]
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="YesNoPopup" parent="Interface" instance=ExtResource("7_iktoe")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="TransferButtons" type="MarginContainer" parent="Interface/Theme/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Import" type="Button" parent="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Import"
+
+[node name="Export" type="Button" parent="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export"
+
+[node name="StructuresPicker" parent="Interface/Theme/MarginContainer/VBoxContainer" instance=ExtResource("3_w05ga")]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
-[connection signal="pressed" from="Interface/InteractionHitbox" to="." method="_on_interaction_hitbox_pressed"]
-[connection signal="before_loadout_change" from="Interface/StructuresPicker" to="." method="_on_structures_picker_before_loadout_change"]
-[connection signal="cover_clicked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
-[connection signal="item_picked" from="Interface/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
+[node name="ZoomingModule" parent="." instance=ExtResource("6_cipsx")]
+camera_path = NodePath("../Camera2D")
+interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
+
+[node name="PanningModule" parent="." instance=ExtResource("4_x63b4")]
+camera_path = NodePath("../Camera2D")
+interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
+
+[node name="DraggingModule" parent="." instance=ExtResource("5_8f1qt")]
+structures_picker_path = NodePath("../Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker")
+hover_module_path = NodePath("../HoverModule")
+
+[node name="MultiSelectionModule" parent="." instance=ExtResource("10_hgcxo")]
+interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
+hover_module_path = NodePath("../HoverModule")
+
+[node name="HoverModule" parent="." instance=ExtResource("10_rrxil")]
+interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
+
+[connection signal="pressed" from="Interface/Theme/InteractionHitbox" to="." method="_on_interaction_hitbox_pressed"]
+[connection signal="pressed" from="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer/Export" to="." method="_on_export_pressed"]
+[connection signal="cover_clicked" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
+[connection signal="item_picked" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
+[connection signal="loadout_changed" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_loadout_changed"]
+[connection signal="hovered_tile_changed" from="HoverModule" to="." method="_on_hover_module_hovered_tile_changed"]

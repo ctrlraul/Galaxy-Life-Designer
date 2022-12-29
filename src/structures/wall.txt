@@ -1,7 +1,10 @@
 {
 	"texture": "res://src/assets/structures/wall_1.webp",
-	"sprite_offset": -16,
 	"display_name": "Wall",
+	"sprite_offset": {
+		"x": 0,
+		"y": -16
+	},
 	"size": {
 		"x": 1,
 		"y": 1

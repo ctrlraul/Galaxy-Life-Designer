@@ -1,7 +1,10 @@
 {
-	"texture": "res://src/assets/structures/freeze_turret_1.webp",
-	"sprite_offset": -5,
+	"texture": "res://src/assets/structures/freeze_turret_1.png",
 	"display_name": "Freeze Turret",
+	"sprite_offset": {
+		"x": 0,
+		"y": -28
+	},
 	"size": {
 		"x": 4,
 		"y": 4

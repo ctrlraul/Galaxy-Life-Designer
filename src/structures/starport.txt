@@ -1,7 +1,10 @@
 {
 	"texture": "res://src/assets/structures/starport_1.webp",
-	"sprite_offset": -10,
 	"display_name": "StarPort",
+	"sprite_offset": {
+		"x": 0,
+		"y": -10
+	},
 	"size": {
 		"x": 8,
 		"y": 8

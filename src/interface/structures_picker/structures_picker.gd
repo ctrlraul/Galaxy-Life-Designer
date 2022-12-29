@@ -1,16 +1,21 @@
 extends Control
 class_name StructuresPicker
 
+
+
 signal item_picked(structure_id)
 signal cover_clicked()
-signal before_loadout_change()
+signal loadout_changed()
+
 
 
 @export var StructuresListItemScene: PackedScene
 
-@onready var items: GridContainer = $Panel/ScrollContainer/Items
-@onready var cover: Control = $Panel/Cover
+@onready var items: GridContainer = %Items
+@onready var cover: Control = %Cover
 @onready var loadouts: OptionButton = %Loadouts
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 
 var block_picking: bool : set = set_block_picking
@@ -18,10 +23,16 @@ var items_map: Dictionary
 var loadout_id: String
 
 
+
 func _ready() -> void:
 	cover.visible = false
 	for loadout in Assets.loadouts.values():
 		loadouts.add_item(loadout.display_name)
+
+
+
+func set_loadout_index(index: int) -> void:
+	set_loadout(Assets.loadouts.values()[index])
 
 
 func set_loadout(loadout: LoadoutDTO) -> void:
@@ -37,6 +48,10 @@ func set_loadout(loadout: LoadoutDTO) -> void:
 		items_map[structure_id] = item
 	
 	loadout_id = loadout.id
+	loadouts.selected = Assets.loadouts.values().find(loadout)
+	
+	loadout_changed.emit()
+
 
 func set_block_picking(value: bool) -> void:
 	
@@ -45,27 +60,47 @@ func set_block_picking(value: bool) -> void:
 	
 	block_picking = value
 	cover.visible = block_picking
+	cover.modulate.a = 0
 	items.modulate.a = 0.5 if block_picking else 1.0
+
 
 func pick(structure_id: String) -> void:
 	
-	if block_picking || items_map[structure_id].count == 0:
+	if block_picking || get_count(structure_id) <= 0:
 		return
 	
+	decrease_count(structure_id)
+	
 	item_picked.emit(structure_id)
-	items_map[structure_id].count -= 1
+
+
+func decrease_count(structure_id: String) -> bool:
+	if items_map[structure_id].count > 0:
+		items_map[structure_id].count -= 1
+		return true
+	return false
+
+
+func get_count(structure_id: String) -> int:
+	return items_map[structure_id].count
+
 
 func put(structure_id: String) -> void:
 	items_map[structure_id].count += 1
 
 
+
 func _on_cover_hitbox_pressed() -> void:
 	cover_clicked.emit()
 
-func _on_loadouts_item_selected(index: int) -> void:
-	before_loadout_change.emit()
-	var loadout: LoadoutDTO = Assets.loadouts.values()[index]
-	set_loadout(loadout)
 
-func _on_scroll_container_scroll_started() -> void:
-	get_viewport().set_input_as_handled()
+func _on_loadouts_item_selected(index: int) -> void:
+	set_loadout_index(index)
+
+
+func _on_cover_hitbox_mouse_entered() -> void:
+	animation_player.play("cover_show")
+
+
+func _on_cover_hitbox_mouse_exited() -> void:
+	animation_player.play("cover_hide")

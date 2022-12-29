@@ -13,16 +13,14 @@
 		"laboratory": 1,
 		"observatory": 1,
 		"refinery": 1,
-		"alliance_building": 1,
 		"cannon_blast": 7,
 		"sniper_tower": 7,
 		"missile_launcher": 2,
 		"laser_tower": 2,
 		"mortar": 3,
 		"freeze_turret": 3,
+		"friends_bunker": 1,
 		"defense_bunker": 4,
-		"wall": 300,
-		"trap": 50,
-		"friends_bunker": 1
+		"wall": 300
 	}
 }

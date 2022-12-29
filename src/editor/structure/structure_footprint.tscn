@@ -37,7 +37,6 @@ region_rect = Rect2(0, 0, 2, 2)
 [node name="Line2D" type="Line2D" parent="Squisher"]
 unique_name_in_owner = true
 rotation = 0.785398
-scale = Vector2(1, 1)
 points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1, 0, 0)
 width = 0.05
 default_color = Color(0.67451, 1, 0.647059, 0.396078)

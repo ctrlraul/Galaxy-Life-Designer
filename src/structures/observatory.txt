@@ -1,7 +1,10 @@
 {
 	"texture": "res://src/assets/structures/observatory_1.webp",
-	"sprite_offset": -5,
 	"display_name": "Observatory",
+	"sprite_offset": {
+		"x": 0,
+		"y": -5
+	},
 	"size": {
 		"x": 6,
 		"y": 6

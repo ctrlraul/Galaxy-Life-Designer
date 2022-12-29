@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3juiyaneddml"]
+
+[ext_resource type="Script" path="res://src/editor/dragging_module/dragging_module.gd" id="1_4b4ft"]
+[ext_resource type="PackedScene" uid="uid://m8e7s37j7rl2" path="res://src/editor/dragging_module/structure_ghost.tscn" id="2_o3geu"]
+
+[node name="DraggingModule" type="Node2D"]
+script = ExtResource("1_4b4ft")
+StructureGhostScene = ExtResource("2_o3geu")
+
+[node name="GhostsContainer" type="Node2D" parent="."]

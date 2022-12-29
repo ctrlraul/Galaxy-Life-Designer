@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0pgsxyamkxeb"
-path="res://.godot/imported/laser_tower_1.webp-8372d3cb44a0543818b9d32fe1c5bb17.ctex"
+uid="uid://dw3y7dwn4yfot"
+path="res://.godot/imported/sniper_tower_1.png-3f2a03f3e37cdf4d23715793103bb5cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/laser_tower_1.webp"
-dest_files=["res://.godot/imported/laser_tower_1.webp-8372d3cb44a0543818b9d32fe1c5bb17.ctex"]
+source_file="res://src/assets/structures/sniper_tower_1.png"
+dest_files=["res://.godot/imported/sniper_tower_1.png-3f2a03f3e37cdf4d23715793103bb5cc.ctex"]
 
 [params]
 

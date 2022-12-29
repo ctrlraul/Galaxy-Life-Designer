@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b06j44gcp1h3h"
-path="res://.godot/imported/mortar_1.webp-b3d7e7d220e0526a9b047037c5b833bc.ctex"
+uid="uid://ci66e7d1krmfe"
+path="res://.godot/imported/missile_launcher_1.png-60fb3715a2545dbd7960c4e2ab61cdf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/mortar_1.webp"
-dest_files=["res://.godot/imported/mortar_1.webp-b3d7e7d220e0526a9b047037c5b833bc.ctex"]
+source_file="res://src/assets/structures/missile_launcher_1.png"
+dest_files=["res://.godot/imported/missile_launcher_1.png-60fb3715a2545dbd7960c4e2ab61cdf9.ctex"]
 
 [params]
 

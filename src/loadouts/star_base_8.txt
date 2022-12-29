@@ -1,0 +1,26 @@
+{
+	"display_name": "Star Base level 8",
+	"structures": {
+		"star_base": 1,
+		"compact_house": 12,
+		"mine": 12,
+		"bank": 5,
+		"silo": 5,
+		"training_camp": 2,
+		"factory": 2,
+		"starport": 2,
+		"warp_gate": 3,
+		"laboratory": 1,
+		"observatory": 1,
+		"refinery": 1,
+		"cannon_blast": 6,
+		"sniper_tower": 6,
+		"missile_launcher": 2,
+		"laser_tower": 2,
+		"mortar": 3,
+		"freeze_turret": 3,
+		"friends_bunker": 1,
+		"defense_bunker": 4,
+		"wall": 300
+	}
+}

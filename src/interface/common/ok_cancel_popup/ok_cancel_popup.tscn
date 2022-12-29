@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwo84x3oqx6il"]
+
+[ext_resource type="PackedScene" uid="uid://ck56hfo6ko7mg" path="res://src/interface/common/ok_popup/ok_popup.tscn" id="1_28k7a"]
+[ext_resource type="Script" path="res://src/interface/common/ok_cancel_popup/ok_cancel_popup.gd" id="2_b7cl0"]
+
+[node name="OkCancelPopup" instance=ExtResource("1_28k7a")]
+script = ExtResource("2_b7cl0")
+
+[node name="DarkScreen" parent="." index="0"]
+layout_mode = 1
+
+[node name="OutsideHitbox" parent="." index="1"]
+layout_mode = 1
+
+[node name="CenterContainer" parent="." index="2"]
+layout_mode = 1
+
+[node name="PanelContainer" parent="CenterContainer" index="0"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="CenterContainer/PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="Header" parent="CenterContainer/PanelContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Title" parent="CenterContainer/PanelContainer/VBoxContainer/Header" index="0"]
+layout_mode = 1
+text = "Ok Cancel Popup"
+
+[node name="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Message" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Footer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Buttons" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer" index="0"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Ok" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="0"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cancel" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/Footer/Buttons/Cancel" to="." method="_on_cancel_pressed"]

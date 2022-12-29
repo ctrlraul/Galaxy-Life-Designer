@@ -33,4 +33,5 @@ func _on_interaction_hitbox_button_down() -> void:
 
 func _on_interaction_hitbox_button_up() -> void:
 	button_down = false
+	# await get_tree().create_timer(0.001) NOT NEEDED
 	panning = false

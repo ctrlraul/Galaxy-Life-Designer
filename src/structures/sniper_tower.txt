@@ -1,7 +1,10 @@
 {
-	"texture": "res://src/assets/structures/sniper_tower_1.webp",
-	"sprite_offset": -5,
+	"texture": "res://src/assets/structures/sniper_tower_1.png",
 	"display_name": "Sniper Tower",
+	"sprite_offset": {
+		"x": 0,
+		"y": -32
+	},
 	"size": {
 		"x": 4,
 		"y": 4

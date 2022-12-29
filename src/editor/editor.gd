@@ -1,155 +1,129 @@
 extends Node2D
 
 
+class HistoryEntryStructuresAdded:
+	var grid_positions: Array[Vector2]
+
+
 @export var StructureScene: PackedScene
 
+#@onready var zooming_module: Node2D = $ZoomingModule
 @onready var panning_module: Node2D = $PanningModule
+@onready var dragging_module: DraggingModule = $DraggingModule
+@onready var multi_selection_module: Node2D = $MultiSelectionModule
+@onready var hover_module: HoverModule = $HoverModule
 
-@onready var structures_picker: StructuresPicker = $Interface/StructuresPicker
-@onready var popup: YesNoPopup = %YesNoPopup
+@onready var structures_picker: StructuresPicker = %StructuresPicker
 
 @onready var grid_area: Node2D = %GridArea
 @onready var structures: Node2D = %Structures
-@onready var multi_selection_rectangle: Node2D = %MultiSelectionRectangle
+
 
 
 const STRUCTURES_REQUIRED_TO_ASK_TO_SAVE: int = 10
 const GRID_SIZE: Vector2 = Vector2(72, 78)
 
-var hovered_tile: Vector2 = Vector2.ZERO
-var hovered_structure: Structure
 
-var multi_selecting: bool = false
-var multi_selecting_start: Vector2 = Vector2.ZERO
+var structures_selected: Array[Structure]
+var structure_hovered: Structure
 
-var dragging_structures: Array[Structure] = []
-var dragging_structures_offsets: Dictionary = {}
+var history: Array = []
+
 
 
 func _ready() -> void:
 	grid_area.set_size(GRID_SIZE)
 	grid_area.hide_checkerboard()
-	structures_picker.set_loadout(Assets.loadouts.values().back())
-	multi_selection_rectangle.visible = false
+	structures_picker.set_loadout_index(1)
 
-func _input(event: InputEvent) -> void:
+
+func _unhandled_input(_event: InputEvent) -> void:
 	
-	if event is InputEventMouseMotion:
-		__on_mouse_motion()
-	
-	elif Input.is_action_just_pressed("delete_selection"):
-		__try_putting_selected_structures_in_picker()
+	if Input.is_action_just_pressed("delete_selection"):
+		__put_selected_structures_in_picker()
+		get_viewport().set_input_as_handled()
 	
 	elif Input.is_action_just_pressed("select_all"):
-		var all_structures: Array[Structure] = []
-		for structure in structures.get_children():
-			all_structures.append(structure)
-		start_drag(all_structures)
+		__drag_structures(__get_all_structures())
+		get_viewport().set_input_as_handled()
 	
-	elif Input.is_action_just_pressed("chain_placing_or_multi_select"):
-		if dragging_structures.size():
-			__update_chain_placing()
-			return
-		multi_selecting_start = hovered_tile
-		multi_selecting = true
-		multi_selection_rectangle.visible = true
-		multi_selection_rectangle.position = Isometry.grid_to_world(hovered_tile)
+	if Input.is_action_pressed("undo"):
+		__on_undo()
+		get_viewport().set_input_as_handled()
+
+
+func __add_structures(configs: Array[StructureConfigDTO]) -> void:
 	
-	elif Input.is_action_just_released("chain_placing_or_multi_select"):
-		
-		if dragging_structures.size():
-			return
-		
-		var selection_rectangle = get_rekt(multi_selecting_start, multi_selecting_start + multi_selection_rectangle.size)
-		var selected_structures = GridWizard.get_structures_on_area(
-			selection_rectangle, __get_all_structures()
-		)
-			
-		if selected_structures.size():
-			start_drag(selected_structures)
-		multi_selecting = false
-		multi_selection_rectangle.visible = false
-		multi_selection_rectangle.size = Vector2.ZERO
+	var history_entry: HistoryEntryStructuresAdded = HistoryEntryStructuresAdded.new()
+	
+	history.append(history_entry)
+	
+	for config in configs:
+		history_entry.grid_positions.append(config.grid_position)
+		__add_structure_no_history(config)
 
 
-func get_rekt(a: Vector2, b: Vector2) -> Rect2:
-	var x = min(a.x, b.x)
-	var y = min(a.y, b.y)
-	var w = abs(a.x - b.x)
-	var h = abs(a.y - b.y)
-	return Rect2(x, y, w, h)
-
-
-func get_tile_on_mouse() -> Vector2:
-	return Isometry.world_to_grid(get_global_mouse_position())
-
-func import_layout(layout: LayoutDTO) -> void:
-	var loadout = Assets.loadouts[layout.loadout]
-	structures_picker.set_loadout(loadout)
-	for config in layout.structure_configs:
-		add_structure(config)
-
-func add_structure(config: StructureConfigDTO) -> Structure:
+func __add_structure_no_history(config: StructureConfigDTO) -> void:
 	var structure: Structure = StructureScene.instantiate()
 	structures.add_child(structure)
-	structure.set_config(config)
-	return structure
+	structure.structure_id = config.id
+	structure.grid_position = config.grid_position
+	structure.flipped = config.flipped
 
-func start_drag(structures_to_drag: Array[Structure]) -> void:
+
+func __drag_structures(structures_to_drag: Array[Structure]) -> void:
 	
-	dragging_structures.clear()
-	dragging_structures_offsets.clear()
+	multi_selection_module.allow_selection = false
+	
+	structures_selected = structures_to_drag
 	
 	for structure in structures_to_drag:
-		var offset: Vector2 = structure.grid_position - hovered_tile
-		dragging_structures.append(structure)
-		dragging_structures_offsets[structure.get_instance_id()] = offset
+		dragging_module.start_dragging_structure(structure.get_config())
 	
 	structures_picker.block_picking = true
 
-func stop_drag() -> void:
-	dragging_structures.clear()
-	dragging_structures_offsets.clear()
-	structures_picker.block_picking = false
 
-func structures_overlap(a: Structure, b: Structure) -> bool:
+func __stop_dragging() -> void:
 	
-	# Just AABB collision detection
+	var ghosts: Array[StructureGhost] = dragging_module.get_structure_ghosts()
 	
-	if (a.grid_position.x >= b.grid_position.x + b.size.x ||
-		b.grid_position.x >= a.grid_position.x + a.size.x):
-		return false
+	if structures_selected.size() == 0:
 		
-	if (a.grid_position.y >= b.grid_position.y + b.size.y ||
-		b.grid_position.y >= a.grid_position.y + a.size.y):
-		return false
+		# Placing new structures
+		
+		for ghost in ghosts:
+			__add_structures([ghost.get_structure_config()])
+		
+	else:
+		
+		for i in structures_selected.size():
+			structures_selected[i].grid_position = ghosts[i].grid_area.position
+		
+		structures_selected = []
+	
+	dragging_module.clear()
+	
+	structures_picker.block_picking = false
+	multi_selection_module.allow_selection = true
 
-	return true
 
-func get_current_layout() -> LayoutDTO:
+func __try_placing_structures_dragged() -> void:
 	
-	var layout: LayoutDTO = LayoutDTO.new()
-	
-	layout.display_name = "Layout"
-	layout.loadout = structures_picker.loadout_id
-	
-	for structure in structures.get_children():
-		layout.structure_configs.append(structure.get_config())
-	
-	return layout
-
-func try_placing_dragging_structures() -> void:
+	var ghosts: Array[StructureGhost] = dragging_module.get_structure_ghosts()
 	
 	var can_place: bool = true
 	var structures_to_check: Array[Structure] = __get_all_structures().filter(
-		func(structure):
-			return !dragging_structures.has(structure)
+		func(structure: Structure):
+			return !ghosts.any(
+				func(ghost: StructureGhost):
+					return structure.grid_area.position == ghost.grid_position_dragging_started
+			)
 	)
 	
-	for structure in dragging_structures:
+	for ghost in ghosts:
 		
 		var overlapping_structures = GridWizard.get_structures_on_area(
-			structure.grid_area,
+			ghost.grid_area,
 			structures_to_check
 		)
 		
@@ -158,75 +132,19 @@ func try_placing_dragging_structures() -> void:
 			can_place = false
 	
 	if can_place:
-		stop_drag()
+		__stop_dragging()
 
-func __import_layout(layout: LayoutDTO) -> void:
-	
-	structures_picker.set_loadout(Assets.loadouts[layout.loadout])
-	
-	for config in layout.structure_configs:
-		add_structure(config)
 
-func __try_showing_save_last_layout_popup() -> void:
+func __put_selected_structures_in_picker() -> void:
 	
-	if structures.get_child_count() < STRUCTURES_REQUIRED_TO_ASK_TO_SAVE:
-		return
-	
-	var current_layout: Dictionary = get_current_layout().to_dictionary()
-	var current_layout_json: String = JSON.stringify(current_layout)
-	
-	popup.set_title("Wait a second!")
-	popup.set_message("Copy previous layout to clipboard?")
-	popup.set_yes(func(): DisplayServer.clipboard_set(current_layout_json))
-	popup.show()
-
-func __try_putting_selected_structures_in_picker() -> void:
-	
-	if dragging_structures.size() == 0:
-		return
-	
-	for structure in dragging_structures:
-		structures_picker.put(structure.structure_id)
+	for structure in structures_selected:
+		structures_picker.put(structure.dto.id)
 		structure.queue_free()
 	
-	stop_drag()
+	structures_selected = []
+	dragging_module.clear()
+	structures_picker.block_picking = false
 
-func __on_mouse_motion() -> void:
-	
-	var old_hovered_tile = hovered_tile
-	hovered_tile = get_tile_on_mouse()
-	
-	if multi_selecting:
-		__update_multi_selection()
-		return
-	
-	if hovered_tile != old_hovered_tile:
-		__on_hovered_tile_changed()
-
-func __on_hovered_tile_changed() -> void:
-	
-	var dragging_structures_count: int = dragging_structures.size()
-	
-	if dragging_structures_count > 0:
-		__update_dragging_structures()
-		if (dragging_structures_count == 1 &&
-			Input.is_action_pressed("chain_placing_or_multi_select")):
-			__update_chain_placing()
-	
-	var old_hovered_structure = hovered_structure
-	
-	hovered_structure = GridWizard.get_structure_on_tile(
-		hovered_tile, __get_all_structures()
-	)
-	
-	if hovered_structure == old_hovered_structure:
-		return
-		
-	if hovered_structure:
-		hovered_structure.set_hovered(true)
-	
-	if old_hovered_structure:
-		old_hovered_structure.set_hovered(false)
 
 func __get_all_structures() -> Array[Structure]:
 	var all_structures: Array[Structure] = []
@@ -234,61 +152,214 @@ func __get_all_structures() -> Array[Structure]:
 		all_structures.append(structure)
 	return all_structures
 
-func __update_chain_placing() -> void:
-	var structure_id: String = dragging_structures[0].structure_id
-	try_placing_dragging_structures()
-	structures_picker.pick(structure_id)
 
-func __update_multi_selection() -> void:
-	var difference: Vector2 = multi_selecting_start - hovered_tile
-	var size: Vector2 = difference * -1
-	if !size.x: size.x = 1
-	if !size.y: size.y = 1
-	multi_selection_rectangle.size = size
-	multi_selection_rectangle.position = Isometry.grid_to_world(hovered_tile + difference)
-
-func __update_dragging_structures() -> void:
-	for structure in dragging_structures:
-		var offset: Vector2 = dragging_structures_offsets[structure.get_instance_id()]
-		structure.set_grid_position(hovered_tile + offset)
-
-func __on_drag_control_pressed() -> void: # NOT A SIGNAL
+func __get_loadout_for_layout(layout: LayoutDTO) -> LoadoutDTO:
 	
-	if dragging_structures.size():
-		try_placing_dragging_structures()
+	for loadout_id in Assets.loadouts:
+		
+		var loadout: LoadoutDTO = Assets.loadouts[loadout_id]
+		var valid: bool = true
+		
+		for structure_id in layout.structures:
+			
+			if !loadout.structures.has(structure_id):
+				valid = false
+				break
+			
+			var count: int = layout.structures[structure_id].size()
+			var allowed_count: int = loadout.structures[structure_id]
+			
+			if count > allowed_count:
+				valid = false
+				break
+		
+		if valid:
+			return loadout
+	
+	return null
+
+
+func __on_undo() -> void:
+	
+	var entry = history.pop_back()
+	
+	if entry == null:
+		print("nothing to undo")
 		return
 	
-	if hovered_structure:
-		start_drag([hovered_structure])
+	if entry is HistoryEntryStructuresAdded:
+		for grid_position in entry.grid_positions:
+			
+			var structure = GridWizard.get_structure_on_tile(
+				grid_position,
+				__get_all_structures()
+			)
+			
+			structures_picker.put(structure.dto.id)
+			structure.queue_free()
+
+
+
+# Layout transfer
+
+func __import_layout(layout: LayoutDTO) -> void:
+	
+	# Invalid layout: {"display_name":"Layout","loadout":"star_base_9","structures":{"star_base":[{"flip":false,"x":0,"y":0}, {"flip":true,"x":10,"y":0}]}}
+	
+	var loadout: LoadoutDTO = __get_loadout_for_layout(layout)
+	
+	if loadout == null:
+		
+		var hack = { "cancel_import": true }
+		var popup: OkCancelPopup = Popups.ok_cancel()
+		
+		popup.title = "Invalid Layout"
+		popup.message = "Trying to import this layout may cause the application to break"
+		popup.ok = "Import Anyway"
+		popup.on_ok = func():
+			hack.cancel_import = false
+		
+		await popup.removed
+		
+		if hack.cancel_import:
+			return
+		
+		loadout = Assets.loadouts.values().back()
+	
+	structures_picker.set_loadout(loadout)
+	
+	for structure_id in layout.structures:
+		for partial_config in layout.structures[structure_id]:
+			structures_picker.decrease_count(structure_id)
+			
+			var config: StructureConfigDTO = StructureConfigDTO.new()
+			
+			config.id = structure_id
+			config.grid_position = Vector2(partial_config.x, partial_config.y)
+			config.flipped = partial_config.flip
+			
+			__add_structures([config])
+
+
+func __export_layout() -> LayoutDTO:
+	
+	var layout: LayoutDTO = LayoutDTO.new()
+	
+	layout.display_name = "Layout"
+	layout.loadout = structures_picker.loadout_id
+	
+	for structure in __get_all_structures():
+		
+		var structure_data: Dictionary = {
+			"x": structure.grid_area.position.x,
+			"y": structure.grid_area.position.y,
+			"flip": structure.flipped
+		}
+		
+		if structure.structure_id in layout.structures:
+			layout.structures[structure.structure_id].append(structure_data)
+		else:
+			layout.structures[structure.structure_id] = [structure_data]
+	
+	return layout
 
 
 func _on_structures_picker_item_picked(structure_id: String) -> void:
 	
-	var config: StructureConfigDTO = StructureConfigDTO.new()
 	var structure_dto: StructureDTO = Assets.structures[structure_id]
-	
-	config.position = hovered_tile
-	config.id = structure_id
+	var tile: Vector2 = hover_module.hovered_tile
 	
 	if int(structure_dto.size.x) % 2 == 0:
-		config.position.x -= structure_dto.size.x * 0.5
+		tile.x -= structure_dto.size.x * 0.5
 	if int(structure_dto.size.y) % 2 == 0:
-		config.position.y -= structure_dto.size.y * 0.5
+		tile.y -= structure_dto.size.y * 0.5
 	
-	start_drag([add_structure(config)])
+	var config: StructureConfigDTO = StructureConfigDTO.new()
+	
+	config.id = structure_id
+	config.grid_position = tile
+	config.flipped = false
+	
+	dragging_module.start_dragging_structure(config)
+
 
 func _on_structures_picker_cover_clicked() -> void:
-	__try_putting_selected_structures_in_picker()
+	__put_selected_structures_in_picker()
 
-func _on_structures_picker_before_loadout_change() -> void:
-	__try_showing_save_last_layout_popup()
+
+func _on_structures_picker_loadout_changed() -> void:
 	NodeUtils.queue_free_children(structures)
+
 
 func _on_interaction_hitbox_pressed() -> void:
 	
-	if dragging_structures.size():
-		try_placing_dragging_structures()
+	if panning_module.panning:
 		return
 	
-	if hovered_structure && !panning_module.panning:
-		start_drag([hovered_structure])
+	if dragging_module.get_structure_ghosts().size() > 0:
+		__try_placing_structures_dragged()
+	
+	elif structure_hovered:
+		__drag_structures([structure_hovered])
+
+
+func _on_import_pressed() -> void:
+	
+	var popup: OkCancelPopup = Popups.ok_cancel()
+	
+	var import_layout = func() -> void:
+		
+		# If the json string it's empty, json error message is empty
+		if popup.message == "":
+			return
+		
+		var json = JSON.new()
+		var error = json.parse(popup.message)
+		
+		if error:
+			
+			var error_popup: OkPopup = Popups.ok()
+			error_popup.title = "Failed to import!"
+			error_popup.message = "Error at line %s:\n%s" % [json.get_error_line(), json.get_error_message()]
+			
+		else:
+			__import_layout(LayoutDTO.from(json.data))
+	
+	popup.title = "Paste layout code"
+	popup.ok = "Import"
+	popup.on_ok = import_layout
+	popup.message = ""
+	popup.message_editable = true
+
+
+func _on_export_pressed() -> void:
+	
+	var layout_code: String = JSON.stringify(__export_layout().to_dictionary())
+	var popup: OkCancelPopup = Popups.ok_cancel()
+	
+	popup.title = "Copy layout code"
+	popup.message = layout_code
+	popup.ok = "Copy"
+	popup.on_ok = func(): DisplayServer.clipboard_set(layout_code)
+
+
+func _on_multi_selection_module_selecting() -> void:
+	pass
+
+
+func _on_multi_selection_module_selected(selection_rectangle: Rect2) -> void:
+	
+	var selected_structures = GridWizard.get_structures_on_area(
+		selection_rectangle,
+		__get_all_structures()
+	)
+	
+	if selected_structures.size():
+		__drag_structures(selected_structures)
+
+
+func _on_hover_module_hovered_tile_changed(hovered_tile: Vector2) -> void:
+	structure_hovered = GridWizard.get_structure_on_tile(
+		hovered_tile,
+		__get_all_structures()
+	)

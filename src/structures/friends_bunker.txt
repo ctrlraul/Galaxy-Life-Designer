@@ -1,6 +1,5 @@
 {
 	"texture": "res://src/assets/structures/friends_bunker_1.webp",
-	"sprite_offset": 0,
 	"display_name": "Friends Bunker",
 	"size": {
 		"x": 8,
