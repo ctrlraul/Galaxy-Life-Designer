@@ -78,11 +78,6 @@ _global_script_classes=[{
 "class": &"StructuresPicker",
 "language": &"GDScript",
 "path": "res://src/interface/structures_picker/structures_picker.gd"
-}, {
-"base": "Node",
-"class": &"ThreadHack",
-"language": &"GDScript",
-"path": "res://src/editor/thread_hack.gd"
 }]
 _global_script_class_icons={
 "DraggingModule": "",
@@ -98,8 +93,7 @@ _global_script_class_icons={
 "StructureFootprint": "",
 "StructureGhost": "",
 "StructuresListItem": "",
-"StructuresPicker": "",
-"ThreadHack": ""
+"StructuresPicker": ""
 }
 
 [application]
