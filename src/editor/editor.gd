@@ -120,11 +120,18 @@ func __place_dragged_structures() -> void:
 
 
 func __clear_dragged_structures() -> void:
+	
+	for structure in structures_dragged:
+		structure.set_dragged(false)
+	
 	structures_dragged.clear()
 	dragging_module.clear()
 	structures_picker.block_picking = false
+	
 	__update_hovered_structure(hover_module.hovered_tile)
+	
 	await get_tree().create_timer(0.1).timeout # HACK, FIX LATER.
+	
 	multi_selection_module.allow_selection = true
 
 
