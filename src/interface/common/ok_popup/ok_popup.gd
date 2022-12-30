@@ -40,15 +40,23 @@ func _ready() -> void:
 	__animation_player.play("add")
 
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("cancel"):
+		_on_outside_hitbox_pressed()
+
+
+
 func __remove() -> void:
-	#__animation_player.play("remove")
-	#await __animation_player.animation_finished
+	__animation_player.play("remove")
+	await __animation_player.animation_finished
 	queue_free()
 	removed.emit()
 
 
+
 func _on_outside_hitbox_pressed() -> void:
 	__remove()
+
 
 func _on_ok_pressed() -> void:
 	on_ok.call()

@@ -1,0 +1,20 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/freeze_turret_1.png",
+			"offset": {
+				"x": 0,
+				"y": -28
+			},
+			"range": 429
+		},
+		"4": {
+			"range": 500
+		}
+	},
+	"display_name": "Freeze Turret",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

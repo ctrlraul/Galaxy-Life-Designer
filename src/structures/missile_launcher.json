@@ -1,0 +1,32 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/missile_launcher_1.png",
+			"offset": {
+				"x": 0,
+				"y": -32
+			},
+			"range": 375
+		},
+		"2": {
+			"range": 400
+		},
+		"3": {
+			"range": 500
+		},
+		"4": {
+			"range": 575
+		},
+		"5": {
+			"range": 650
+		},
+		"6": {
+			"range": 740
+		}
+	},
+	"display_name": "Missile Launcher",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

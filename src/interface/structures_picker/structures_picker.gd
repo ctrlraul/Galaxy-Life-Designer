@@ -20,14 +20,14 @@ signal loadout_changed()
 
 var block_picking: bool : set = set_block_picking
 var items_map: Dictionary
-var loadout_id: String
+var loadout: LoadoutDTO
 
 
 
 func _ready() -> void:
 	cover.visible = false
-	for loadout in Assets.loadouts.values():
-		loadouts.add_item(loadout.display_name)
+	for _loadout in Assets.loadouts.values():
+		loadouts.add_item(_loadout.display_name)
 
 
 
@@ -35,19 +35,22 @@ func set_loadout_index(index: int) -> void:
 	set_loadout(Assets.loadouts.values()[index])
 
 
-func set_loadout(loadout: LoadoutDTO) -> void:
+func set_loadout(_loadout: LoadoutDTO) -> void:
+	
+	loadout = _loadout
 	
 	NodeUtils.queue_free_children(items)
 	
 	for structure_id in loadout.structures:
+		
 		var item: StructuresListItem = StructuresListItemScene.instantiate()
-		var count: int = loadout.structures[structure_id]
+		var data: Dictionary = loadout.structures[structure_id]
+		
 		items.add_child(item)
-		item.set_structure(structure_id, count)
+		item.set_structure(structure_id, data.count, data.level)
 		item.pressed.connect(func(): pick(structure_id))
 		items_map[structure_id] = item
 	
-	loadout_id = loadout.id
 	loadouts.selected = Assets.loadouts.values().find(loadout)
 	
 	loadout_changed.emit()
@@ -69,8 +72,6 @@ func pick(structure_id: String) -> void:
 	if block_picking || get_count(structure_id) <= 0:
 		return
 	
-	decrease_count(structure_id)
-	
 	item_picked.emit(structure_id)
 
 
@@ -86,7 +87,17 @@ func get_count(structure_id: String) -> int:
 
 
 func put(structure_id: String) -> void:
+	
+	var max_count = loadout.structures[structure_id].count
+	var message = "Trying to store more %ss than allowed!" % structure_id
+	
+	assert(items_map[structure_id].count < max_count, message)
+	
 	items_map[structure_id].count += 1
+
+
+func get_level(structure_id: String) -> int:
+	return loadout.structures.get(structure_id).level
 
 
 

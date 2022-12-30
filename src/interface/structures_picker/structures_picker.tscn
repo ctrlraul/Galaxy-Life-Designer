@@ -65,11 +65,13 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 210.0
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_fw3gf")
 script = ExtResource("1_tselq")
 StructuresListItemScene = ExtResource("2_3vkor")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -77,26 +79,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 643.0
+layout_mode = 2
+mouse_filter = 2
 
 [node name="Loadouts" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
-offset_right = 200.0
-offset_bottom = 40.0
+layout_mode = 2
 alignment = 1
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
 clip_contents = true
-offset_top = 50.0
-offset_right = 200.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,25 +110,23 @@ vertical_scroll_mode = 2
 
 [node name="Items" type="GridContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer"]
 unique_name_in_owner = true
-offset_right = 170.0
-offset_bottom = 170.0
+layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
 [node name="StructuresListItem" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
+layout_mode = 2
 
 [node name="StructuresListItem2" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
-offset_left = 90.0
-offset_right = 170.0
+layout_mode = 2
 
 [node name="StructuresListItem3" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/Items" instance=ExtResource("2_3vkor")]
-offset_top = 90.0
-offset_bottom = 170.0
+layout_mode = 2
 
 [node name="Cover" type="Control" parent="MarginContainer/VBoxContainer/Panel"]
 unique_name_in_owner = true
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -138,6 +134,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/Panel/Cover"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -147,7 +144,7 @@ mouse_filter = 1
 color = Color(0, 0, 0, 0.447059)
 
 [node name="Icon" type="Control" parent="MarginContainer/VBoxContainer/Panel/Cover"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -168,6 +165,7 @@ polygon = PackedVector2Array(8, 7, 11, 7, 11, 15, 0, 15, -11, 15, -11, 7, -8, 7,
 
 [node name="CoverHitbox" type="Button" parent="MarginContainer/VBoxContainer/Panel/Cover"]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

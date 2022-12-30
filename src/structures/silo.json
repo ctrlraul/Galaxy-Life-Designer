@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/silo_1.webp",
+			"offset": {
+				"x": -5,
+				"y": -15
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/silo_2.webp",
+			"offset": {
+				"x": -5,
+				"y": -30
+			}
+		},
+		"6": {
+			"texture": "res://src/assets/structures/silo_7.webp",
+			"offset": {
+				"x": -5,
+				"y": -40
+			}
+		}
+	},
+	"display_name": "Silo",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/warp_gate_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/warp_gate_2.webp",
+			"offset": {
+				"x": -2,
+				"y": -50
+			}
+		},
+		"3": {
+			"texture": "res://src/assets/structures/warp_gate_3.webp",
+			"offset": {
+				"x": -2,
+				"y": -50
+			}
+		}
+	},
+	"display_name": "Warp Gate",
+	"size": {
+		"x": 12,
+		"y": 12
+	}
+}

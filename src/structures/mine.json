@@ -1,0 +1,37 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/mine_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/mine_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"6": {
+			"texture": "res://src/assets/structures/mine_6.webp",
+			"offset": {
+				"x": 0,
+				"y": -48
+			}
+		},
+		"9": {
+			"texture": "res://src/assets/structures/mine_9.webp",
+			"offset": {
+				"x": -5,
+				"y": -60
+			}
+		}
+	},
+	"display_name": "Mine",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

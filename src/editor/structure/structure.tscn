@@ -3,15 +3,7 @@
 [ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
 [ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="2_femp1"]
 [ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0lw7t"]
-line_spacing = 0.0
-font_size = 24
-outline_size = 10
-outline_color = Color(0, 0, 0, 0.67451)
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.360784)
-shadow_offset = Vector2(1, 5)
+[ext_resource type="PackedScene" uid="uid://ba0gmxd52b0y2" path="res://src/editor/radius/radius.tscn" id="4_1gq75"]
 
 [sub_resource type="Animation" id="Animation_8gy7q"]
 length = 0.001
@@ -30,31 +22,31 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/path = NodePath("Radius:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LabelContainer:scale")
+tracks/2/path = NodePath("Radius:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StructureFootprint:modulate")
+tracks/3/path = NodePath(".:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -82,14 +74,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/path = NodePath("Radius:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Radius:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_firsr"]
@@ -110,26 +114,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LabelContainer:visible")
+tracks/1/path = NodePath("Radius:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LabelContainer:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.3, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Radius:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ym5pj"]
@@ -138,14 +142,14 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StructureFootprint:modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(3, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 0.25098, 0.262745, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j1s71"]
@@ -165,18 +169,7 @@ script = ExtResource("1_7dcdv")
 position = Vector2(0, 35)
 texture = ExtResource("2_pmr7y")
 
-[node name="LabelContainer" type="Node2D" parent="."]
-z_index = 1
-position = Vector2(0, 80)
-
-[node name="Label" type="Label" parent="LabelContainer"]
-offset_left = -128.0
-offset_top = 2.0
-offset_right = 128.0
-offset_bottom = 34.0
-text = "Observatory"
-label_settings = SubResource("LabelSettings_0lw7t")
-horizontal_alignment = 1
+[node name="Radius" parent="." instance=ExtResource("4_1gq75")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,0 +1,45 @@
+{
+	"display_name": "Star Base level 1",
+	"structures": {
+		"star_base": {
+			"count": 1,
+			"level": 1
+		},
+		"compact_house": {
+			"count": 4,
+			"level": 3
+		},
+		"mine": {
+			"count": 4,
+			"level": 3
+		},
+		"bank": {
+			"count": 1,
+			"level": 1
+		},
+		"silo": {
+			"count": 1,
+			"level": 1
+		},
+		"training_camp": {
+			"count": 1,
+			"level": 1
+		},
+		"warp_gate": {
+			"count": 1,
+			"level": 1
+		},
+		"cannon_blast": {
+			"count": 2,
+			"level": 1
+		},
+		"sniper_tower": {
+			"count": 2,
+			"level": 1
+		},
+		"friends_bunker": {
+			"count": 1,
+			"level": 1
+		}
+	}
+}

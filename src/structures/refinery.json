@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/refinery_1.webp",
+			"offset": {
+				"x": -5,
+				"y": -25
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/refinery_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"4": {
+			"texture": "res://src/assets/structures/refinery_4.webp",
+			"offset": {
+				"x": -5,
+				"y": -45
+			}
+		}
+	},
+	"display_name": "Refinery",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

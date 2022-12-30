@@ -18,6 +18,14 @@ StructureScene = ExtResource("2_2ablk")
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="HorizontalLines" type="Line2D" parent="Camera2D"]
+unique_name_in_owner = true
+rotation = 0.785398
+points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1, 0, 0)
+width = 0.05
+default_color = Color(0.67451, 1, 0.647059, 0.396078)
+end_cap_mode = 1
+
 [node name="Grid" type="Node2D" parent="."]
 
 [node name="GridArea" parent="Grid" instance=ExtResource("4_r8vcc")]
@@ -61,10 +69,12 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TransferButtons" type="MarginContainer" parent="Interface/Theme/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -99,7 +109,6 @@ camera_path = NodePath("../Camera2D")
 interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
 
 [node name="DraggingModule" parent="." instance=ExtResource("5_8f1qt")]
-structures_picker_path = NodePath("../Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker")
 hover_module_path = NodePath("../HoverModule")
 
 [node name="MultiSelectionModule" parent="." instance=ExtResource("10_hgcxo")]
@@ -109,10 +118,14 @@ hover_module_path = NodePath("../HoverModule")
 [node name="HoverModule" parent="." instance=ExtResource("10_rrxil")]
 interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
 
+[connection signal="gui_input" from="Interface/Theme/InteractionHitbox" to="." method="_on_interaction_hitbox_gui_input"]
 [connection signal="pressed" from="Interface/Theme/InteractionHitbox" to="." method="_on_interaction_hitbox_pressed"]
 [connection signal="pressed" from="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer/Import" to="." method="_on_import_pressed"]
 [connection signal="pressed" from="Interface/Theme/MarginContainer/VBoxContainer/TransferButtons/HBoxContainer/Export" to="." method="_on_export_pressed"]
 [connection signal="cover_clicked" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
 [connection signal="item_picked" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
 [connection signal="loadout_changed" from="Interface/Theme/MarginContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_loadout_changed"]
+[connection signal="try_to_chain_place_structures" from="DraggingModule" to="." method="_on_dragging_module_try_to_chain_place_structures"]
+[connection signal="selected" from="MultiSelectionModule" to="." method="_on_multi_selection_module_selected"]
+[connection signal="selecting" from="MultiSelectionModule" to="." method="_on_multi_selection_module_selecting"]
 [connection signal="hovered_tile_changed" from="HoverModule" to="." method="_on_hover_module_hovered_tile_changed"]

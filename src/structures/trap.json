@@ -1,0 +1,16 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/trap_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -5
+			}
+		}
+	},
+	"display_name": "Trap",
+	"size": {
+		"x": 1,
+		"y": 1
+	}
+}

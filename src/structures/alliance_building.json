@@ -1,0 +1,16 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/alliance_building_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -15
+			}
+		}
+	},
+	"display_name": "Alliance Building",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

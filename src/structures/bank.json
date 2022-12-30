@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/bank_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -25
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/bank_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -25
+			}
+		},
+		"6": {
+			"texture": "res://src/assets/structures/bank_7.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		}
+	},
+	"display_name": "Bank",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

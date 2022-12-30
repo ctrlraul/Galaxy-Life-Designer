@@ -4,9 +4,8 @@ class_name Structure
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var footprint: Node2D = $StructureFootprint
+@onready var radius: Node2D = $Radius
 @onready var animation_player = $AnimationPlayer
-@onready var label_container = $LabelContainer
-@onready var label = $LabelContainer/Label
 
 
 var hovered: bool = false : set = set_hovered
@@ -26,28 +25,34 @@ var grid_position: Vector2 :
 		return grid_area.position
 
 var dto: StructureDTO
-var structure_id: String :
-	set(value):
-		dto = Assets.structures[value]
-		
-		sprite_2d.texture = dto.texture
-		sprite_2d.position = dto.sprite_offset
-		sprite_2d.position.y += dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
-		
-		footprint.size = dto.size
-		
-		label_container.position.y = dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.75
-		label.text = dto.display_name
-		
-		grid_area.size = dto.size
-	get:
-		return dto.id
 
 
 
 func _ready() -> void:
-	label_container.visible = false
+	radius.scale = Vector2.ZERO
 
+
+
+func set_structure(structure_id: String, level: int) -> void:
+	
+	dto = Assets.structures.get(structure_id)
+	
+	sprite_2d.texture = Assets.get_structure_level_property(dto, level, "texture")
+	sprite_2d.position = Assets.get_structure_level_property(dto, level, "offset")
+	sprite_2d.position.y += dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
+	
+	footprint.size = dto.size
+	
+	radius.position.y = dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
+	
+	var level_range = Assets.get_structure_level_property(dto, level, "range")
+	
+	if level_range != null:
+		radius.set_radius(level_range)
+	else:
+		radius.visible = false
+	
+	grid_area.size = dto.size
 
 
 func set_hovered(value: bool) -> void:
@@ -61,10 +66,12 @@ func set_hovered(value: bool) -> void:
 
 
 func overlap_bump() -> void:
+	if animation_player.is_playing():
+		return
 	animation_player.play("overlap_bump")
 
 
-func get_structure_config() -> StructureConfigDTO:
+func get_config() -> StructureConfigDTO:
 	var config: StructureConfigDTO = StructureConfigDTO.new()
 	
 	config.id = dto.id
@@ -72,3 +79,7 @@ func get_structure_config() -> StructureConfigDTO:
 	config.flipped = flipped
 	
 	return config
+
+
+func set_dragged(value: bool) -> void:
+	modulate.a = 0.3 if value else 1.0

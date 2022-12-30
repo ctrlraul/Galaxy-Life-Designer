@@ -51,3 +51,27 @@ func get_files_in_dir(path: String) -> Array[String]:
 				files.append(path.path_join(file_name))
 			file_name = dir.get_next()
 	return files
+
+
+func get_structure_level_property(dto: StructureDTO, level: int, data_key: String):
+	
+	var value = null
+	
+	while level > 0:
+		
+		var level_info = dto.levels.get(str(level))
+		
+		if level_info != null:
+			value = level_info.get(data_key)
+			
+			if value == null:
+				level -= 1
+				continue
+		else:
+			level -= 1
+			continue
+		
+		value = level_info.get(data_key)
+		break
+	
+	return value

@@ -1,0 +1,44 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/compact_house_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/compact_house_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"6": {
+			"texture": "res://src/assets/structures/compact_house_6.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"9": {
+			"texture": "res://src/assets/structures/compact_house_9.webp",
+			"offset": {
+				"x": -4,
+				"y": -55
+			}
+		},
+		"10": {
+			"texture": "res://src/assets/structures/compact_house_10.webp",
+			"offset": {
+				"x": 0,
+				"y": -65
+			}
+		}
+	},
+	"display_name": "Compact House",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

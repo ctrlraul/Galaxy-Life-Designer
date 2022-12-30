@@ -1,0 +1,72 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/star_base_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/star_base_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"3": {
+			"texture": "res://src/assets/structures/star_base_3.webp",
+			"offset": {
+				"x": 0,
+				"y": -38
+			}
+		},
+		"4": {
+			"texture": "res://src/assets/structures/star_base_4.webp",
+			"offset": {
+				"x": 0,
+				"y": -45
+			}
+		},
+		"5": {
+			"texture": "res://src/assets/structures/star_base_5.webp",
+			"offset": {
+				"x": 0,
+				"y": -45
+			}
+		},
+		"6": {
+			"texture": "res://src/assets/structures/star_base_6.webp",
+			"offset": {
+				"x": 0,
+				"y": -53
+			}
+		},
+		"7": {
+			"texture": "res://src/assets/structures/star_base_7.webp",
+			"offset": {
+				"x": 0,
+				"y": -53
+			}
+		},
+		"8": {
+			"texture": "res://src/assets/structures/star_base_8.webp",
+			"offset": {
+				"x": 0,
+				"y": -60
+			}
+		},
+		"9": {
+			"texture": "res://src/assets/structures/star_base_9.webp",
+			"offset": {
+				"x": 0,
+				"y": -60
+			}
+		}
+	},
+	"display_name": "Star Base",
+	"size": {
+		"x": 10,
+		"y": 10
+	}
+}

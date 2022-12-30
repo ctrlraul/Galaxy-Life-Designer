@@ -9,31 +9,34 @@ class_name StructureGhost
 var grid_area: Rect2
 var dto: StructureDTO
 var grid_position_dragging_started: Vector2
+
 var flipped: bool :
 	set(value):
 		sprite_2d.flip_h = value
 	get:
 		return sprite_2d.flip_h
 
+var grid_position: Vector2 :
+	set(value):
+		grid_area.position = value
+		position = Isometry.grid_to_world(value)
+	get:
+		return grid_area.position
 
-func set_structure_config(config: StructureConfigDTO) -> void:
+
+
+func set_structure_config(config: StructureConfigDTO, level: int) -> void:
 	
 	dto = Assets.structures.get(config.id)
 	
-	sprite_2d.texture = dto.texture
-	sprite_2d.position = dto.sprite_offset
+	sprite_2d.texture = Assets.get_structure_level_property(dto, level, "texture")
+	sprite_2d.position = Assets.get_structure_level_property(dto, level, "offset")
 	sprite_2d.position.y += dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
 	
 	footprint.size = dto.size
 	
 	grid_area.size = dto.size
-	
-	set_grid_position(config.grid_position)
-
-
-func set_grid_position(grid_position: Vector2) -> void:
-	grid_area.position = grid_position
-	position = Isometry.grid_to_world(grid_position)
+	grid_position = config.grid_position
 
 
 func get_structure_config() -> StructureConfigDTO:

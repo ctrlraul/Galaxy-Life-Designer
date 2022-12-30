@@ -34,10 +34,31 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2, 2)
 
-[node name="Line2D" type="Line2D" parent="Squisher"]
+[node name="HorizontalLines" type="Node2D" parent="Squisher"]
 unique_name_in_owner = true
 rotation = 0.785398
-points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1, 0, 0)
-width = 0.05
+
+[node name="Line2D" type="Line2D" parent="Squisher/HorizontalLines"]
+points = PackedVector2Array(0, 0, 1, 0)
+width = 0.2
 default_color = Color(0.67451, 1, 0.647059, 0.396078)
-end_cap_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="Squisher/HorizontalLines"]
+points = PackedVector2Array(0, 1, 1, 1)
+width = 0.2
+default_color = Color(0.67451, 1, 0.647059, 0.396078)
+
+[node name="VerticalLines" type="Node2D" parent="Squisher"]
+unique_name_in_owner = true
+rotation = 0.785398
+
+[node name="Line2D" type="Line2D" parent="Squisher/VerticalLines"]
+points = PackedVector2Array(0, 0, 0, 1)
+width = 0.2
+default_color = Color(0.67451, 1, 0.647059, 0.396078)
+joint_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="Squisher/VerticalLines"]
+points = PackedVector2Array(1, 0, 1, 1)
+width = 0.2
+default_color = Color(0.67451, 1, 0.647059, 0.396078)

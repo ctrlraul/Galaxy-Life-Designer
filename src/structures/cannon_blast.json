@@ -1,0 +1,35 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/cannon_blast_1.png",
+			"offset": {
+				"x": 0,
+				"y": -32
+			},
+			"range": 231
+		},
+		"2": {
+			"range": 248
+		},
+		"3": {
+			"range": 264
+		},
+		"5": {
+			"range": 297
+		},
+		"8": {
+			"range": 330
+		},
+		"10": {
+			"range": 363
+		},
+		"11": {
+			"range": 373
+		}
+	},
+	"display_name": "Cannon Blast",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

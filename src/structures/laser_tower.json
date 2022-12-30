@@ -1,0 +1,26 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/laser_tower_1.png",
+			"offset": {
+				"x": 0,
+				"y": -32
+			},
+			"range": 297
+		},
+		"2": {
+			"range": 330
+		},
+		"3": {
+			"range": 363
+		},
+		"6": {
+			"range": 375
+		}
+	},
+	"display_name": "Laser Tower",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}

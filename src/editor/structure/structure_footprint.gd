@@ -5,7 +5,8 @@ class_name StructureFootprint
 @onready var squisher: Node2D = %Squisher
 @onready var polygon: Polygon2D = %Polygon2D
 @onready var checkerboard: Sprite2D = %Checkerboard
-@onready var line: Line2D = %Line2D
+@onready var horizontal_lines: Node2D = %HorizontalLines
+@onready var vertical_lines: Node2D = %VerticalLines
 
 const SCALE: float = Isometry.GRID_TO_WORLD_SCALE * sqrt(2)
 const SQUISH: Vector2 = Vector2(1, 0.5)
@@ -25,8 +26,14 @@ func set_size(value: Vector2) -> void:
 	
 	polygon.scale = size
 	checkerboard.scale = size / 2
-	line.scale = size
-	line.width = 0.2 / size.length() 
+	
+	horizontal_lines.scale = size
+	horizontal_lines.get_child(0).width = 0.2 / abs(size.y)
+	horizontal_lines.get_child(1).width = horizontal_lines.get_child(0).width
+	
+	vertical_lines.scale = size
+	vertical_lines.get_child(0).width = 0.2 / abs(size.x)
+	vertical_lines.get_child(1).width = vertical_lines.get_child(0).width
 	
 	checkerboard.material.set_shader_parameter("scale", size / 2)
 

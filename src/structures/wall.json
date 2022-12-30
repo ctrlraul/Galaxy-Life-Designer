@@ -1,0 +1,44 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/wall_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -16
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/wall_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -16
+			}
+		},
+		"3": {
+			"texture": "res://src/assets/structures/wall_3.webp",
+			"offset": {
+				"x": 0,
+				"y": -17
+			}
+		},
+		"4": {
+			"texture": "res://src/assets/structures/wall_4.webp",
+			"offset": {
+				"x": 0,
+				"y": -24
+			}
+		},
+		"5": {
+			"texture": "res://src/assets/structures/wall_5.webp",
+			"offset": {
+				"x": 0,
+				"y": -31
+			}
+		}
+	},
+	"display_name": "Wall",
+	"size": {
+		"x": 1,
+		"y": 1
+	}
+}

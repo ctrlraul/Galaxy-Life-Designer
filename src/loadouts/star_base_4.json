@@ -1,0 +1,85 @@
+{
+	"display_name": "Star Base level 4",
+	"structures": {
+		"star_base": {
+			"count": 1,
+			"level": 4
+		},
+		"compact_house": {
+			"count": 10,
+			"level": 9
+		},
+		"mine": {
+			"count": 10,
+			"level": 9
+		},
+		"bank": {
+			"count": 4,
+			"level": 8
+		},
+		"silo": {
+			"count": 4,
+			"level": 8
+		},
+		"training_camp": {
+			"count": 2,
+			"level": 3
+		},
+		"factory": {
+			"count": 2,
+			"level": 2
+		},
+		"starport": {
+			"count": 1,
+			"level": 1
+		},
+		"warp_gate": {
+			"count": 2,
+			"level": 3
+		},
+		"laboratory": {
+			"count": 1,
+			"level": 2
+		},
+		"observatory": {
+			"count": 1,
+			"level": 2
+		},
+		"refinery": {
+			"count": 1,
+			"level": 2
+		},
+		"cannon_blast": {
+			"count": 5,
+			"level": 4
+		},
+		"sniper_tower": {
+			"count": 5,
+			"level": 4
+		},
+		"missile_launcher": {
+			"count": 1,
+			"level": 1
+		},
+		"laser_tower": {
+			"count": 1,
+			"level": 1
+		},
+		"freeze_turret": {
+			"count": 1,
+			"level": 1
+		},
+		"friends_bunker": {
+			"count": 1,
+			"level": 1
+		},
+		"defense_bunker": {
+			"count": 2,
+			"level": 1
+		},
+		"wall": {
+			"count": 120,
+			"level": 3
+		}
+	}
+}

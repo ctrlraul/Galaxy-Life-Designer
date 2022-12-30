@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/laboratory_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -35
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/laboratory_2.webp",
+			"offset": {
+				"x": 0,
+				"y": -40
+			}
+		},
+		"5": {
+			"texture": "res://src/assets/structures/laboratory_5.webp",
+			"offset": {
+				"x": -5,
+				"y": -40
+			}
+		}
+	},
+	"display_name": "Laboratory",
+	"size": {
+		"x": 8,
+		"y": 8
+	}
+}

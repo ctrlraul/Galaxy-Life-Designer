@@ -1,0 +1,30 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/observatory_1.webp",
+			"offset": {
+				"x": 0,
+				"y": -5
+			}
+		},
+		"2": {
+			"texture": "res://src/assets/structures/observatory_2.webp",
+			"offset": {
+				"x": -3,
+				"y": -5
+			}
+		},
+		"5": {
+			"texture": "res://src/assets/structures/observatory_5.webp",
+			"offset": {
+				"x": -3,
+				"y": -5
+			}
+		}
+	},
+	"display_name": "Observatory",
+	"size": {
+		"x": 6,
+		"y": 6
+	}
+}

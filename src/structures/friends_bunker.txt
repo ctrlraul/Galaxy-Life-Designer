@@ -1,8 +1,0 @@
-{
-	"texture": "res://src/assets/structures/friends_bunker_1.webp",
-	"display_name": "Friends Bunker",
-	"size": {
-		"x": 8,
-		"y": 8
-	}
-}

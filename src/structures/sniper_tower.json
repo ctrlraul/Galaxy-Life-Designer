@@ -1,0 +1,29 @@
+{
+	"levels": {
+		"1": {
+			"texture": "res://src/assets/structures/sniper_tower_1.png",
+			"offset": {
+				"x": 0,
+				"y": -32
+			},
+			"range": 363
+		},
+		"3": {
+			"range": 396
+		},
+		"5": {
+			"range": 429
+		},
+		"9": {
+			"range": 462
+		},
+		"11": {
+			"range": 500
+		}
+	},
+	"display_name": "Sniper Tower",
+	"size": {
+		"x": 4,
+		"y": 4
+	}
+}
