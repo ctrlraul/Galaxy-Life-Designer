@@ -7,6 +7,7 @@ signal removed()
 
 
 
+@onready var __panel: PanelContainer = %Panel
 @onready var __message_text_edit: TextEdit = %Message
 @onready var __title_label: Label = %Title
 @onready var __ok_button: Button = %Ok
@@ -33,6 +34,14 @@ var message_editable: bool :
 var ok: String :
 	set(value):
 		__ok_button.text = value
+
+var min_width: float :
+	set(value):
+		__panel.custom_minimum_size.x = value
+
+var message_min_height: float :
+	set(value):
+		__message_text_edit.custom_minimum_size.y = value
 
 
 
