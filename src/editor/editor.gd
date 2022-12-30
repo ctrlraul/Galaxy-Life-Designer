@@ -516,3 +516,21 @@ func _on_interaction_hitbox_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("chain_placing"):
 		get_viewport().set_input_as_handled()
 		__try_to_chain_place_structures()
+
+
+func _on_help_pressed() -> void:
+	
+	var popup: OkPopup = Popups.ok()
+	
+	popup.title = "Help"
+	popup.min_width = 512
+	popup.message_min_height = 148
+	popup.message = (
+		"Ctrl + A = Select All\n" +
+		"Ctrl + Z = Undo\n" +
+		"Esc = Cancel moving or placing\n" +
+		"Delete = Remove things being moved\n" +
+		"Shift / Right Mouse Button = Multi-Selection or Chain-Placing\n" +
+		"\n" +
+		"ctrl-raul#9419"
+	)
