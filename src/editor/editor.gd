@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 class HistoryEntryStructuresAdded:
 	var grid_positions: Array[Vector2]
 
@@ -30,6 +31,7 @@ class HistoryEntryStructuresRemoved:
 const STRUCTURES_REQUIRED_TO_ASK_TO_SAVE: int = 10
 const GRID_SIZE: Vector2 = Vector2(72, 78)
 
+var thread: Thread = null
 
 var structures_dragged: Array[Structure]
 var structure_hovered: Structure
@@ -68,6 +70,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 	elif Input.is_action_pressed("undo"):
 		__history_undo()
 		get_viewport().set_input_as_handled()
+
+
+func _exit_tree():
+	if thread != null:
+		thread.wait_to_finish()
+
 
 
 func __place_structure(config: StructureConfigDTO) -> void:
@@ -275,7 +283,8 @@ func __update_hovered_structure(hovered_tile: Vector2) -> void:
 
 func __import_layout(layout: LayoutDTO) -> void:
 	
-	# Invalid layout: {"display_name":"Layout","loadout":"star_base_9","structures":{"star_base":[{"flip":false,"x":0,"y":0}, {"flip":true,"x":10,"y":0}]}}
+	# Invalid layout:
+	# {"display_name":"Layout","loadout":"star_base_9","structures":{"star_base":[{"flip":false,"x":0,"y":0}, {"flip":true,"x":10,"y":0}]}}
 	
 	var loadout: LoadoutDTO = __get_loadout_for_layout(layout)
 	
@@ -309,7 +318,8 @@ func __import_layout(layout: LayoutDTO) -> void:
 			config.grid_position = Vector2(partial_config.x, partial_config.y)
 			config.flipped = partial_config.flip
 			
-			__place_structure(config)
+			__place_structure.call_deferred(config)
+
 
 
 func __export_layout() -> LayoutDTO:
@@ -457,7 +467,8 @@ func _on_import_pressed() -> void:
 			error_popup.message = "Error at line %s:\n%s" % [json.get_error_line(), json.get_error_message()]
 			
 		else:
-			__import_layout(LayoutDTO.from(json.data))
+			var layout = LayoutDTO.from(json.data)
+			__import_layout(layout)
 	
 	popup.title = "Paste layout code"
 	popup.ok = "Import"

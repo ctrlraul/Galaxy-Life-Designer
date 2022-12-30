@@ -78,6 +78,11 @@ _global_script_classes=[{
 "class": &"StructuresPicker",
 "language": &"GDScript",
 "path": "res://src/interface/structures_picker/structures_picker.gd"
+}, {
+"base": "Node",
+"class": &"ThreadHack",
+"language": &"GDScript",
+"path": "res://src/editor/thread_hack.gd"
 }]
 _global_script_class_icons={
 "DraggingModule": "",
@@ -93,15 +98,16 @@ _global_script_class_icons={
 "StructureFootprint": "",
 "StructureGhost": "",
 "StructuresListItem": "",
-"StructuresPicker": ""
+"StructuresPicker": "",
+"ThreadHack": ""
 }
 
 [application]
 
-config/name="Galaxy Life Designer"
+config/name="Galaxy Life Layout Maker"
 run/main_scene="res://src/editor/editor.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://src/icon.svg"
+config/icon="res://src/assets/tool_case.webp"
 
 [autoload]
 
@@ -168,5 +174,4 @@ cancel={
 
 [rendering]
 
-renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.152941, 0.152941, 0.152941, 1)
