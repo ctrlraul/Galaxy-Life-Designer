@@ -4,7 +4,7 @@
 			"texture": "res://src/assets/structures/mortar_1.png",
 			"offset": {
 				"x": 0,
-				"y": -16
+				"y": -28
 			},
 			"range": 544
 		},
