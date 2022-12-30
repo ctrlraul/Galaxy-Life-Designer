@@ -107,6 +107,8 @@ _global_script_class_icons={
 config/name="Galaxy Life Layout Maker"
 run/main_scene="res://src/editor/editor.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+boot_splash/image="res://src/assets/bootsplash.png"
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://src/assets/tool_case.webp"
 
 [autoload]
