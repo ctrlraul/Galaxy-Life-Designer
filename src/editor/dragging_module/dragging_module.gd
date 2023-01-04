@@ -49,6 +49,10 @@ func get_structure_ghosts() -> Array[StructureGhost]:
 	return ghosts
 
 
+func is_dragging() -> bool:
+	return __ghosts_container.get_child_count() > 0
+
+
 
 func __update_structures_dragged(relative: Vector2) -> void:
 	for ghost in get_structure_ghosts():

@@ -62,7 +62,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	
 	elif Input.is_action_just_pressed("select_all"):
-		if dragging_module.get_structure_ghosts().size() > 0:
+		if dragging_module.is_dragging():
 			__clear_dragged_structures()
 		__drag_structures(__get_all_structures())
 		get_viewport().set_input_as_handled()
@@ -243,7 +243,7 @@ func __stop_dragging_structure(ghost: StructureGhost) -> void:
 	if structure != null:
 		structures_dragged.erase(structure)
 	
-	if dragging_module.get_structure_ghosts().size() == 0:
+	if !dragging_module.is_dragging():
 		__clear_dragged_structures()
 
 
@@ -447,7 +447,7 @@ func _on_interaction_hitbox_pressed() -> void:
 	if panning_module.panning:
 		return
 	
-	if dragging_module.get_structure_ghosts().size() > 0:
+	if dragging_module.is_dragging():
 		__try_placing_structures_dragged()
 	
 	elif structure_hovered:
