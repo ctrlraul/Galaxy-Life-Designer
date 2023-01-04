@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://biv7er6c4hwy2"]
+
+[ext_resource type="Shader" path="res://src/editor/dragging_module/hologram.gdshader" id="1_t0fy3"]
+[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://src/editor/radius/blend_mode_add.tres" id="2_0it5v"]
+[ext_resource type="Shader" path="res://src/editor/structure/structure_footprint.gdshader" id="3_0oitc"]
+[ext_resource type="Texture2D" uid="uid://badh7w16wh8sp" path="res://src/precompiler/pixel.png" id="3_gm52l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nx76s"]
+shader = ExtResource("1_t0fy3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cf5lh"]
+shader = ExtResource("3_0oitc")
+shader_parameter/scale = null
+
+[node name="Precompiler" type="Node2D"]
+
+[node name="HologramShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nx76s")
+texture = ExtResource("3_gm52l")
+
+[node name="BlendModeAdd" type="Sprite2D" parent="."]
+material = ExtResource("2_0it5v")
+texture = ExtResource("3_gm52l")
+
+[node name="StructureFootprintShader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cf5lh")
+texture = ExtResource("3_gm52l")

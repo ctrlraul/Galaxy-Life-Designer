@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqdykywvsw3a5"]
+
+[ext_resource type="Shader" path="res://src/editor/structure/structure_footprint.gdshader" id="1_0yyj1"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_0yyj1")
+shader_parameter/scale = null

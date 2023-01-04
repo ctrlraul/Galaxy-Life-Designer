@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://diajnn0kiabuj"]
+[gd_scene load_steps=12 format=3 uid="uid://bycn24heoe8ke"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
 [ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
+[ext_resource type="PackedScene" uid="uid://biv7er6c4hwy2" path="res://src/precompiler/precompiler.tscn" id="3_y5dlo"]
 [ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_r8vcc"]
 [ext_resource type="PackedScene" uid="uid://j66jhqrebhkl" path="res://src/editor/panning_module/panning_module.tscn" id="4_x63b4"]
 [ext_resource type="PackedScene" uid="uid://b3juiyaneddml" path="res://src/editor/dragging_module/dragging_module.tscn" id="5_8f1qt"]
@@ -14,6 +15,8 @@
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_r01ma")
 StructureScene = ExtResource("2_2ablk")
+
+[node name="Precompiler" parent="." instance=ExtResource("3_y5dlo")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

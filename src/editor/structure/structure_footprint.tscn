@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ir15dbypvx0"]
+[gd_scene load_steps=4 format=3 uid="uid://d4ir15dbypvx0"]
 
 [ext_resource type="Script" path="res://src/editor/structure/structure_footprint.gd" id="1_aw8se"]
 [ext_resource type="Texture2D" uid="uid://dtiv81ct8e1oe" path="res://src/assets/checkerboard.png" id="2_5tey2"]
-[ext_resource type="Shader" path="res://src/editor/structure/structure_footprint.gdshader" id="2_p37pw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ryw5"]
-resource_local_to_scene = true
-shader = ExtResource("2_p37pw")
-shader_parameter/scale = null
+[ext_resource type="Material" uid="uid://dqdykywvsw3a5" path="res://src/editor/structure/structure_footprint_shader.tres" id="2_r5n3m"]
 
 [node name="StructureFootprint" type="Node2D"]
 script = ExtResource("1_aw8se")
@@ -26,7 +21,7 @@ polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 2
-material = SubResource("ShaderMaterial_1ryw5")
+material = ExtResource("2_r5n3m")
 rotation = 0.785398
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5tey2")
