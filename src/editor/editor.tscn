@@ -18,14 +18,6 @@ StructureScene = ExtResource("2_2ablk")
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="HorizontalLines" type="Line2D" parent="Camera2D"]
-unique_name_in_owner = true
-rotation = 0.785398
-points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1, 0, 0)
-width = 0.05
-default_color = Color(0.67451, 1, 0.647059, 0.396078)
-end_cap_mode = 1
-
 [node name="Grid" type="Node2D" parent="."]
 
 [node name="GridArea" parent="Grid" instance=ExtResource("4_r8vcc")]
