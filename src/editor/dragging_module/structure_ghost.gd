@@ -24,6 +24,9 @@ var grid_position: Vector2 :
 		return grid_area.position
 
 
+func _ready() -> void:
+	grid_area_marker.set_color(Color(1, 1, 1, 0.1))
+
 
 func set_structure_config(config: StructureConfigDTO, level: int) -> void:
 	
