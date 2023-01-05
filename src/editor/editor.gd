@@ -82,9 +82,14 @@ func _exit_tree():
 
 
 func __place_structure(config: StructureConfigDTO) -> void:
+	
+	# Call __update_y_sort() afterwards
+	
 	var structure: Structure = StructureScene.instantiate()
+	
 	structures.add_child(structure)
 	structure.set_structure(config.id, structures_picker.get_level(config.id))
+	
 	structure.grid_position = config.grid_position
 	structure.flipped = config.flipped
 
@@ -229,12 +234,14 @@ func __history_undo() -> void:
 			)
 			
 			structure.grid_position = from_tile
+		__update_y_sort()
 	
 	elif entry is HistoryEntryStructuresRemoved:
 		print("Undo structures removed")
 		for config in entry.structure_configs:
 			__place_structure(config)
 			structures_picker.decrease_count(config.id)
+		__update_y_sort()
 
 
 func __stop_dragging_structure(ghost: StructureGhost) -> void:
@@ -288,6 +295,19 @@ func __update_hovered_structure(hovered_tile: Vector2) -> void:
 		structure_hovered.set_hovered(true)
 
 
+func __update_y_sort() -> void:
+	
+	var structures_to_sort = __get_all_structures()
+	
+	structures_to_sort.sort_custom(
+		func(a, b):
+			return a.tactical_view.global_position.y < b.tactical_view.global_position.y
+	)
+	
+	for i in structures_to_sort.size():
+		structures.move_child(structures_to_sort[i], i)
+
+
 
 # Layout transfer
 
@@ -329,7 +349,8 @@ func __import_layout(layout: LayoutDTO) -> void:
 			config.flipped = partial_config.flip
 			
 			__place_structure.call_deferred(config)
-
+	
+	__update_y_sort.call_deferred()
 
 
 func __export_layout() -> LayoutDTO:
@@ -369,6 +390,8 @@ func __add_structures_from_ghosts(ghosts: Array[StructureGhost]) -> void:
 			__place_structure(config)
 	
 	history.append(history_entry)
+	
+	__update_y_sort()
 
 
 func __move_structures_to_ghost_position(ghosts: Array[StructureGhost]) -> void:
@@ -389,6 +412,8 @@ func __move_structures_to_ghost_position(ghosts: Array[StructureGhost]) -> void:
 	structures_dragged.clear()
 	
 	history.append(entry)
+	
+	__update_y_sort()
 
 
 func __remove_structures_dragged() -> void:

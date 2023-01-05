@@ -29,7 +29,6 @@ unique_name_in_owner = true
 
 [node name="Structures" type="Node2D" parent="Grid"]
 unique_name_in_owner = true
-y_sort_enabled = true
 
 [node name="Interface" type="CanvasLayer" parent="."]
 

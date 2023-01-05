@@ -8,4 +8,3 @@ script = ExtResource("1_4b4ft")
 StructureGhostScene = ExtResource("2_o3geu")
 
 [node name="GhostsContainer" type="Node2D" parent="."]
-y_sort_enabled = true
