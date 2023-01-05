@@ -21,6 +21,7 @@
 			"range": 500
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/sniper_tower.png",
 	"display_name": "Sniper Tower",
 	"size": {
 		"x": 4,

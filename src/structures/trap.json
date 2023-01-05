@@ -8,6 +8,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/trap.png",
 	"display_name": "Trap",
 	"size": {
 		"x": 1,

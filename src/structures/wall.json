@@ -36,6 +36,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/wall.png",
 	"display_name": "Wall",
 	"size": {
 		"x": 1,

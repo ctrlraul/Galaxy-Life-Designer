@@ -3,7 +3,7 @@ class_name StructureGhost
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var footprint: Node2D = $StructureFootprint
+@onready var grid_area_marker: Node2D = $GridAreaMarker
 
 
 var grid_area: Rect2
@@ -33,7 +33,7 @@ func set_structure_config(config: StructureConfigDTO, level: int) -> void:
 	sprite_2d.position = Assets.get_structure_level_property(dto, level, "offset")
 	sprite_2d.position.y += dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
 	
-	footprint.size = dto.size
+	grid_area_marker.size = dto.size
 	
 	grid_area.size = dto.size
 	grid_position = config.grid_position

@@ -22,6 +22,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/bank.png",
 	"display_name": "Bank",
 	"size": {
 		"x": 6,

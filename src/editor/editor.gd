@@ -41,8 +41,11 @@ var history: Array = []
 
 
 func _ready() -> void:
+	
 	grid_area.set_size(GRID_SIZE)
-	grid_area.hide_checkerboard()
+	grid_area.set_checkerboard(false)
+	grid_area.set_border_color(Color.TRANSPARENT)
+	
 	structures_picker.set_loadout_index(8)
 
 
@@ -541,3 +544,13 @@ func _on_help_pressed() -> void:
 		"\n" +
 		"ctrl-raul#9419"
 	)
+
+
+func _on_tactical_view_toggle_toggled(button_pressed: bool) -> void:
+	
+	UserOptions.change(
+		func(options: UserOptions.OptionsData):
+			options.tactical_view = button_pressed
+	)
+	
+	grid_area.set_checkerboard(button_pressed)

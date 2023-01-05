@@ -9,7 +9,7 @@ signal selected(selection_rectangle: Rect2)
 @export_node_path(Control) var interaction_hitbox_path: NodePath
 @export_node_path(Node) var hover_module_path: NodePath
 
-@onready var __multi_selection_rectangle: StructureFootprint = %MultiSelectionRectangle
+@onready var __multi_selection_rectangle: GridAreaMarker = %MultiSelectionRectangle
 @onready var __interaction_hitbox: Control = get_node(interaction_hitbox_path)
 @onready var __hover_module: HoverModule = get_node(hover_module_path)
 
@@ -25,6 +25,7 @@ var allow_selection: bool = true
 func _ready() -> void:
 	__interaction_hitbox.gui_input.connect(_on_interaction_hitbox_gui_input)
 	__multi_selection_rectangle.visible = false
+	__multi_selection_rectangle.set_color(Color.TRANSPARENT)
 
 
 

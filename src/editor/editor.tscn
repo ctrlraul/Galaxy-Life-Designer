@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bycn24heoe8ke"]
+[gd_scene load_steps=13 format=3 uid="uid://cdpta42jndfgu"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
-[ext_resource type="PackedScene" uid="uid://bbku0nieuyybi" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
+[ext_resource type="PackedScene" uid="uid://c5jvoleeqe73r" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
-[ext_resource type="PackedScene" uid="uid://biv7er6c4hwy2" path="res://src/precompiler/precompiler.tscn" id="3_y5dlo"]
-[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="4_r8vcc"]
+[ext_resource type="PackedScene" uid="uid://pw6375cheraw" path="res://src/precompiler/precompiler.tscn" id="3_y5dlo"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="4_r8vcc"]
 [ext_resource type="PackedScene" uid="uid://j66jhqrebhkl" path="res://src/editor/panning_module/panning_module.tscn" id="4_x63b4"]
 [ext_resource type="PackedScene" uid="uid://b3juiyaneddml" path="res://src/editor/dragging_module/dragging_module.tscn" id="5_8f1qt"]
 [ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://src/theme.tres" id="6_ayf0x"]
 [ext_resource type="PackedScene" uid="uid://dbd0uqk0wtqx8" path="res://src/editor/zooming_module/zooming_module.tscn" id="6_cipsx"]
-[ext_resource type="PackedScene" uid="uid://uqlgd0c0deer" path="res://src/editor/multi_selection_module/multi_selection_module.tscn" id="10_hgcxo"]
+[ext_resource type="Texture2D" uid="uid://i4ohokxklmy8" path="res://src/assets/icons/tactical_view.png" id="7_npads"]
+[ext_resource type="PackedScene" uid="uid://bkwhmw4jbc4yv" path="res://src/editor/multi_selection_module/multi_selection_module.tscn" id="10_hgcxo"]
 [ext_resource type="PackedScene" uid="uid://bl5drg7bdf7e5" path="res://src/editor/hover_module/hover_module.tscn" id="10_rrxil"]
 
 [node name="Editor" type="Node2D"]
@@ -44,6 +45,7 @@ theme = ExtResource("6_ayf0x")
 [node name="InteractionHitbox" type="Button" parent="Interface/Theme"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,6 +54,7 @@ grow_vertical = 2
 flat = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,22 +63,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 1147.0
-offset_bottom = 643.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-offset_right = 210.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TransferButtons" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_right = 210.0
-offset_bottom = 50.0
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -83,55 +81,61 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 45.0
+layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Import" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
-offset_right = 95.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Import"
 
 [node name="Export" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
-offset_left = 105.0
-offset_right = 200.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Export"
 
 [node name="StructuresPicker" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_w05ga")]
 unique_name_in_owner = true
-anchors_preset = 0
-anchor_bottom = 0.0
-offset_top = 50.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 220.0
-offset_right = 1082.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-offset_left = 1092.0
-offset_right = 1142.0
-offset_bottom = 638.0
+layout_mode = 2
 mouse_filter = 2
 
-[node name="Help" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TacticalViewToggle" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_npads")
+ignore_texture_size = true
+
+[node name="Help" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
-offset_left = 5.0
-offset_top = 593.0
-offset_right = 45.0
-offset_bottom = 633.0
+layout_mode = 2
 size_flags_vertical = 8
 text = "?"
 
@@ -160,7 +164,8 @@ interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
 [connection signal="cover_clicked" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
 [connection signal="item_picked" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
 [connection signal="loadout_changed" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_loadout_changed"]
-[connection signal="pressed" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="toggled" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle" to="." method="_on_tactical_view_toggle_toggled"]
+[connection signal="pressed" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="try_to_chain_place_structures" from="DraggingModule" to="." method="_on_dragging_module_try_to_chain_place_structures"]
 [connection signal="selected" from="MultiSelectionModule" to="." method="_on_multi_selection_module_selected"]
 [connection signal="selecting" from="MultiSelectionModule" to="." method="_on_multi_selection_module_selecting"]

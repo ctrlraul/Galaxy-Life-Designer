@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://uqlgd0c0deer"]
+[gd_scene load_steps=3 format=3 uid="uid://bkwhmw4jbc4yv"]
 
 [ext_resource type="Script" path="res://src/editor/multi_selection_module/multi_selection_module.gd" id="1_npno8"]
-[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="2_x7qnb"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_x7qnb"]
 
 [node name="MultiSelectionModule" type="Node2D"]
 script = ExtResource("1_npno8")

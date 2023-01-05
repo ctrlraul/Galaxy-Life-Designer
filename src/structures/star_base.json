@@ -64,6 +64,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/star_base.png",
 	"display_name": "Star Base",
 	"size": {
 		"x": 10,

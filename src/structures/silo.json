@@ -22,6 +22,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/silo.png",
 	"display_name": "Silo",
 	"size": {
 		"x": 6,

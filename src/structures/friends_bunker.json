@@ -25,6 +25,7 @@
 			"range": 640
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/friends_bunker.png",
 	"display_name": "Friends Bunker",
 	"size": {
 		"x": 8,

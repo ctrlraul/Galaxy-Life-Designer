@@ -12,6 +12,7 @@
 			"range": 500
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/freeze_turret.png",
 	"display_name": "Freeze Turret",
 	"size": {
 		"x": 4,

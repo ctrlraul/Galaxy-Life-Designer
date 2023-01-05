@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4ir15dbypvx0"]
+[gd_scene load_steps=5 format=3 uid="uid://d1iejtgetho84"]
 
-[ext_resource type="Script" path="res://src/editor/structure/structure_footprint.gd" id="1_aw8se"]
-[ext_resource type="Texture2D" uid="uid://dtiv81ct8e1oe" path="res://src/assets/checkerboard.png" id="2_5tey2"]
-[ext_resource type="Material" uid="uid://dqdykywvsw3a5" path="res://src/editor/structure/structure_footprint_shader.tres" id="2_r5n3m"]
+[ext_resource type="Script" path="res://src/editor/grid_area_marker/grid_area_marker.gd" id="1_oaoby"]
+[ext_resource type="Shader" path="res://src/editor/grid_area_marker/grid_area_marker.gdshader" id="2_kghm2"]
+[ext_resource type="Texture2D" uid="uid://dtiv81ct8e1oe" path="res://src/assets/checkerboard.png" id="3_gy3cu"]
 
-[node name="StructureFootprint" type="Node2D"]
-script = ExtResource("1_aw8se")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ryw5"]
+resource_local_to_scene = true
+shader = ExtResource("2_kghm2")
+shader_parameter/scale = null
+
+[node name="GridAreaMarker" type="Node2D"]
+script = ExtResource("1_oaoby")
 
 [node name="Squisher" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -14,17 +19,17 @@ scale = Vector2(1, 0.5)
 [node name="Polygon2D" type="Polygon2D" parent="Squisher"]
 unique_name_in_owner = true
 rotation = 0.785398
-color = Color(0.521569, 0.521569, 0.521569, 1)
+color = Color(0.235294, 0.235294, 0.235294, 1)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
 [node name="Checkerboard" type="Sprite2D" parent="Squisher"]
 unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 2
-material = ExtResource("2_r5n3m")
+material = SubResource("ShaderMaterial_1ryw5")
 rotation = 0.785398
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5tey2")
+texture = ExtResource("3_gy3cu")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2, 2)
@@ -36,12 +41,12 @@ rotation = 0.785398
 [node name="Line2D" type="Line2D" parent="Squisher/HorizontalLines"]
 points = PackedVector2Array(0, 0, 1, 0)
 width = 0.2
-default_color = Color(0.67451, 1, 0.647059, 0.396078)
+default_color = Color(0.164706, 1, 0.356863, 0.698039)
 
 [node name="Line2D2" type="Line2D" parent="Squisher/HorizontalLines"]
 points = PackedVector2Array(0, 1, 1, 1)
 width = 0.2
-default_color = Color(0.67451, 1, 0.647059, 0.396078)
+default_color = Color(0.164706, 1, 0.356863, 0.698039)
 
 [node name="VerticalLines" type="Node2D" parent="Squisher"]
 unique_name_in_owner = true
@@ -50,10 +55,10 @@ rotation = 0.785398
 [node name="Line2D" type="Line2D" parent="Squisher/VerticalLines"]
 points = PackedVector2Array(0, 0, 0, 1)
 width = 0.2
-default_color = Color(0.67451, 1, 0.647059, 0.396078)
+default_color = Color(0.164706, 1, 0.356863, 0.698039)
 joint_mode = 1
 
 [node name="Line2D2" type="Line2D" parent="Squisher/VerticalLines"]
 points = PackedVector2Array(1, 0, 1, 1)
 width = 0.2
-default_color = Color(0.67451, 1, 0.647059, 0.396078)
+default_color = Color(0.164706, 1, 0.356863, 0.698039)

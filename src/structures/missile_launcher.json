@@ -24,6 +24,7 @@
 			"range": 740
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/missile_launcher.png",
 	"display_name": "Missile Launcher",
 	"size": {
 		"x": 4,

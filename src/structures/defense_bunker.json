@@ -25,6 +25,7 @@
 			"range": 580
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/defense_bunker.png",
 	"display_name": "Defense Bunker",
 	"size": {
 		"x": 8,

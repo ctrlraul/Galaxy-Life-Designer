@@ -15,6 +15,7 @@
 			"range": 650
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/mortar.png",
 	"display_name": "Mortar",
 	"size": {
 		"x": 4,

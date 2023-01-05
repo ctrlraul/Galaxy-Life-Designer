@@ -1,5 +1,5 @@
 extends Node2D
-class_name StructureFootprint
+class_name GridAreaMarker
 
 
 @onready var squisher: Node2D = %Squisher
@@ -15,8 +15,6 @@ var size: Vector2 = Vector2.ZERO : set = set_size
 
 
 func _ready() -> void:
-	polygon.visible = false
-	checkerboard.visible = true
 	squisher.scale = SQUISH * SCALE
 
 
@@ -37,6 +35,17 @@ func set_size(value: Vector2) -> void:
 	
 	checkerboard.material.set_shader_parameter("scale", size / 2)
 
-func hide_checkerboard() -> void:
-	polygon.visible = true
-	checkerboard.visible = false
+
+func set_checkerboard(value: bool) -> void:
+	checkerboard.visible = value
+
+
+func set_color(value: Color) -> void:
+	polygon.color = value
+
+
+func set_border_color(value: Color) -> void:
+	horizontal_lines.get_child(0).default_color = value
+	horizontal_lines.get_child(1).default_color = value
+	vertical_lines.get_child(0).default_color = value
+	vertical_lines.get_child(1).default_color = value

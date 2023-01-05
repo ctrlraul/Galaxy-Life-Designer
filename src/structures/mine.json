@@ -29,6 +29,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/mine.png",
 	"display_name": "Mine",
 	"size": {
 		"x": 6,

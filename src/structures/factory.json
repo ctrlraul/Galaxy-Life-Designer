@@ -22,6 +22,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/factory.png",
 	"display_name": "Factory",
 	"size": {
 		"x": 8,

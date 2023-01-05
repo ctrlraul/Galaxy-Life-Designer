@@ -36,6 +36,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/compact_house.png",
 	"display_name": "Compact House",
 	"size": {
 		"x": 6,

@@ -18,6 +18,7 @@
 			"range": 375
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/laser_tower.png",
 	"display_name": "Laser Tower",
 	"size": {
 		"x": 4,

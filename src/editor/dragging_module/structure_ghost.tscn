@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://m8e7s37j7rl2"]
+[gd_scene load_steps=6 format=3 uid="uid://fqha581p7yni"]
 
 [ext_resource type="Script" path="res://src/editor/dragging_module/structure_ghost.gd" id="1_0v61m"]
-[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="2_x3acx"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_x3acx"]
 [ext_resource type="Shader" path="res://src/editor/dragging_module/hologram.gdshader" id="3_72y6c"]
 [ext_resource type="Texture2D" uid="uid://c2vd7jxwr3fec" path="res://src/assets/structures/star_base_9.webp" id="4_cun8j"]
 
@@ -11,7 +11,7 @@ shader = ExtResource("3_72y6c")
 [node name="StructureGhost" type="Node2D"]
 script = ExtResource("1_0v61m")
 
-[node name="StructureFootprint" parent="." instance=ExtResource("2_x3acx")]
+[node name="GridAreaMarker" parent="." instance=ExtResource("2_x3acx")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_d7x0w")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbku0nieuyybi"]
+[gd_scene load_steps=11 format=3 uid="uid://c5jvoleeqe73r"]
 
 [ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
-[ext_resource type="PackedScene" uid="uid://d4ir15dbypvx0" path="res://src/editor/structure/structure_footprint.tscn" id="2_femp1"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_femp1"]
 [ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
+[ext_resource type="Texture2D" uid="uid://6xnkjryrf4g5" path="res://src/assets/structures/tactical_view/compact_house.png" id="3_b72n0"]
 [ext_resource type="PackedScene" uid="uid://ba0gmxd52b0y2" path="res://src/editor/radius/radius.tscn" id="4_1gq75"]
 
 [sub_resource type="Animation" id="Animation_8gy7q"]
@@ -163,7 +164,10 @@ _data = {
 [node name="Structure" type="Node2D"]
 script = ExtResource("1_7dcdv")
 
-[node name="StructureFootprint" parent="." instance=ExtResource("2_femp1")]
+[node name="TacticalView" type="Sprite2D" parent="."]
+texture = ExtResource("3_b72n0")
+
+[node name="GridAreaMarker" parent="." instance=ExtResource("2_femp1")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 35)

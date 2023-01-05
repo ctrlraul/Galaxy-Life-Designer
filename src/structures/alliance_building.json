@@ -8,6 +8,7 @@
 			}
 		}
 	},
+	"tactical_view": "res://src/assets/structures/tactical_view/alliance_building.png",
 	"display_name": "Alliance Building",
 	"size": {
 		"x": 8,
