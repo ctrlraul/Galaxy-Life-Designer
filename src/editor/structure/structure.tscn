@@ -170,7 +170,6 @@ texture = ExtResource("3_b72n0")
 [node name="GridAreaMarker" parent="." instance=ExtResource("2_femp1")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 35)
 texture = ExtResource("2_pmr7y")
 
 [node name="Radius" parent="." instance=ExtResource("4_1gq75")]
