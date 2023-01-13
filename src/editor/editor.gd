@@ -2,17 +2,6 @@ extends Node2D
 
 
 
-class HistoryEntryStructuresAdded:
-	var grid_positions: Array[Vector2]
-
-class HistoryEntryStructuresMoved:
-	var grid_positions_from: Array[Vector2]
-	var grid_positions_to: Array[Vector2]
-
-class HistoryEntryStructuresRemoved:
-	var structure_configs: Array[StructureConfigDTO]
-
-
 @export var StructureScene: PackedScene
 
 #@onready var zooming_module: Node2D = $ZoomingModule
@@ -36,7 +25,7 @@ var thread: Thread = null
 var structures_dragged: Array[Structure]
 var structure_hovered: Structure
 
-var history: Array = []
+var history: ActionHistory = ActionHistory.new(256)
 
 
 
@@ -124,7 +113,17 @@ func __place_dragged_structures() -> void:
 	if structures_dragged.size() == 0:
 		__add_structures_from_ghosts(ghosts)
 	else:
-		__move_structures_to_ghost_position(ghosts)
+		if Input.is_action_pressed("chain_placing"):
+			
+			for structure in structures_dragged:
+				structure.set_dragged(false)
+				
+			structures_dragged.clear()
+			
+			__add_structures_from_ghosts(ghosts)
+			
+		else:
+			__move_structures_to_ghost_position(ghosts)
 
 
 func __clear_dragged_structures() -> void:
@@ -204,14 +203,14 @@ func __get_loadout_for_layout(layout: LayoutDTO) -> LoadoutDTO:
 
 func __history_undo() -> void:
 	
-	var entry = history.pop_back()
+	var entry = history.last()
 	
 	if entry == null:
 		print("Undo nothing")
 		return
 	
-	if entry is HistoryEntryStructuresAdded:
-		print("Undo structures added")
+	if entry is ActionHistory.StructuresAdded:
+		print("Undo structures added: %s" % str(entry.grid_positions))
 		for grid_position in entry.grid_positions:
 			
 			var structure = GridWizard.get_structure_on_tile(
@@ -219,10 +218,13 @@ func __history_undo() -> void:
 				__get_all_structures()
 			)
 			
+			if structure in structures_dragged:
+				structures_dragged.erase(structure)
+			
 			structures_picker.put(structure.dto.id)
 			structure.queue_free()
 	
-	elif entry is HistoryEntryStructuresMoved:
+	elif entry is ActionHistory.StructuresMoved:
 		print("Undo structures moved")
 		for i in entry.grid_positions_from.size():
 			
@@ -240,7 +242,7 @@ func __history_undo() -> void:
 			
 		__update_y_sort()
 	
-	elif entry is HistoryEntryStructuresRemoved:
+	elif entry is ActionHistory.StructuresRemoved:
 		print("Undo structures removed")
 		for config in entry.structure_configs:
 			__place_structure(config)
@@ -385,7 +387,7 @@ func __export_layout() -> LayoutDTO:
 
 func __add_structures_from_ghosts(ghosts: Array[StructureGhost]) -> void:
 	
-	var history_entry: HistoryEntryStructuresAdded = HistoryEntryStructuresAdded.new()
+	var history_entry: ActionHistory.StructuresAdded = ActionHistory.StructuresAdded.new()
 	
 	for ghost in ghosts:
 		var config: StructureConfigDTO = ghost.get_structure_config()
@@ -393,36 +395,38 @@ func __add_structures_from_ghosts(ghosts: Array[StructureGhost]) -> void:
 			history_entry.grid_positions.append(config.grid_position)
 			__place_structure(config)
 	
-	history.append(history_entry)
+	if history_entry.grid_positions.size() > 0:
+		history.add(history_entry)
 	
 	__update_y_sort()
 
 
 func __move_structures_to_ghost_position(ghosts: Array[StructureGhost]) -> void:
 	
-	var entry: HistoryEntryStructuresMoved = HistoryEntryStructuresMoved.new()
+	var entry: ActionHistory.StructuresMoved = ActionHistory.StructuresMoved.new()
 	
 	for i in structures_dragged.size():
 		
 		var structure = structures_dragged[i]
 		var ghost = ghosts[i]
 		
-		entry.grid_positions_from.append(structure.grid_position)
-		entry.grid_positions_to.append(ghost.grid_area.position)
+		if structure.grid_position != ghost.grid_area.position:
+			entry.grid_positions_from.append(structure.grid_position)
+			entry.grid_positions_to.append(ghost.grid_area.position)
+			structure.grid_position = ghost.grid_area.position
 		
-		structure.grid_position = ghost.grid_area.position
 		structure.set_dragged(false)
 	
 	structures_dragged.clear()
 	
-	history.append(entry)
-	
-	__update_y_sort()
+	if entry.grid_positions_from.size() > 0:
+		history.add(entry)
+		__update_y_sort()
 
 
 func __remove_structures_dragged() -> void:
 	
-	var entry: HistoryEntryStructuresRemoved = HistoryEntryStructuresRemoved.new()
+	var entry: ActionHistory.StructuresRemoved = ActionHistory.StructuresRemoved.new()
 	
 	for ghost in dragging_module.get_structure_ghosts():
 		
@@ -439,7 +443,8 @@ func __remove_structures_dragged() -> void:
 	
 	__clear_dragged_structures()
 	
-	history.append(entry)
+	if entry.structure_configs.size() > 0:
+		history.add(entry)
 
 
 

@@ -44,6 +44,7 @@ theme = ExtResource("6_ayf0x")
 [node name="InteractionHitbox" type="Button" parent="Interface/Theme"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,6 +53,7 @@ grow_vertical = 2
 flat = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,22 +62,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 1147.0
-offset_bottom = 643.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-offset_right = 210.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TransferButtons" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer"]
-offset_right = 210.0
-offset_bottom = 50.0
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -83,64 +80,45 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 45.0
+layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Import" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
-offset_right = 95.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Import"
 
 [node name="Export" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
-offset_left = 105.0
-offset_right = 200.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Export"
 
 [node name="StructuresPicker" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_w05ga")]
 unique_name_in_owner = true
-anchors_preset = 0
-anchor_bottom = 0.0
-offset_top = 50.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 220.0
-offset_right = 1082.0
-offset_bottom = 638.0
+layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-offset_left = 1092.0
-offset_right = 1142.0
-offset_bottom = 638.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 633.0
+layout_mode = 2
 alignment = 2
 
 [node name="TacticalViewToggle" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
-offset_top = 538.0
-offset_right = 40.0
-offset_bottom = 578.0
+layout_mode = 2
 toggle_mode = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -149,19 +127,14 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle/MarginContainer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 35.0
-offset_bottom = 35.0
+layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("7_npads")
 ignore_texture_size = true
 
 [node name="Help" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
-offset_top = 588.0
-offset_right = 40.0
-offset_bottom = 628.0
+layout_mode = 2
 size_flags_vertical = 8
 text = "?"
 

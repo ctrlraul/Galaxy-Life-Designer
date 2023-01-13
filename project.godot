@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"ActionHistory",
+"language": &"GDScript",
+"path": "res://src/lib/action_history.gd"
+}, {
 "base": "Node2D",
 "class": &"DraggingModule",
 "language": &"GDScript",
@@ -80,6 +85,7 @@ _global_script_classes=[{
 "path": "res://src/interface/structures_picker/structures_picker.gd"
 }]
 _global_script_class_icons={
+"ActionHistory": "",
 "DraggingModule": "",
 "GridAreaMarker": "",
 "HoverModule": "",
