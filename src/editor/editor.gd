@@ -493,9 +493,37 @@ func _on_structures_picker_cover_clicked() -> void:
 	__remove_structures_dragged()
 
 
-func _on_structures_picker_loadout_changed() -> void:
-	NodeUtils.queue_free_children(structures)
+func _on_structures_picker_loadout_changed(old_loadout: LoadoutDTO) -> void:
+	
 	history.clear()
+	
+	var new_loadout: LoadoutDTO = structures_picker.loadout
+	var all_structures: Array[Structure] = __get_all_structures()
+	
+	if old_loadout == null:
+		return
+	
+	for structure_id in old_loadout.structures:
+		
+		# Room for optimization using a map
+		var structures_with_id: Array[Structure] = all_structures.filter(
+			func(structure: Structure):
+				return structure.dto.id == structure_id
+		)
+		
+		if !(structure_id in new_loadout.structures):
+			for structure in structures_with_id:
+				structure.queue_free()
+			continue
+		
+		var structure_setting: Dictionary = new_loadout.structures.get(structure_id)
+		
+		while structures_with_id.size() > structure_setting.count:
+			var extra_structure = structures_with_id.pop_back()
+			extra_structure.queue_free()
+		
+		for structure in structures_with_id:
+			structure.set_level(structure_setting.level)
 
 
 func _on_interaction_hitbox_pressed() -> void:

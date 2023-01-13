@@ -5,7 +5,7 @@ class_name StructuresPicker
 
 signal item_picked(structure_id)
 signal cover_clicked()
-signal loadout_changed()
+signal loadout_changed(old_loadout: LoadoutDTO)
 
 
 
@@ -37,6 +37,8 @@ func set_loadout_index(index: int) -> void:
 
 func set_loadout(_loadout: LoadoutDTO) -> void:
 	
+	var old_loadout: LoadoutDTO = loadout
+	
 	loadout = _loadout
 	
 	NodeUtils.queue_free_children(items)
@@ -53,7 +55,7 @@ func set_loadout(_loadout: LoadoutDTO) -> void:
 	
 	loadouts.selected = Assets.loadouts.values().find(loadout)
 	
-	loadout_changed.emit()
+	loadout_changed.emit(old_loadout)
 
 
 func set_block_picking(value: bool) -> void:

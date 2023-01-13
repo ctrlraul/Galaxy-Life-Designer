@@ -50,9 +50,7 @@ func set_structure(structure_id: String, level: int) -> void:
 	
 	var visual_size: Vector2 = dto.size * Isometry.GRID_TO_WORLD_SCALE
 	
-	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
-	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
-	sprite.position.y += visual_size.y * 0.5
+	set_level(level)
 	
 	tactical_view.texture = dto.tactical_view
 	tactical_view.scale = dto.size * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size()
@@ -63,6 +61,17 @@ func set_structure(structure_id: String, level: int) -> void:
 	tactical_view.scale -= Vector2.ONE * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size() * 0.2
 	
 	grid_area_marker.size = dto.size
+	grid_area.size = dto.size
+	
+
+
+func set_level(level: int) -> void:
+	
+	var visual_size: Vector2 = dto.size * Isometry.GRID_TO_WORLD_SCALE
+	
+	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
+	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
+	sprite.position.y += visual_size.y * 0.5
 	
 	var level_range = Assets.get_structure_level_property(dto, level, "range")
 	
@@ -71,8 +80,6 @@ func set_structure(structure_id: String, level: int) -> void:
 		radius.position.y = visual_size.y * 0.5
 	else:
 		radius.visible = false
-	
-	grid_area.size = dto.size
 
 
 func set_hovered(value: bool) -> void:
