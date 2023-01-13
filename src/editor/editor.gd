@@ -233,7 +233,11 @@ func __history_undo() -> void:
 				__get_all_structures()
 			)
 			
-			structure.grid_position = from_tile
+			if structure:
+				structure.grid_position = from_tile
+			else:
+				push_error("Undo error: No structure at %s" % to_tile)
+			
 		__update_y_sort()
 	
 	elif entry is HistoryEntryStructuresRemoved:
@@ -288,7 +292,7 @@ func __update_hovered_structure(hovered_tile: Vector2) -> void:
 	if structure_hovered == old_structure_hovered:
 		return
 	
-	if old_structure_hovered:
+	if is_instance_valid(old_structure_hovered):
 		old_structure_hovered.set_hovered(false)
 	
 	if structure_hovered:

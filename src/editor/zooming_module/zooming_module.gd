@@ -16,12 +16,9 @@ extends Node2D
 
 func _ready() -> void:
 	set_process_unhandled_input(false)
-	interaction_hitbox.mouse_entered.connect(
-		func(): set_process_unhandled_input(true)
-	)
-	interaction_hitbox.mouse_exited.connect(
-		func(): set_process_unhandled_input(false)
-	)
+	interaction_hitbox.mouse_entered.connect(_on_interaction_hitbox_mouse_entered)
+	interaction_hitbox.mouse_exited.connect(_on_interaction_hitbox_mouse_exited)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -29,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			__zoom(1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			__zoom(-1)
+
 
 
 func __zoom(delta: int) -> void:
@@ -40,3 +38,12 @@ func __zoom(delta: int) -> void:
 	
 	camera.zoom = Vector2(1, 1) / new_zoom
 	camera.position += mouse * zoom_difference
+
+
+
+func _on_interaction_hitbox_mouse_entered() -> void:
+	set_process_unhandled_input(true)
+
+
+func _on_interaction_hitbox_mouse_exited() -> void:
+	set_process_unhandled_input(false)
