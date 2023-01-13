@@ -88,10 +88,9 @@ func get_count(structure_id: String) -> int:
 
 func put(structure_id: String) -> void:
 	
-	var max_count = loadout.structures[structure_id].count
-	var message = "Trying to store more %ss than allowed!" % structure_id
-	
-	assert(items_map[structure_id].count < max_count, message)
+	if loadout.structures[structure_id].count < items_map[structure_id].count:
+		push_error("Trying to store more %ss than allowed!" % structure_id)
+		return
 	
 	items_map[structure_id].count += 1
 
