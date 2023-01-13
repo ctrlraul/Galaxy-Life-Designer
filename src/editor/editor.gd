@@ -27,6 +27,7 @@ var structures_dragged: Array[Structure]
 var structure_hovered: Structure
 
 var history: ActionHistory = ActionHistory.new(256)
+var history_logger: Logger = Logger.new("ActionHistory")
 
 
 
@@ -207,11 +208,11 @@ func __history_undo() -> void:
 	var entry = history.last()
 	
 	if entry == null:
-		print("Undo nothing")
+		history_logger.info("Nothing to undo")
 		return
 	
 	if entry is ActionHistory.StructuresAdded:
-		print("Undo structures added: %s" % str(entry.grid_positions))
+		history_logger.info("Undo structures added: %s" % str(entry.grid_positions))
 		for grid_position in entry.grid_positions:
 			
 			var structure = GridWizard.get_structure_on_tile(
@@ -226,7 +227,7 @@ func __history_undo() -> void:
 			structure.queue_free()
 	
 	elif entry is ActionHistory.StructuresMoved:
-		print("Undo structures moved")
+		history_logger.info("Undo structures moved")
 		for i in entry.grid_positions_from.size():
 			
 			var from_tile: Vector2 = entry.grid_positions_from[i]
@@ -239,12 +240,12 @@ func __history_undo() -> void:
 			if structure:
 				structure.grid_position = from_tile
 			else:
-				push_error("Undo error: No structure at %s" % to_tile)
+				history_logger.error("Undo error: No structure at %s" % to_tile)
 			
 		__update_y_sort()
 	
 	elif entry is ActionHistory.StructuresRemoved:
-		print("Undo structures removed")
+		history_logger.info("Undo structures removed")
 		for config in entry.structure_configs:
 			__place_structure(config)
 			structures_picker.decrease_count(config.id)

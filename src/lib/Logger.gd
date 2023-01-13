@@ -13,3 +13,7 @@ func _init(label: String) -> void:
 
 func info(message: String) -> void:
 	print("[%s] %s" % [_label, message])
+
+
+func error(message: String) -> void:
+	push_error("[%s] %s" % [_label, message])
