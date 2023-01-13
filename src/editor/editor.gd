@@ -14,6 +14,7 @@ extends Node2D
 
 @onready var grid_area: Node2D = %GridArea
 @onready var structures: Node2D = %Structures
+@onready var rotate_axis_button: Button = %RotateAxis
 
 
 
@@ -314,6 +315,23 @@ func __update_y_sort() -> void:
 		structures.move_child(structures_to_sort[i], i)
 
 
+func __get_collective_center(structures_or_ghosts: Array) -> Vector2:
+	
+	var min_corner: Vector2 = Vector2(INF, INF)
+	var max_corner: Vector2 = Vector2(-INF, -INF)
+	
+	for structure in structures_or_ghosts:
+		min_corner.x = min(min_corner.x, structure.grid_position.x)
+		min_corner.y = min(min_corner.y, structure.grid_position.y)
+		max_corner.x = max(max_corner.x, structure.grid_position.x + structure.grid_area.size.x)
+		max_corner.y = max(max_corner.y, structure.grid_position.y + structure.grid_area.size.y)
+	
+	var collective_area: Rect2 = Rect2(min_corner, max_corner)
+	var collective_center = collective_area.position + round((collective_area.size - collective_area.position) * 0.5)
+	
+	return collective_center
+
+
 
 # Layout transfer
 
@@ -588,3 +606,28 @@ func _on_tactical_view_toggle_toggled(button_pressed: bool) -> void:
 	)
 	
 	grid_area.set_checkerboard(button_pressed)
+
+
+func _on_rotate_axis_pressed() -> void:
+	
+	var structures_or_ghosts: Array
+	
+	if dragging_module.is_dragging():
+		structures_or_ghosts = dragging_module.get_structure_ghosts()
+	else:
+		structures_or_ghosts = __get_all_structures()
+	
+	if structures_or_ghosts.size() <= 1:
+		return
+	
+	var collective_center: Vector2 = __get_collective_center(structures_or_ghosts)
+	
+	for structure in structures_or_ghosts:
+		var x: int = structure.grid_position.x
+		structure.grid_position.x = structure.grid_position.y
+		structure.grid_position.y = x
+	
+	var offset: Vector2 = collective_center - __get_collective_center(structures_or_ghosts)
+	
+	for structure in structures_or_ghosts:
+		structure.grid_position += offset

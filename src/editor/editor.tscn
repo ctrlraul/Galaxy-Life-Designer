@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdpta42jndfgu"]
+[gd_scene load_steps=14 format=3 uid="uid://cdpta42jndfgu"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
 [ext_resource type="PackedScene" uid="uid://c5jvoleeqe73r" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://src/theme.tres" id="6_ayf0x"]
 [ext_resource type="PackedScene" uid="uid://dbd0uqk0wtqx8" path="res://src/editor/zooming_module/zooming_module.tscn" id="6_cipsx"]
 [ext_resource type="Texture2D" uid="uid://i4ohokxklmy8" path="res://src/assets/icons/tactical_view.png" id="7_npads"]
+[ext_resource type="Texture2D" uid="uid://ckmx6pxegrolk" path="res://src/assets/icons/rotate_3d.png" id="7_wggpr"]
 [ext_resource type="PackedScene" uid="uid://bkwhmw4jbc4yv" path="res://src/editor/multi_selection_module/multi_selection_module.tscn" id="10_hgcxo"]
 [ext_resource type="PackedScene" uid="uid://bl5drg7bdf7e5" path="res://src/editor/hover_module/hover_module.tscn" id="10_rrxil"]
 
@@ -112,6 +113,28 @@ mouse_filter = 2
 layout_mode = 2
 alignment = 2
 
+[node name="RotateAxis" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_wggpr")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="TacticalViewToggle" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -163,6 +186,7 @@ interaction_hitbox_path = NodePath("../Interface/Theme/InteractionHitbox")
 [connection signal="cover_clicked" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_cover_clicked"]
 [connection signal="item_picked" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_item_picked"]
 [connection signal="loadout_changed" from="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/StructuresPicker" to="." method="_on_structures_picker_loadout_changed"]
+[connection signal="pressed" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis" to="." method="_on_rotate_axis_pressed"]
 [connection signal="toggled" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle" to="." method="_on_tactical_view_toggle_toggled"]
 [connection signal="pressed" from="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="try_to_chain_place_structures" from="DraggingModule" to="." method="_on_dragging_module_try_to_chain_place_structures"]
