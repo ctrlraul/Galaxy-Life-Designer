@@ -115,17 +115,7 @@ func __place_dragged_structures() -> void:
 	if structures_dragged.size() == 0:
 		__add_structures_from_ghosts(ghosts)
 	else:
-		if Input.is_action_pressed("chain_placing"):
-			
-			for structure in structures_dragged:
-				structure.set_dragged(false)
-				
-			structures_dragged.clear()
-			
-			__add_structures_from_ghosts(ghosts)
-			
-		else:
-			__move_structures_to_ghost_position(ghosts)
+		__move_structures_to_ghost_position(ghosts)
 
 
 func __clear_dragged_structures() -> void:
