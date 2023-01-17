@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://3e0irntcxqhr"]
 
 [ext_resource type="Script" path="res://src/interface/structures_picker/structures_picker_item.gd" id="1_lkds3"]
-[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_2mnmr"]
+[ext_resource type="Texture2D" uid="uid://d6s04dx5hsk" path="res://src/assets/structures/observatory_5.webp" id="2_x4jmh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_by1nm"]
 line_spacing = 0.0
@@ -108,14 +108,16 @@ offset_right = 80.0
 offset_bottom = 80.0
 script = ExtResource("1_lkds3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -20.0
-texture = ExtResource("2_2mnmr")
-expand_mode = 1
+[node name="Texture" type="TextureButton" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 60.0
+mouse_filter = 2
+disabled = true
+texture_normal = ExtResource("2_x4jmh")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Count" type="Label" parent="."]

@@ -127,11 +127,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis/MarginContainer"]
+[node name="Texture" type="TextureButton" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("7_wggpr")
-expand_mode = 1
+texture_normal = ExtResource("7_wggpr")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TacticalViewToggle" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
@@ -147,11 +147,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle/MarginContainer"]
+[node name="Texture" type="TextureButton" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("7_npads")
-expand_mode = 1
+disabled = true
+texture_normal = ExtResource("7_npads")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Help" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
