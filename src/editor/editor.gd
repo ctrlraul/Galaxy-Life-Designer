@@ -445,7 +445,7 @@ func __remove_structures_dragged() -> void:
 		)
 		
 		#if structure && !structure.is_queued_for_deletion():
-		if structure:
+		if structure && structure.dto.id == ghost.dto.id:
 			entry.structure_configs.append(structure.get_config())
 			structures_picker.put(structure.dto.id)
 			structure.queue_free()
