@@ -84,6 +84,10 @@
 		"wall": {
 			"count": 300,
 			"level": 5
+		},
+		"embassy": {
+			"count": 1,
+			"level": 3
 		}
 	}
 }
