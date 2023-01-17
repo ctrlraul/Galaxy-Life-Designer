@@ -12,16 +12,16 @@
 			"range": 400
 		},
 		"3": {
-			"range": 500
+			"range": 420
 		},
 		"4": {
-			"range": 575
+			"range": 460
 		},
 		"5": {
-			"range": 650
+			"range": 520
 		},
 		"6": {
-			"range": 740
+			"range": 600
 		}
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/missile_launcher.png",
