@@ -45,7 +45,7 @@ theme = ExtResource("6_ayf0x")
 [node name="InteractionHitbox" type="Button" parent="Interface/Theme"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -53,7 +53,7 @@ grow_vertical = 2
 flat = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -61,14 +61,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer"]
+layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TransferButtons" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -76,40 +79,46 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons"]
+layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Import" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Import"
 
 [node name="Export" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer/TransferButtons/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Export"
 
 [node name="StructuresPicker" parent="Interface/Theme/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_w05ga")]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="Interface/Theme/MarginContainer/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
+layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer"]
+layout_mode = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
 alignment = 2
 
 [node name="RotateAxis" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 size_flags_vertical = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -117,17 +126,19 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RotateAxis/MarginContainer"]
+layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("7_wggpr")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 
 [node name="TacticalViewToggle" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 toggle_mode = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -135,12 +146,14 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/TacticalViewToggle/MarginContainer"]
+layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("7_npads")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="Help" type="Button" parent="Interface/Theme/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 size_flags_vertical = 8
 text = "?"
 
