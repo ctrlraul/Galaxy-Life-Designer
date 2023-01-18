@@ -331,6 +331,8 @@ func __import_layout(layout: LayoutDTO) -> void:
 	# Invalid layout:
 	# {"display_name":"Layout","loadout":"star_base_9","structures":{"star_base":[{"flip":false,"x":0,"y":0}, {"flip":true,"x":10,"y":0}]}}
 	
+	NodeUtils.queue_free_children(structures)
+	
 	var loadout: LoadoutDTO = __get_loadout_for_layout(layout)
 	
 	if loadout == null:

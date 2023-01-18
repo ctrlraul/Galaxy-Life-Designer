@@ -8,100 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Node",
-"class": &"ActionHistory",
-"language": &"GDScript",
-"path": "res://src/lib/action_history.gd"
-}, {
-"base": "Node2D",
-"class": &"DraggingModule",
-"language": &"GDScript",
-"path": "res://src/editor/dragging_module/dragging_module.gd"
-}, {
-"base": "Node2D",
-"class": &"GridAreaMarker",
-"language": &"GDScript",
-"path": "res://src/editor/grid_area_marker/grid_area_marker.gd"
-}, {
-"base": "Node2D",
-"class": &"HoverModule",
-"language": &"GDScript",
-"path": "res://src/editor/hover_module/hover_module.gd"
-}, {
-"base": "RefCounted",
-"class": &"LayoutDTO",
-"language": &"GDScript",
-"path": "res://src/data_transfer_objects/layout_dto.gd"
-}, {
-"base": "RefCounted",
-"class": &"LoadoutDTO",
-"language": &"GDScript",
-"path": "res://src/data_transfer_objects/loadout_dto.gd"
-}, {
-"base": "Node",
-"class": &"Logger",
-"language": &"GDScript",
-"path": "res://src/lib/Logger.gd"
-}, {
-"base": "OkPopup",
-"class": &"OkCancelPopup",
-"language": &"GDScript",
-"path": "res://src/interface/common/ok_cancel_popup/ok_cancel_popup.gd"
-}, {
-"base": "Control",
-"class": &"OkPopup",
-"language": &"GDScript",
-"path": "res://src/interface/common/ok_popup/ok_popup.gd"
-}, {
-"base": "Node2D",
-"class": &"Structure",
-"language": &"GDScript",
-"path": "res://src/editor/structure/structure.gd"
-}, {
-"base": "RefCounted",
-"class": &"StructureConfigDTO",
-"language": &"GDScript",
-"path": "res://src/data_transfer_objects/structure_config_dto.gd"
-}, {
-"base": "RefCounted",
-"class": &"StructureDTO",
-"language": &"GDScript",
-"path": "res://src/data_transfer_objects/structure_dto.gd"
-}, {
-"base": "Node2D",
-"class": &"StructureGhost",
-"language": &"GDScript",
-"path": "res://src/editor/dragging_module/structure_ghost.gd"
-}, {
-"base": "Button",
-"class": &"StructuresListItem",
-"language": &"GDScript",
-"path": "res://src/interface/structures_picker/structures_picker_item.gd"
-}, {
-"base": "Control",
-"class": &"StructuresPicker",
-"language": &"GDScript",
-"path": "res://src/interface/structures_picker/structures_picker.gd"
-}]
-_global_script_class_icons={
-"ActionHistory": "",
-"DraggingModule": "",
-"GridAreaMarker": "",
-"HoverModule": "",
-"LayoutDTO": "",
-"LoadoutDTO": "",
-"Logger": "",
-"OkCancelPopup": "",
-"OkPopup": "",
-"Structure": "",
-"StructureConfigDTO": "",
-"StructureDTO": "",
-"StructureGhost": "",
-"StructuresListItem": "",
-"StructuresPicker": ""
-}
-
 [application]
 
 config/name="Galaxy Life Layout Maker"
@@ -119,6 +25,10 @@ Isometry="*res://src/lib/isometry.gd"
 Assets="*res://src/managers/assets.gd"
 GridWizard="*res://src/lib/grid_wizard.gd"
 Popups="*res://src/managers/popups.tscn"
+
+[editor]
+
+export/convert_text_resources_to_binary=true
 
 [filesystem]
 
