@@ -30,12 +30,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func __zoom(delta: int) -> void:
-	
+
 	var mouse: Vector2 = screen_center.get_local_mouse_position()
 	var old_zoom: Vector2 = Vector2(1, 1) / camera.zoom
 	var new_zoom: Vector2 = clamp(old_zoom - delta * zoom_step * old_zoom, zoom_max, zoom_min)
 	var zoom_difference: Vector2 = old_zoom - new_zoom
-	
+
 	camera.zoom = Vector2(1, 1) / new_zoom
 	camera.position += mouse * zoom_difference
 

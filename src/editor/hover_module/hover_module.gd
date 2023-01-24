@@ -24,11 +24,11 @@ func _ready() -> void:
 
 func _on_interaction_hitbox_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		
+
 		var old_hovered_tile = hovered_tile
-		
+
 		hovered_tile = Isometry.world_to_grid(get_global_mouse_position())
-		
+
 		if hovered_tile != old_hovered_tile:
 			var relative: Vector2 = hovered_tile - old_hovered_tile
 			hovered_tile_changed.emit(relative, hovered_tile)

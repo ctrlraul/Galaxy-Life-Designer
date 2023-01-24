@@ -33,28 +33,28 @@ func _ready() -> void:
 
 
 func set_structure_config(config: StructureConfigDTO, level: int) -> void:
-	
+
 	dto = Assets.structures.get(config.id)
-	
+
 	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
 	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
 	sprite.position.y += dto.size.y * Isometry.GRID_TO_WORLD_SCALE * 0.5
-	
+
 	grid_area_marker.size = dto.size
-	
+
 	set_tactical_view()
-	
+
 	grid_area.size = dto.size
 	grid_position = config.grid_position
 
 
 func set_tactical_view() -> void:
-	
+
 	tactical_view.texture = dto.tactical_view
 	tactical_view.scale = dto.size * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size()
 	tactical_view.scale.x *= 2
 	tactical_view.position.y = get_visual_size().y * 0.5
-	
+
 	# Maybe try make some sense out of this to write it better
 	tactical_view.scale -= Vector2.ONE * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size() * 0.2
 
@@ -65,11 +65,11 @@ func get_visual_size() -> Vector2:
 
 func get_structure_config() -> StructureConfigDTO:
 	var config: StructureConfigDTO = StructureConfigDTO.new()
-	
+
 	config.id = dto.id
 	config.grid_position = grid_area.position
 	config.flipped = flipped
-	
+
 	return config
 
 

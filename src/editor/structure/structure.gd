@@ -33,35 +33,35 @@ var dto: StructureDTO
 
 
 func _ready() -> void:
-	
+
 	radius.scale = Vector2.ZERO
-	
+
 	grid_area_marker.set_border_color(AREA_BORDER_COLOR)
 	grid_area_marker.set_color(Color.TRANSPARENT)
-	
+
 	UserOptions.options_changed.connect(_on_options_changed)
 	_on_options_changed(UserOptions.options)
 
 
 
 func set_structure(structure_id: String, level: int) -> void:
-	
+
 	dto = Assets.structures.get(structure_id)
-	
+
 	set_level(level)
 	set_tactical_view()
-	
+
 	grid_area_marker.size = dto.size
 	grid_area.size = dto.size
 
 
 func set_tactical_view() -> void:
-	
+
 	tactical_view.texture = dto.tactical_view
 	tactical_view.scale = dto.size * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size()
 	tactical_view.scale.x *= 2
 	tactical_view.position.y = get_visual_size().y * 0.5
-	
+
 	# Maybe try make some sense out of this to write it better
 	tactical_view.scale -= Vector2.ONE * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size() * 0.2
 
@@ -71,15 +71,15 @@ func get_visual_size() -> Vector2:
 
 
 func set_level(level: int) -> void:
-	
+
 	var visual_size: Vector2 = get_visual_size()
-	
+
 	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
 	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
 	sprite.position.y += visual_size.y * 0.5
-	
+
 	var level_range = Assets.get_structure_level_property(dto, level, "range")
-	
+
 	if level_range != null:
 		radius.set_radius(level_range)
 		radius.position.y = visual_size.y * 0.5
@@ -88,12 +88,12 @@ func set_level(level: int) -> void:
 
 
 func set_hovered(value: bool) -> void:
-	
+
 	if hovered == value:
 		return
-	
+
 	hovered = value
-	
+
 	animation_player.play("hover_on" if hovered else "hover_off")
 
 
@@ -105,11 +105,11 @@ func overlap_bump() -> void:
 
 func get_config() -> StructureConfigDTO:
 	var config: StructureConfigDTO = StructureConfigDTO.new()
-	
+
 	config.id = dto.id
 	config.grid_position = grid_area.position
 	config.flipped = flipped
-	
+
 	return config
 
 

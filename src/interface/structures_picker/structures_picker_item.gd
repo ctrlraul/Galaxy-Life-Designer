@@ -19,12 +19,12 @@ func set_structure(id: String, structure_count: int, level: int) -> void:
 
 
 func set_count(value: int) -> void:
-	
+
 	if value == count:
 		return
-	
+
 	if bool(value) != bool(count):
 		animation_player.play("show" if value > 0 else "hide")
-	
+
 	count = value
 	count_label.text = "%sx" % count

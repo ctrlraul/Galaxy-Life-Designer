@@ -7,13 +7,13 @@ var structures: Dictionary
 
 
 static func from(object) -> LayoutDTO:
-	
+
 	var to = LayoutDTO.new()
-	
+
 	to.display_name = Assets.get_or_default(object, "display_name", "Layout")
 	to.loadout = object.loadout
 	to.structures = object.structures
-	
+
 	return to
 
 

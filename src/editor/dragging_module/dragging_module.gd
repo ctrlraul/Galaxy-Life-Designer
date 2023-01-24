@@ -21,11 +21,11 @@ func _ready() -> void:
 
 
 func add_structure_ghost(config: StructureConfigDTO, level: int) -> void:
-	
+
 	var ghost: StructureGhost = StructureGhostScene.instantiate()
-	
+
 	__ghosts_container.add_child(ghost)
-	
+
 	ghost.set_structure_config(config, level)
 	ghost.grid_position_dragging_started = config.grid_position
 
@@ -40,12 +40,12 @@ func clear() -> void:
 
 
 func get_structure_ghosts() -> Array[StructureGhost]:
-	
+
 	var ghosts: Array[StructureGhost] = []
-	
+
 	for ghost in __ghosts_container.get_children():
 		ghosts.append(ghost)
-	
+
 	return ghosts
 
 

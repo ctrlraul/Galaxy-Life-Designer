@@ -19,20 +19,20 @@ func _ready() -> void:
 
 
 func set_size(value: Vector2) -> void:
-	
+
 	size = value
-	
+
 	polygon.scale = size
 	checkerboard.scale = size / 2
-	
+
 	horizontal_lines.scale = size
 	horizontal_lines.get_child(0).width = 0.2 / abs(size.y)
 	horizontal_lines.get_child(1).width = horizontal_lines.get_child(0).width
-	
+
 	vertical_lines.scale = size
 	vertical_lines.get_child(0).width = 0.2 / abs(size.x)
 	vertical_lines.get_child(1).width = vertical_lines.get_child(0).width
-	
+
 	checkerboard.material.set_shader_parameter("scale", size / 2)
 
 
