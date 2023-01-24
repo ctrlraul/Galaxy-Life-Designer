@@ -48,26 +48,31 @@ func set_structure(structure_id: String, level: int) -> void:
 	
 	dto = Assets.structures.get(structure_id)
 	
-	var visual_size: Vector2 = dto.size * Isometry.GRID_TO_WORLD_SCALE
-	
 	set_level(level)
+	set_tactical_view()
+	
+	grid_area_marker.size = dto.size
+	grid_area.size = dto.size
+
+
+func set_tactical_view() -> void:
 	
 	tactical_view.texture = dto.tactical_view
 	tactical_view.scale = dto.size * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size()
 	tactical_view.scale.x *= 2
-	tactical_view.position.y = visual_size.y * 0.5
+	tactical_view.position.y = get_visual_size().y * 0.5
 	
 	# Maybe try make some sense out of this to write it better
 	tactical_view.scale -= Vector2.ONE * Isometry.GRID_TO_WORLD_SCALE / tactical_view.texture.get_size() * 0.2
-	
-	grid_area_marker.size = dto.size
-	grid_area.size = dto.size
-	
+
+
+func get_visual_size() -> Vector2:
+	return dto.size * Isometry.GRID_TO_WORLD_SCALE
 
 
 func set_level(level: int) -> void:
 	
-	var visual_size: Vector2 = dto.size * Isometry.GRID_TO_WORLD_SCALE
+	var visual_size: Vector2 = get_visual_size()
 	
 	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
 	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
