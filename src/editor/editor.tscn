@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdpta42jndfgu"]
+[gd_scene load_steps=15 format=3 uid="uid://bsdnhddsbdwtt"]
 
 [ext_resource type="Script" path="res://src/editor/editor.gd" id="1_r01ma"]
 [ext_resource type="PackedScene" uid="uid://c5jvoleeqe73r" path="res://src/editor/structure/structure.tscn" id="2_2ablk"]
 [ext_resource type="PackedScene" uid="uid://dykldjtame0cu" path="res://src/interface/structures_picker/structures_picker.tscn" id="3_w05ga"]
-[ext_resource type="PackedScene" uid="uid://pw6375cheraw" path="res://src/precompiler/precompiler.tscn" id="3_y5dlo"]
+[ext_resource type="PackedScene" path="res://src/precompiler/precompiler.tscn" id="3_y5dlo"]
 [ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="4_r8vcc"]
 [ext_resource type="PackedScene" uid="uid://j66jhqrebhkl" path="res://src/editor/panning_module/panning_module.tscn" id="4_x63b4"]
+[ext_resource type="PackedScene" uid="uid://dvhodb44ahuic" path="res://src/editor/radius_displayer/radius_displayer.tscn" id="5_1dviu"]
 [ext_resource type="PackedScene" uid="uid://b3juiyaneddml" path="res://src/editor/dragging_module/dragging_module.tscn" id="5_8f1qt"]
 [ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://src/theme.tres" id="6_ayf0x"]
 [ext_resource type="PackedScene" uid="uid://dbd0uqk0wtqx8" path="res://src/editor/zooming_module/zooming_module.tscn" id="6_cipsx"]
@@ -29,6 +30,9 @@ current = true
 unique_name_in_owner = true
 
 [node name="Structures" type="Node2D" parent="Grid"]
+unique_name_in_owner = true
+
+[node name="RadiusDisplayer" parent="Grid" instance=ExtResource("5_1dviu")]
 unique_name_in_owner = true
 
 [node name="Interface" type="CanvasLayer" parent="."]

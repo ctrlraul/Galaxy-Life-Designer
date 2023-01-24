@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvhodb44ahuic"]
+
+[ext_resource type="Script" path="res://src/editor/radius_displayer/radius_displayer.gd" id="1_kxxcd"]
+[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://src/editor/radius_displayer/blend_mode_add.tres" id="2_e0r67"]
+[ext_resource type="Texture2D" uid="uid://mv48tkckmher" path="res://src/editor/radius_displayer/radius_gfx.png" id="3_vl4dc"]
+
+[node name="RadiusDisplayer" type="Node2D"]
+script = ExtResource("1_kxxcd")
+
+[node name="Transform" type="Node2D" parent="."]
+scale = Vector2(1, 0.5)
+
+[node name="WhiteCircle" type="Sprite2D" parent="Transform"]
+unique_name_in_owner = true
+self_modulate = Color(0, 1, 1, 0.188235)
+material = ExtResource("2_e0r67")
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_vl4dc")

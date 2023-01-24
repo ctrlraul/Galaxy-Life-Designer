@@ -5,7 +5,6 @@ class_name Structure
 @onready var tactical_view: Sprite2D = $TacticalView
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var grid_area_marker: Node2D = $GridAreaMarker
-@onready var radius: Node2D = $Radius
 @onready var animation_player = $AnimationPlayer
 
 
@@ -30,11 +29,11 @@ var grid_position: Vector2 :
 
 var dto: StructureDTO
 
+var __level: int
+
 
 
 func _ready() -> void:
-
-	radius.scale = Vector2.ZERO
 
 	grid_area_marker.set_border_color(AREA_BORDER_COLOR)
 	grid_area_marker.set_color(Color.TRANSPARENT)
@@ -72,19 +71,23 @@ func get_visual_size() -> Vector2:
 
 func set_level(level: int) -> void:
 
+	__level = level
+
 	var visual_size: Vector2 = get_visual_size()
 
-	sprite.texture = Assets.get_structure_level_property(dto, level, "texture")
-	sprite.position = Assets.get_structure_level_property(dto, level, "offset")
+	sprite.texture = Assets.get_structure_level_property(dto, __level, "texture")
+	sprite.position = Assets.get_structure_level_property(dto, __level, "offset")
 	sprite.position.y += visual_size.y * 0.5
 
-	var level_range = Assets.get_structure_level_property(dto, level, "range")
 
-	if level_range != null:
-		radius.set_radius(level_range)
-		radius.position.y = visual_size.y * 0.5
-	else:
-		radius.visible = false
+func get_range_radius() -> float:
+
+	var value = Assets.get_structure_level_property(dto, __level, "range")
+
+	if value == null:
+		return 0.0
+
+	return value
 
 
 func set_hovered(value: bool) -> void:

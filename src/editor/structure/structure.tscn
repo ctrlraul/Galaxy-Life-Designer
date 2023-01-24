@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5jvoleeqe73r"]
+[gd_scene load_steps=10 format=3 uid="uid://c5jvoleeqe73r"]
 
 [ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
 [ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_femp1"]
 [ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
 [ext_resource type="Texture2D" uid="uid://dv0bti0bdjsd3" path="res://src/assets/structures/tactical_view/observatory.png" id="2_su7fe"]
-[ext_resource type="PackedScene" uid="uid://ba0gmxd52b0y2" path="res://src/editor/radius/radius.tscn" id="4_1gq75"]
 
 [sub_resource type="Animation" id="Animation_8gy7q"]
 length = 0.001
@@ -19,42 +18,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Radius:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Radius:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_uglfm"]
@@ -72,30 +35,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1.1, 1.1), Vector2(1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Radius:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.3, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Radius:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.3, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_firsr"]
 resource_name = "hover_on"
@@ -111,30 +50,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.3, 0.3),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Radius:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.3, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Radius:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ym5pj"]
@@ -171,8 +86,6 @@ texture = ExtResource("2_su7fe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_pmr7y")
-
-[node name="Radius" parent="." instance=ExtResource("4_1gq75")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

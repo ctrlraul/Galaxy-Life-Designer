@@ -16,6 +16,7 @@ extends Node2D
 
 @onready var grid_area: Node2D = %GridArea
 @onready var structures: Node2D = %Structures
+@onready var radius_displayer: Node2D = %RadiusDisplayer
 @onready var rotate_axis_button: Button = %RotateAxis
 
 
@@ -300,6 +301,12 @@ func __update_hovered_structure(hovered_tile: Vector2) -> void:
 
 	if structure_hovered:
 		structure_hovered.set_hovered(true)
+
+	__on_structure_hovered_changed()
+
+
+func __on_structure_hovered_changed() -> void:
+	radius_displayer.set_for(structure_hovered)
 
 
 func __update_y_sort() -> void:
