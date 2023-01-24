@@ -516,6 +516,11 @@ func _on_structures_picker_loadout_changed(old_loadout: LoadoutDTO) -> void:
 		
 		for structure in structures_with_id:
 			structure.set_level(structure_setting.level)
+		
+		structures_picker.set_count(
+			structure_id,
+			structure_setting.count - structures_with_id.size()
+		)
 
 
 func _on_interaction_hitbox_pressed() -> void:

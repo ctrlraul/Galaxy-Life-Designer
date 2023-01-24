@@ -84,6 +84,15 @@ func decrease_count(structure_id: String) -> bool:
 	return false
 
 
+func set_count(structure_id: String, count: int) -> void:
+	
+	if items_map.has(structure_id):
+		items_map[structure_id].count = count
+		return
+	
+	push_error("Loadout '%s' does not allow '%s' structures" % [loadout.id, structure_id])
+
+
 func get_count(structure_id: String) -> int:
 	return items_map[structure_id].count
 
