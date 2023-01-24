@@ -36,44 +36,45 @@ func set_loadout_index(index: int) -> void:
 
 
 func set_loadout(_loadout: LoadoutDTO) -> void:
-	
+
 	var old_loadout: LoadoutDTO = loadout
-	
+
 	loadout = _loadout
-	
+
 	NodeUtils.queue_free_children(items)
-	
+
 	for structure_id in loadout.structures:
-		
+
 		var item: StructuresListItem = StructuresListItemScene.instantiate()
 		var data: Dictionary = loadout.structures[structure_id]
-		
+
 		items.add_child(item)
 		item.set_structure(structure_id, data.count, data.level)
 		item.pressed.connect(func(): pick(structure_id))
 		items_map[structure_id] = item
-	
+
 	loadouts.selected = Assets.loadouts.values().find(loadout)
-	
+
 	loadout_changed.emit(old_loadout)
 
 
 func set_block_picking(value: bool) -> void:
-	
+
 	if value == block_picking:
 		return
-	
+
 	block_picking = value
 	cover.visible = block_picking
 	cover.modulate.a = 0
 	items.modulate.a = 0.5 if block_picking else 1.0
+	loadouts.disabled = block_picking
 
 
 func pick(structure_id: String) -> void:
-	
+
 	if block_picking || get_count(structure_id) <= 0:
 		return
-	
+
 	item_picked.emit(structure_id)
 
 
@@ -85,11 +86,11 @@ func decrease_count(structure_id: String) -> bool:
 
 
 func set_count(structure_id: String, count: int) -> void:
-	
+
 	if !items_map.has(structure_id):
 		push_error("Loadout '%s' does not allow '%s' structures" % [loadout.id, structure_id])
 		return
-	
+
 	items_map[structure_id].count = count
 
 
@@ -98,11 +99,11 @@ func get_count(structure_id: String) -> int:
 
 
 func put(structure_id: String) -> void:
-	
+
 	if loadout.structures[structure_id].count < items_map[structure_id].count:
 		push_error("Trying to store more %ss than allowed!" % structure_id)
 		return
-	
+
 	items_map[structure_id].count += 1
 
 
