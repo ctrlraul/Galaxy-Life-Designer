@@ -17,6 +17,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/mortar.png",
 	"display_name": "Mortar",
+	"range_color": 0,
 	"size": {
 		"x": 4,
 		"y": 4

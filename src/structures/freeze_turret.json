@@ -14,6 +14,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/freeze_turret.png",
 	"display_name": "Freeze Turret",
+	"range_color": 0,
 	"size": {
 		"x": 4,
 		"y": 4

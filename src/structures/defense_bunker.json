@@ -27,6 +27,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/defense_bunker.png",
 	"display_name": "Defense Bunker",
+	"range_color": 1,
 	"size": {
 		"x": 8,
 		"y": 8

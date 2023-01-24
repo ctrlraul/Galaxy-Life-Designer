@@ -26,6 +26,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/missile_launcher.png",
 	"display_name": "Missile Launcher",
+	"range_color": 0,
 	"size": {
 		"x": 4,
 		"y": 4

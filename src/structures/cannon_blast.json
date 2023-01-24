@@ -29,6 +29,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/cannon_blast.png",
 	"display_name": "Cannon Blast",
+	"range_color": 0,
 	"size": {
 		"x": 4,
 		"y": 4

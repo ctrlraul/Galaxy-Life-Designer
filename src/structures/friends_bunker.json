@@ -27,6 +27,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/friends_bunker.png",
 	"display_name": "Friends Bunker",
+	"range_color": 1,
 	"size": {
 		"x": 8,
 		"y": 8

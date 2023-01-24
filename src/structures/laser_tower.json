@@ -20,6 +20,7 @@
 	},
 	"tactical_view": "res://src/assets/structures/tactical_view/laser_tower.png",
 	"display_name": "Laser Tower",
+	"range_color": 0,
 	"size": {
 		"x": 4,
 		"y": 4

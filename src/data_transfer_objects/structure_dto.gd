@@ -4,6 +4,7 @@ class_name StructureDTO
 var id: String
 var display_name: String
 var tactical_view: Texture2D
+var range_color: int
 var size: Vector2
 var levels: Dictionary
 
@@ -16,6 +17,7 @@ static func from(object) -> StructureDTO:
 	to.id = object.get("id")
 	to.display_name = Assets.get_or_default(object, "display_name", false)
 	to.levels = object.get("levels")
+	to.range_color = Assets.get_or_default(object, "range_color", 0)
 	to.size = Vector2(size_data.x, size_data.y)
 
 	if object.get("tactical_view") != null:
