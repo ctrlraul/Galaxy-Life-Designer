@@ -16,6 +16,12 @@ var size: Vector2 = Vector2.ZERO : set = set_size
 
 func _ready() -> void:
 	squisher.scale = SQUISH * SCALE
+	checkerboard.material.set_shader_parameter("scale", Vector2.ONE / SCALE / 2)
+
+
+func _process(_delta: float) -> void:
+	var camera: Camera2D = get_viewport().get_camera_2d()
+	checkerboard.material.set_shader_parameter("offset", camera.global_position)
 
 
 func set_size(value: Vector2) -> void:
@@ -32,8 +38,6 @@ func set_size(value: Vector2) -> void:
 	vertical_lines.scale = size
 	vertical_lines.get_child(0).width = 0.2 / abs(size.x)
 	vertical_lines.get_child(1).width = vertical_lines.get_child(0).width
-
-	checkerboard.material.set_shader_parameter("scale", size / 2)
 
 
 func set_checkerboard(value: bool) -> void:
