@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://pw6375cheraw"]
 
 [ext_resource type="Shader" path="res://src/editor/dragging_module/hologram.gdshader" id="1_t0fy3"]
-[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://src/editor/radius/blend_mode_add.tres" id="2_0it5v"]
-[ext_resource type="Texture2D" uid="uid://badh7w16wh8sp" path="res://src/precompiler/pixel.png" id="3_gm52l"]
+[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://src/editor/radius_displayer/blend_mode_add.tres" id="2_0it5v"]
+[ext_resource type="Texture2D" uid="uid://di4lhx3wy6b8u" path="res://src/precompiler/pixel.png" id="3_gm52l"]
 [ext_resource type="Shader" path="res://src/editor/grid_area_marker/grid_area_marker.gdshader" id="4_1msha"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nx76s"]
