@@ -10,7 +10,8 @@ shader = ExtResource("1_t0fy3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbs5n"]
 shader = ExtResource("4_1msha")
-shader_parameter/scale = null
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="Precompiler" type="Node2D"]
 
@@ -22,6 +23,6 @@ texture = ExtResource("3_gm52l")
 material = ExtResource("2_0it5v")
 texture = ExtResource("3_gm52l")
 
-[node name="StructureFootprintShader" type="Sprite2D" parent="."]
+[node name="CheckerboardShader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_cbs5n")
 texture = ExtResource("3_gm52l")
