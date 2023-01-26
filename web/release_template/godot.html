@@ -141,32 +141,45 @@
 </head>
 <body>
 
-	<canvas id="canvas">
-		HTML5 canvas appears to be unsupported in the current browser.<br>
-		Please try updating or use a different browser.
-	</canvas>
+	<ul id="buttons">
+		<li>
+			<button id="run-in-browser-button">Run in browser</button>
+		</li>
+		<li>
+			<a href="/gllm.exe" download="gllm.exe">
+				<button>Download for Windows</button>
+			</a>
+		</li>
+	</ul>
 
-	<div id="status">
-
-		<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-			<div id ="status-progress-inner"></div>
+	<div id="in-browser" style="display: none">
+		<canvas id="canvas">
+			HTML5 canvas appears to be unsupported in the current browser.<br>
+			Please try updating or use a different browser.
+		</canvas>
+	
+		<div id="status">
+	
+			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div id ="status-progress-inner"></div>
+			</div>
+	
+			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+	
+			<div id="status-notice" class="godot" style="display: none;"></div>
+	
 		</div>
-
-		<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-
-		<div id="status-notice" class="godot" style="display: none;"></div>
-
 	</div>
-
+	
 	<script src="$GODOT_URL"></script>
 	<script id="godot_config" type="application/json">$GODOT_CONFIG</script>
 	<script src="loader.js" defer></script>

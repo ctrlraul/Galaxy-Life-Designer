@@ -1,7 +1,17 @@
 const GODOT_CONFIG = JSON.parse(document.getElementById('godot_config').textContent);
 const engine = new Engine(GODOT_CONFIG);
 
-(function () {
+
+document.getElementById('run-in-browser-button').addEventListener('click', () => {
+	runInBrowser();
+});
+
+
+function runInBrowser() {
+
+	document.getElementById('buttons').remove();
+	document.getElementById('in-browser').style.display = '';
+
 	const INDETERMINATE_STATUS_STEP_MS = 100;
 	const statusProgress = document.getElementById('status-progress');
 	const statusProgressInner = document.getElementById('status-progress-inner');
@@ -102,4 +112,4 @@ const engine = new Engine(GODOT_CONFIG);
 			initializing = false;
 		}, displayFailureNotice);
 	}
-}());
+}
