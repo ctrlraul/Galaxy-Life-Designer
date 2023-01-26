@@ -44,10 +44,15 @@ func __multi_selection_start() -> void:
 
 func __multi_selection_stop() -> void:
 
+	var selection_position: Vector2 = Vector2(
+		min(__hover_module.hovered_tile.x, __multi_selection_start_tile.x),
+		min(__hover_module.hovered_tile.y, __multi_selection_start_tile.y)
+	)
+
 	var selection_rectangle = Rect2(
-		__multi_selection_start_tile,
+		selection_position,
 		__multi_selection_rectangle.size
-	).abs()
+	)
 
 	__multi_selecting = false
 	__multi_selection_rectangle.visible = false
@@ -61,16 +66,14 @@ func __multi_selection_stop() -> void:
 func __update_multi_selection() -> void:
 
 	var difference: Vector2 = __multi_selection_start_tile - __hover_module.hovered_tile
-	var size: Vector2 = difference * -1
-
-	if !size.x:
-		size.x = 1
-
-	if !size.y:
-		size.y = 1
+	var size: Vector2 = difference.abs() + Vector2.ONE
+	var grid_position: Vector2 = Vector2(
+		min(__hover_module.hovered_tile.x, __multi_selection_start_tile.x),
+		min(__hover_module.hovered_tile.y, __multi_selection_start_tile.y)
+	)
 
 	__multi_selection_rectangle.size = size
-	__multi_selection_rectangle.position = Isometry.grid_to_world(__hover_module.hovered_tile + difference)
+	__multi_selection_rectangle.position = Isometry.grid_to_world(grid_position)
 
 
 func _on_interaction_hitbox_gui_input(event: InputEvent) -> void:
