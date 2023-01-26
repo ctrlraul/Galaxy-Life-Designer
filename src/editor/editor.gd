@@ -17,6 +17,7 @@ extends Node2D
 @onready var grid_area: Node2D = %GridArea
 @onready var structures: Node2D = %Structures
 @onready var radius_displayer: Node2D = %RadiusDisplayer
+@onready var __grid_highlighter = %GridHighlighter
 @onready var rotate_axis_button: Button = %RotateAxis
 
 
@@ -32,9 +33,14 @@ var structure_hovered: Structure
 var history: ActionHistory = ActionHistory.new(256)
 var history_logger: Logger = Logger.new("ActionHistory")
 
+# Can easily extract grid highlighter into a module
+var __grid_highlighter_enabled: bool = false
+
 
 
 func _ready() -> void:
+
+	__grid_highlighter.visible = __grid_highlighter_enabled
 
 	grid_area.set_size(GRID_SIZE)
 	grid_area.set_checkerboard(false)
@@ -608,8 +614,16 @@ func _on_multi_selection_module_selected(selection_rectangle: Rect2) -> void:
 
 
 func _on_hover_module_hovered_tile_changed(_relative: Vector2, hovered_tile: Vector2) -> void:
+
 	if !Input.is_action_pressed("chain_placing"):
 		__update_hovered_structure(hovered_tile)
+
+	if __grid_highlighter_enabled:
+		if dragging_module.is_dragging():
+			__grid_highlighter.visible = true
+			__grid_highlighter.position = Isometry.grid_to_world(hovered_tile)
+		else:
+			__grid_highlighter.visible = false
 
 
 func _on_dragging_module_try_to_chain_place_structures() -> void:
