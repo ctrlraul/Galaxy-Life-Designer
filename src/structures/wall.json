@@ -1,42 +1,42 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/wall_1.webp",
+			"texture": "res://assets/structures/wall_1.webp",
 			"offset": {
 				"x": 0,
 				"y": -16
 			}
 		},
 		"2": {
-			"texture": "res://src/assets/structures/wall_2.webp",
+			"texture": "res://assets/structures/wall_2.webp",
 			"offset": {
 				"x": 0,
 				"y": -16
 			}
 		},
 		"3": {
-			"texture": "res://src/assets/structures/wall_3.webp",
+			"texture": "res://assets/structures/wall_3.webp",
 			"offset": {
 				"x": 0,
 				"y": -17
 			}
 		},
 		"4": {
-			"texture": "res://src/assets/structures/wall_4.webp",
+			"texture": "res://assets/structures/wall_4.webp",
 			"offset": {
 				"x": 0,
 				"y": -24
 			}
 		},
 		"5": {
-			"texture": "res://src/assets/structures/wall_5.webp",
+			"texture": "res://assets/structures/wall_5.webp",
 			"offset": {
 				"x": 0,
 				"y": -31
 			}
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/wall.png",
+	"tactical_view": "res://assets/structures/tactical_view/wall.png",
 	"display_name": "Wall",
 	"size": {
 		"x": 1,

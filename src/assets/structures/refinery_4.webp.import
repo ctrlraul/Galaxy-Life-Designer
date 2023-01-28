@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btpvxldom4abp"
-path="res://.godot/imported/refinery_4.webp-92eddeecfb4ba793bf32ef56c893d2a4.ctex"
+path="res://.godot/imported/refinery_4.webp-dbb83c0a22e95835b6745fc8614815fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/refinery_4.webp"
-dest_files=["res://.godot/imported/refinery_4.webp-92eddeecfb4ba793bf32ef56c893d2a4.ctex"]
+source_file="res://assets/structures/refinery_4.webp"
+dest_files=["res://.godot/imported/refinery_4.webp-dbb83c0a22e95835b6745fc8614815fb.ctex"]
 
 [params]
 

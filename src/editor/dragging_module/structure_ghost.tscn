@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://fqha581p7yni"]
 
-[ext_resource type="Script" path="res://src/editor/dragging_module/structure_ghost.gd" id="1_0v61m"]
-[ext_resource type="Texture2D" uid="uid://dv0bti0bdjsd3" path="res://src/assets/structures/tactical_view/observatory.png" id="2_f50nw"]
-[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_x3acx"]
-[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="5_gixbx"]
+[ext_resource type="Script" path="res://editor/dragging_module/structure_ghost.gd" id="1_0v61m"]
+[ext_resource type="Texture2D" uid="uid://dv0bti0bdjsd3" path="res://assets/structures/tactical_view/observatory.png" id="2_f50nw"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://editor/grid_area_marker/grid_area_marker.tscn" id="2_x3acx"]
+[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://assets/structures/observatory_1.webp" id="5_gixbx"]
 
 [node name="StructureGhost" type="Node2D"]
 script = ExtResource("1_0v61m")

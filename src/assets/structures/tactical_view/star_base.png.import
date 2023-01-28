@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccu3en2dbo1n6"
-path="res://.godot/imported/star_base.png-6ec79c31882ba40405186923742cfa23.ctex"
+path="res://.godot/imported/star_base.png-f3eb0d2be75b378f503a38f520e55029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/star_base.png"
-dest_files=["res://.godot/imported/star_base.png-6ec79c31882ba40405186923742cfa23.ctex"]
+source_file="res://assets/structures/tactical_view/star_base.png"
+dest_files=["res://.godot/imported/star_base.png-f3eb0d2be75b378f503a38f520e55029.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1y4pbus5g3n3"
-path="res://.godot/imported/laboratory.png-e1d1374169a272eb29dd6524525f7adc.ctex"
+path="res://.godot/imported/laboratory.png-3268120ecea3ae81a33088e68aa8d1c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/laboratory.png"
-dest_files=["res://.godot/imported/laboratory.png-e1d1374169a272eb29dd6524525f7adc.ctex"]
+source_file="res://assets/structures/tactical_view/laboratory.png"
+dest_files=["res://.godot/imported/laboratory.png-3268120ecea3ae81a33088e68aa8d1c6.ctex"]
 
 [params]
 

@@ -1,28 +1,28 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/silo_1.webp",
+			"texture": "res://assets/structures/silo_1.webp",
 			"offset": {
 				"x": -5,
 				"y": -15
 			}
 		},
 		"2": {
-			"texture": "res://src/assets/structures/silo_2.webp",
+			"texture": "res://assets/structures/silo_2.webp",
 			"offset": {
 				"x": -5,
 				"y": -30
 			}
 		},
 		"6": {
-			"texture": "res://src/assets/structures/silo_7.webp",
+			"texture": "res://assets/structures/silo_7.webp",
 			"offset": {
 				"x": -5,
 				"y": -40
 			}
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/silo.png",
+	"tactical_view": "res://assets/structures/tactical_view/silo.png",
 	"display_name": "Silo",
 	"size": {
 		"x": 6,

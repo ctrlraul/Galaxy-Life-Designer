@@ -1,7 +1,7 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/cannon_blast_1.png",
+			"texture": "res://assets/structures/cannon_blast_1.png",
 			"offset": {
 				"x": 0,
 				"y": -32
@@ -27,7 +27,7 @@
 			"range": 373
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/cannon_blast.png",
+	"tactical_view": "res://assets/structures/tactical_view/cannon_blast.png",
 	"display_name": "Cannon Blast",
 	"range_color": 0,
 	"size": {

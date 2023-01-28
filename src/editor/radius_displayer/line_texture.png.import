@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xukaahofjy3s"
-path="res://.godot/imported/line_texture.png-6fcdecb0adce1fb0d4233e347e7c5d67.ctex"
+path="res://.godot/imported/line_texture.png-b45983dcda291a7f604af071adc42f5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/editor/radius_displayer/line_texture.png"
-dest_files=["res://.godot/imported/line_texture.png-6fcdecb0adce1fb0d4233e347e7c5d67.ctex"]
+source_file="res://editor/radius_displayer/line_texture.png"
+dest_files=["res://.godot/imported/line_texture.png-b45983dcda291a7f604af071adc42f5d.ctex"]
 
 [params]
 

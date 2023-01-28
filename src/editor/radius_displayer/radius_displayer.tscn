@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvhodb44ahuic"]
 
-[ext_resource type="Script" path="res://src/editor/radius_displayer/radius_displayer.gd" id="1_kxxcd"]
-[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://src/editor/radius_displayer/blend_mode_add.tres" id="2_e0r67"]
-[ext_resource type="Texture2D" uid="uid://cdos3an0oi3fq" path="res://src/editor/radius_displayer/radius_gfx.png" id="3_vl4dc"]
-[ext_resource type="Texture2D" uid="uid://xukaahofjy3s" path="res://src/editor/radius_displayer/line_texture.png" id="4_6cvqw"]
+[ext_resource type="Script" path="res://editor/radius_displayer/radius_displayer.gd" id="1_kxxcd"]
+[ext_resource type="Material" uid="uid://c5kxrqvnq2boc" path="res://editor/radius_displayer/blend_mode_add.tres" id="2_e0r67"]
+[ext_resource type="Texture2D" uid="uid://cdos3an0oi3fq" path="res://editor/radius_displayer/radius_gfx.png" id="3_vl4dc"]
+[ext_resource type="Texture2D" uid="uid://xukaahofjy3s" path="res://editor/radius_displayer/line_texture.png" id="4_6cvqw"]
 
 [node name="RadiusDisplayer" type="Node2D"]
 script = ExtResource("1_kxxcd")

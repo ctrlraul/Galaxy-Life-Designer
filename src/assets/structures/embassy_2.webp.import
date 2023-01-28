@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://t2wlvi3ok3c8"
-path="res://.godot/imported/embassy_2.webp-2e5a2090f6357c890c5d6ed2c3918491.ctex"
+path="res://.godot/imported/embassy_2.webp-e1f92bbb8d2dbc6ad5ae180744e5f36b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/embassy_2.webp"
-dest_files=["res://.godot/imported/embassy_2.webp-2e5a2090f6357c890c5d6ed2c3918491.ctex"]
+source_file="res://assets/structures/embassy_2.webp"
+dest_files=["res://.godot/imported/embassy_2.webp-e1f92bbb8d2dbc6ad5ae180744e5f36b.ctex"]
 
 [params]
 

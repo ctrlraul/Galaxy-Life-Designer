@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl6mi3v7qql4g"
-path="res://.godot/imported/compact_house_9.webp-c15bb5c849db044fcfe3859e2fefe397.ctex"
+path="res://.godot/imported/compact_house_9.webp-3c7c065600ac3ad83707d2dbd7772119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/compact_house_9.webp"
-dest_files=["res://.godot/imported/compact_house_9.webp-c15bb5c849db044fcfe3859e2fefe397.ctex"]
+source_file="res://assets/structures/compact_house_9.webp"
+dest_files=["res://.godot/imported/compact_house_9.webp-3c7c065600ac3ad83707d2dbd7772119.ctex"]
 
 [params]
 

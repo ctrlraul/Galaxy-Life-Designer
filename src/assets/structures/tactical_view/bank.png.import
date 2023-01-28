@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf7cficrm24g6"
-path="res://.godot/imported/bank.png-9cb92235a29340c60ea8de4f5281f88d.ctex"
+path="res://.godot/imported/bank.png-3e774bbc6509c0223e12831971411add.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/bank.png"
-dest_files=["res://.godot/imported/bank.png-9cb92235a29340c60ea8de4f5281f88d.ctex"]
+source_file="res://assets/structures/tactical_view/bank.png"
+dest_files=["res://.godot/imported/bank.png-3e774bbc6509c0223e12831971411add.ctex"]
 
 [params]
 

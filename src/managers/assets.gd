@@ -8,8 +8,8 @@ var structures: Dictionary
 
 
 func _ready() -> void:
-	__load_loadouts("res://src/loadouts/")
-	__load_structures("res://src/structures/")
+	__load_loadouts("res://loadouts/")
+	__load_structures("res://structures/")
 
 
 

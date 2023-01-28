@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccflnyuen4tur"
-path="res://.godot/imported/freeze_turret.png-5a3e1ec7e28a7c70c8ef301149d24857.ctex"
+path="res://.godot/imported/freeze_turret.png-bb65e647caa9d8f64c65c4894c9ba5d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/freeze_turret.png"
-dest_files=["res://.godot/imported/freeze_turret.png-5a3e1ec7e28a7c70c8ef301149d24857.ctex"]
+source_file="res://assets/structures/tactical_view/freeze_turret.png"
+dest_files=["res://.godot/imported/freeze_turret.png-bb65e647caa9d8f64c65c4894c9ba5d5.ctex"]
 
 [params]
 

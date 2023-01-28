@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmgb3junwmk8g"
-path="res://.godot/imported/starport_1.webp-b4f541d7ba937f3827e039462fe9dee8.ctex"
+path="res://.godot/imported/starport_1.webp-e8f4643ff07e1feb54feb361b414bf0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/starport_1.webp"
-dest_files=["res://.godot/imported/starport_1.webp-b4f541d7ba937f3827e039462fe9dee8.ctex"]
+source_file="res://assets/structures/starport_1.webp"
+dest_files=["res://.godot/imported/starport_1.webp-e8f4643ff07e1feb54feb361b414bf0f.ctex"]
 
 [params]
 

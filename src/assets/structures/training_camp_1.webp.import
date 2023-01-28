@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baodpghwfd17j"
-path="res://.godot/imported/training_camp_1.webp-0817d4497cdae7a4e9a6f47821852e90.ctex"
+path="res://.godot/imported/training_camp_1.webp-154a53f40b9e0395bc264e9340d65ce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/training_camp_1.webp"
-dest_files=["res://.godot/imported/training_camp_1.webp-0817d4497cdae7a4e9a6f47821852e90.ctex"]
+source_file="res://assets/structures/training_camp_1.webp"
+dest_files=["res://.godot/imported/training_camp_1.webp-154a53f40b9e0395bc264e9340d65ce4.ctex"]
 
 [params]
 

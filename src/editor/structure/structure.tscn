@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5jvoleeqe73r"]
 
-[ext_resource type="Script" path="res://src/editor/structure/structure.gd" id="1_7dcdv"]
-[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://src/editor/grid_area_marker/grid_area_marker.tscn" id="2_femp1"]
-[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://src/assets/structures/observatory_1.webp" id="2_pmr7y"]
-[ext_resource type="Texture2D" uid="uid://dv0bti0bdjsd3" path="res://src/assets/structures/tactical_view/observatory.png" id="2_su7fe"]
+[ext_resource type="Script" path="res://editor/structure/structure.gd" id="1_7dcdv"]
+[ext_resource type="PackedScene" uid="uid://d1iejtgetho84" path="res://editor/grid_area_marker/grid_area_marker.tscn" id="2_femp1"]
+[ext_resource type="Texture2D" uid="uid://cltns3yd8bfx2" path="res://assets/structures/observatory_1.webp" id="2_pmr7y"]
+[ext_resource type="Texture2D" uid="uid://dv0bti0bdjsd3" path="res://assets/structures/tactical_view/observatory.png" id="2_su7fe"]
 
 [sub_resource type="Animation" id="Animation_8gy7q"]
 length = 0.001

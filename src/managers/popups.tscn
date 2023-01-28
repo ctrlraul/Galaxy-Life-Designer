@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://eay1abdx8x47"]
 
-[ext_resource type="Script" path="res://src/managers/popups.gd" id="1_jrllg"]
+[ext_resource type="Script" path="res://managers/popups.gd" id="1_jrllg"]
 
 [node name="Popups" type="CanvasLayer"]
 layer = 2

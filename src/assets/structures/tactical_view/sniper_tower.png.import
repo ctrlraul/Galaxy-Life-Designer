@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg6w35u4mmi7a"
-path="res://.godot/imported/sniper_tower.png-de892e49df088f979a7a0a0130db15ae.ctex"
+path="res://.godot/imported/sniper_tower.png-58b3be00d5b86c9cea47af7292873be8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/sniper_tower.png"
-dest_files=["res://.godot/imported/sniper_tower.png-de892e49df088f979a7a0a0130db15ae.ctex"]
+source_file="res://assets/structures/tactical_view/sniper_tower.png"
+dest_files=["res://.godot/imported/sniper_tower.png-58b3be00d5b86c9cea47af7292873be8.ctex"]
 
 [params]
 

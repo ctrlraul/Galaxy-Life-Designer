@@ -1,7 +1,7 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/freeze_turret_1.png",
+			"texture": "res://assets/structures/freeze_turret_1.png",
 			"offset": {
 				"x": 0,
 				"y": -28
@@ -12,7 +12,7 @@
 			"range": 500
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/freeze_turret.png",
+	"tactical_view": "res://assets/structures/tactical_view/freeze_turret.png",
 	"display_name": "Freeze Turret",
 	"range_color": 0,
 	"size": {

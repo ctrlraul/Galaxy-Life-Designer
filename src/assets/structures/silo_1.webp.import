@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ktax6yll0cak"
-path="res://.godot/imported/silo_1.webp-1f8088931be076f58311b67c2d60d9f7.ctex"
+path="res://.godot/imported/silo_1.webp-b81776302d268e68683cdac140e57395.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/silo_1.webp"
-dest_files=["res://.godot/imported/silo_1.webp-1f8088931be076f58311b67c2d60d9f7.ctex"]
+source_file="res://assets/structures/silo_1.webp"
+dest_files=["res://.godot/imported/silo_1.webp-b81776302d268e68683cdac140e57395.ctex"]
 
 [params]
 

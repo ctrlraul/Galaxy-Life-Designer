@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b22urp0r2uff5"
-path="res://.godot/imported/defense_bunker_2.webp-7d3248aba6a98346f4e2644493601185.ctex"
+path="res://.godot/imported/defense_bunker_2.webp-7c7da915cb6448fa8a2f6d35bc348b1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/defense_bunker_2.webp"
-dest_files=["res://.godot/imported/defense_bunker_2.webp-7d3248aba6a98346f4e2644493601185.ctex"]
+source_file="res://assets/structures/defense_bunker_2.webp"
+dest_files=["res://.godot/imported/defense_bunker_2.webp-7c7da915cb6448fa8a2f6d35bc348b1f.ctex"]
 
 [params]
 

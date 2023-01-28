@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://etph0am8amgs"
-path="res://.godot/imported/mortar.png-3a3e8ae9dc97a8d083b633622a229389.ctex"
+path="res://.godot/imported/mortar.png-c0995accc7bce44a8afef5cf9802576b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/mortar.png"
-dest_files=["res://.godot/imported/mortar.png-3a3e8ae9dc97a8d083b633622a229389.ctex"]
+source_file="res://assets/structures/tactical_view/mortar.png"
+dest_files=["res://.godot/imported/mortar.png-c0995accc7bce44a8afef5cf9802576b.ctex"]
 
 [params]
 

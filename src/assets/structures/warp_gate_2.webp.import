@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bobcrb6p7s38d"
-path="res://.godot/imported/warp_gate_2.webp-4af83760cd9cd06c53819127d83550e9.ctex"
+path="res://.godot/imported/warp_gate_2.webp-f5f6e7b821c3bf4f101b5b4fe3208899.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/warp_gate_2.webp"
-dest_files=["res://.godot/imported/warp_gate_2.webp-4af83760cd9cd06c53819127d83550e9.ctex"]
+source_file="res://assets/structures/warp_gate_2.webp"
+dest_files=["res://.godot/imported/warp_gate_2.webp-f5f6e7b821c3bf4f101b5b4fe3208899.ctex"]
 
 [params]
 

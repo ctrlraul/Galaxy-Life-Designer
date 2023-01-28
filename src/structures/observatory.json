@@ -1,28 +1,28 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/observatory_1.webp",
+			"texture": "res://assets/structures/observatory_1.webp",
 			"offset": {
 				"x": 0,
 				"y": -5
 			}
 		},
 		"2": {
-			"texture": "res://src/assets/structures/observatory_2.webp",
+			"texture": "res://assets/structures/observatory_2.webp",
 			"offset": {
 				"x": -3,
 				"y": -5
 			}
 		},
 		"5": {
-			"texture": "res://src/assets/structures/observatory_5.webp",
+			"texture": "res://assets/structures/observatory_5.webp",
 			"offset": {
 				"x": -3,
 				"y": -5
 			}
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/observatory.png",
+	"tactical_view": "res://assets/structures/tactical_view/observatory.png",
 	"display_name": "Observatory",
 	"size": {
 		"x": 6,

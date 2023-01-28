@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgwperebsd18p"
-path="res://.godot/imported/refinery.png-bab5a2f6e4e7736e01dde698c2abf16e.ctex"
+path="res://.godot/imported/refinery.png-c75b28754b5d2e54de79b38be5c18b0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/refinery.png"
-dest_files=["res://.godot/imported/refinery.png-bab5a2f6e4e7736e01dde698c2abf16e.ctex"]
+source_file="res://assets/structures/tactical_view/refinery.png"
+dest_files=["res://.godot/imported/refinery.png-c75b28754b5d2e54de79b38be5c18b0e.ctex"]
 
 [params]
 

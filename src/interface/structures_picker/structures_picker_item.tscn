@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://3e0irntcxqhr"]
 
-[ext_resource type="Script" path="res://src/interface/structures_picker/structures_picker_item.gd" id="1_lkds3"]
-[ext_resource type="Texture2D" uid="uid://d6s04dx5hsk" path="res://src/assets/structures/observatory_5.webp" id="2_x4jmh"]
+[ext_resource type="Script" path="res://interface/structures_picker/structures_picker_item.gd" id="1_lkds3"]
+[ext_resource type="Texture2D" uid="uid://d6s04dx5hsk" path="res://assets/structures/observatory_5.webp" id="2_x4jmh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_by1nm"]
 line_spacing = 0.0

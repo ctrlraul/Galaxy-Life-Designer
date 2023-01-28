@@ -1,7 +1,7 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/mortar_1.png",
+			"texture": "res://assets/structures/mortar_1.png",
 			"offset": {
 				"x": 0,
 				"y": -28
@@ -15,7 +15,7 @@
 			"range": 650
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/mortar.png",
+	"tactical_view": "res://assets/structures/tactical_view/mortar.png",
 	"display_name": "Mortar",
 	"range_color": 0,
 	"size": {

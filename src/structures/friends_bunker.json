@@ -1,7 +1,7 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/friends_bunker_1.webp",
+			"texture": "res://assets/structures/friends_bunker_1.webp",
 			"offset": {
 				"x": 0,
 				"y": 0
@@ -9,7 +9,7 @@
 			"range": 420
 		},
 		"2": {
-			"texture": "res://src/assets/structures/friends_bunker_2.webp",
+			"texture": "res://assets/structures/friends_bunker_2.webp",
 			"offset": {
 				"x": 0,
 				"y": 0
@@ -17,7 +17,7 @@
 			"range": 520
 		},
 		"3": {
-			"texture": "res://src/assets/structures/friends_bunker_3.webp",
+			"texture": "res://assets/structures/friends_bunker_3.webp",
 			"offset": {
 				"x": 0,
 				"y": 0
@@ -25,7 +25,7 @@
 			"range": 640
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/friends_bunker.png",
+	"tactical_view": "res://assets/structures/tactical_view/friends_bunker.png",
 	"display_name": "Friends Bunker",
 	"range_color": 1,
 	"size": {

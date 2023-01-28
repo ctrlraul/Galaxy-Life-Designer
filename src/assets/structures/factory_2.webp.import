@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs3n31sotw4jr"
-path="res://.godot/imported/factory_2.webp-8fbbddcc490f30fd03c3d3947de8cf60.ctex"
+path="res://.godot/imported/factory_2.webp-a3ef35f5f73bf384744a4c3e7787da9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/factory_2.webp"
-dest_files=["res://.godot/imported/factory_2.webp-8fbbddcc490f30fd03c3d3947de8cf60.ctex"]
+source_file="res://assets/structures/factory_2.webp"
+dest_files=["res://.godot/imported/factory_2.webp-a3ef35f5f73bf384744a4c3e7787da9d.ctex"]
 
 [params]
 

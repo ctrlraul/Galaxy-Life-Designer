@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbd0uqk0wtqx8"]
 
-[ext_resource type="Script" path="res://src/editor/zooming_module/zooming_module.gd" id="1_lmdq5"]
+[ext_resource type="Script" path="res://editor/zooming_module/zooming_module.gd" id="1_lmdq5"]
 
 [node name="ZoomingModule" type="Node2D"]
 script = ExtResource("1_lmdq5")

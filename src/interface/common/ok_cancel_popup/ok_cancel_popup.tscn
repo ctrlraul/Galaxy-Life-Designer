@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwo84x3oqx6il"]
 
-[ext_resource type="PackedScene" uid="uid://ck56hfo6ko7mg" path="res://src/interface/common/ok_popup/ok_popup.tscn" id="1_28k7a"]
-[ext_resource type="Script" path="res://src/interface/common/ok_cancel_popup/ok_cancel_popup.gd" id="2_b7cl0"]
+[ext_resource type="PackedScene" uid="uid://ck56hfo6ko7mg" path="res://interface/common/ok_popup/ok_popup.tscn" id="1_28k7a"]
+[ext_resource type="Script" path="res://interface/common/ok_cancel_popup/ok_cancel_popup.gd" id="2_b7cl0"]
 
 [node name="OkCancelPopup" instance=ExtResource("1_28k7a")]
 script = ExtResource("2_b7cl0")

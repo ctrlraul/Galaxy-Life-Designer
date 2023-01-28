@@ -1,14 +1,14 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/trap_1.webp",
+			"texture": "res://assets/structures/trap_1.webp",
 			"offset": {
 				"x": 0,
 				"y": -5
 			}
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/trap.png",
+	"tactical_view": "res://assets/structures/tactical_view/trap.png",
 	"display_name": "Trap",
 	"size": {
 		"x": 1,

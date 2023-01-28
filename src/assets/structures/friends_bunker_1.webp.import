@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blnn1gngvpn7q"
-path="res://.godot/imported/friends_bunker_1.webp-a6fdc0e30fcb83afa4cb091cb789e185.ctex"
+path="res://.godot/imported/friends_bunker_1.webp-d58817a245c41d2156455f06293e7543.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/friends_bunker_1.webp"
-dest_files=["res://.godot/imported/friends_bunker_1.webp-a6fdc0e30fcb83afa4cb091cb789e185.ctex"]
+source_file="res://assets/structures/friends_bunker_1.webp"
+dest_files=["res://.godot/imported/friends_bunker_1.webp-d58817a245c41d2156455f06293e7543.ctex"]
 
 [params]
 

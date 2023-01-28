@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bl5drg7bdf7e5"]
 
-[ext_resource type="Script" path="res://src/editor/hover_module/hover_module.gd" id="1_8p1vp"]
+[ext_resource type="Script" path="res://editor/hover_module/hover_module.gd" id="1_8p1vp"]
 
 [node name="HoverModule" type="Node2D"]
 script = ExtResource("1_8p1vp")

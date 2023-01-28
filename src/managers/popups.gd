@@ -2,8 +2,8 @@ extends Node
 
 
 
-const OkCancelPopupScene: PackedScene = preload("res://src/interface/common/ok_cancel_popup/ok_cancel_popup.tscn")
-const OkPopupScene: PackedScene = preload("res://src/interface/common/ok_popup/ok_popup.tscn")
+const OkCancelPopupScene: PackedScene = preload("res://interface/common/ok_cancel_popup/ok_cancel_popup.tscn")
+const OkPopupScene: PackedScene = preload("res://interface/common/ok_popup/ok_popup.tscn")
 
 
 

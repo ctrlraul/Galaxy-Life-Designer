@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gpq2x6pcrkga"
-path="res://.godot/imported/compact_house.png-0bb461fccfbde1d1b6963eab4df86b4b.ctex"
+path="res://.godot/imported/compact_house.png-fe74c53b966205653029597deb5d3ce9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/tactical_view/compact_house.png"
-dest_files=["res://.godot/imported/compact_house.png-0bb461fccfbde1d1b6963eab4df86b4b.ctex"]
+source_file="res://assets/structures/tactical_view/compact_house.png"
+dest_files=["res://.godot/imported/compact_house.png-fe74c53b966205653029597deb5d3ce9.ctex"]
 
 [params]
 

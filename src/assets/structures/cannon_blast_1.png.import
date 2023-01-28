@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbllagmoh0btx"
-path="res://.godot/imported/cannon_blast_1.png-b4978255fd302e3d394916fff33e9ef9.ctex"
+path="res://.godot/imported/cannon_blast_1.png-734b5c7f37f8c0d6cfb77da720e4e828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/cannon_blast_1.png"
-dest_files=["res://.godot/imported/cannon_blast_1.png-b4978255fd302e3d394916fff33e9ef9.ctex"]
+source_file="res://assets/structures/cannon_blast_1.png"
+dest_files=["res://.godot/imported/cannon_blast_1.png-734b5c7f37f8c0d6cfb77da720e4e828.ctex"]
 
 [params]
 

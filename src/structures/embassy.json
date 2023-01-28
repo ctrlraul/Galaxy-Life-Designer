@@ -1,28 +1,28 @@
 {
 	"levels": {
 		"1": {
-			"texture": "res://src/assets/structures/embassy_1.webp",
+			"texture": "res://assets/structures/embassy_1.webp",
 			"offset": {
 				"x": 0,
 				"y": -15
 			}
 		},
 		"2": {
-			"texture": "res://src/assets/structures/embassy_2.webp",
+			"texture": "res://assets/structures/embassy_2.webp",
 			"offset": {
 				"x": 0,
 				"y": -30
 			}
 		},
 		"3": {
-			"texture": "res://src/assets/structures/embassy_3.webp",
+			"texture": "res://assets/structures/embassy_3.webp",
 			"offset": {
 				"x": 0,
 				"y": -32
 			}
 		}
 	},
-	"tactical_view": "res://src/assets/structures/tactical_view/embassy.png",
+	"tactical_view": "res://assets/structures/tactical_view/embassy.png",
 	"display_name": "Embassy",
 	"size": {
 		"x": 6,

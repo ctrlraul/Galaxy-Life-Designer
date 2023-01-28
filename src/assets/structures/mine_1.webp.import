@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://op36lhfwipe2"
-path="res://.godot/imported/mine_1.webp-d78e532488c23759c761e7c55ad04295.ctex"
+path="res://.godot/imported/mine_1.webp-87831972aeba8d7a419e8a50864b7a49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/structures/mine_1.webp"
-dest_files=["res://.godot/imported/mine_1.webp-d78e532488c23759c761e7c55ad04295.ctex"]
+source_file="res://assets/structures/mine_1.webp"
+dest_files=["res://.godot/imported/mine_1.webp-87831972aeba8d7a419e8a50864b7a49.ctex"]
 
 [params]
 

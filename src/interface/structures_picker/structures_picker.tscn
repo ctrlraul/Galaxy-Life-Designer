@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dykldjtame0cu"]
 
-[ext_resource type="Script" path="res://src/interface/structures_picker/structures_picker.gd" id="1_tselq"]
-[ext_resource type="PackedScene" uid="uid://3e0irntcxqhr" path="res://src/interface/structures_picker/structures_picker_item.tscn" id="2_3vkor"]
-[ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://src/theme.tres" id="3_fw3gf"]
+[ext_resource type="Script" path="res://interface/structures_picker/structures_picker.gd" id="1_tselq"]
+[ext_resource type="PackedScene" uid="uid://3e0irntcxqhr" path="res://interface/structures_picker/structures_picker_item.tscn" id="2_3vkor"]
+[ext_resource type="Theme" uid="uid://bsmiiccyqdgae" path="res://theme.tres" id="3_fw3gf"]
 
 [sub_resource type="Animation" id="Animation_ma0t2"]
 length = 0.001
