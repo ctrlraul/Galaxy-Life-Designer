@@ -153,43 +153,30 @@
 </head>
 <body>
 
-	<ul id="buttons">
-		<li>
-			<button id="run-in-browser-button">Run in browser</button>
-		</li>
-		<li>
-			<a href="https://raw.githubusercontent.com/ctrlraul/Galaxy-Life-Layout-Maker/main/windows/build/Galaxy%20Life%20Layout%20Maker.exe" download="$GODOT_PROJECT_NAME.exe">
-				<button>Download for Windows</button>
-			</a>
-		</li>
-	</ul>
+	<canvas id="canvas">
+		HTML5 canvas appears to be unsupported in the current browser.<br>
+		Please try updating or use a different browser.
+	</canvas>
 
-	<div id="in-browser" style="display: none">
-		<canvas id="canvas">
-			HTML5 canvas appears to be unsupported in the current browser.<br>
-			Please try updating or use a different browser.
-		</canvas>
-	
-		<div id="status">
-	
-			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-				<div id ="status-progress-inner"></div>
-			</div>
-	
-			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-	
-			<div id="status-notice" class="godot" style="display: none;"></div>
-	
+	<div id="status">
+
+		<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+			<div id ="status-progress-inner"></div>
 		</div>
+
+		<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<div id="status-notice" class="godot" style="display: none;"></div>
+
 	</div>
 	
 	<script src="$GODOT_URL"></script>

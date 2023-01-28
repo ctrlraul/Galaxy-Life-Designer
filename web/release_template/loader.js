@@ -2,15 +2,7 @@ const GODOT_CONFIG = JSON.parse(document.getElementById('godot_config').textCont
 const engine = new Engine(GODOT_CONFIG);
 
 
-document.getElementById('run-in-browser-button').addEventListener('click', () => {
-	runInBrowser();
-});
-
-
-function runInBrowser() {
-
-	document.getElementById('buttons').remove();
-	document.getElementById('in-browser').style.display = '';
+(() => {
 
 	const INDETERMINATE_STATUS_STEP_MS = 100;
 	const statusProgress = document.getElementById('status-progress');
@@ -112,4 +104,4 @@ function runInBrowser() {
 			initializing = false;
 		}, displayFailureNotice);
 	}
-}
+})();
