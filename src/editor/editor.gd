@@ -96,6 +96,8 @@ func __place_structure(config: StructureConfigDTO) -> void:
 
 func __drag_structures(structures_to_drag: Array[Structure]) -> void:
 
+	radius_displayer.set_for(null)
+
 	structures_dragged.append_array(structures_to_drag)
 
 	for structure in structures_to_drag:
@@ -615,7 +617,7 @@ func _on_multi_selection_module_selected(selection_rectangle: Rect2) -> void:
 
 func _on_hover_module_hovered_tile_changed(_relative: Vector2, hovered_tile: Vector2) -> void:
 
-	if !Input.is_action_pressed("chain_placing"):
+	if !dragging_module.is_dragging():
 		__update_hovered_structure(hovered_tile)
 
 	if __grid_highlighter_enabled:
